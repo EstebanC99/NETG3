@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 
 namespace ResourceAccess.Repository
 {
-    public class Repository<TEntity> : DbContext
+    public class Repository<TEntity> : AcademiaDbContext
         where TEntity : class
     {
+
+        public Repository() 
+        {
+
+        }
 
         public DbSet<TEntity> DbSet
         {
