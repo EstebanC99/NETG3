@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace ResourceAccess.Repository
 {
-    public class UsuarioRepository : Repository<Usuario>
+    public class UsuarioRepository : Repository<Usuario>, IUsuarioRepository
     {
-        public List<Usuario> GetAll()
+        public UsuarioRepository()
         {
-            return this.DbSet.ToList();
+
         }
+
     }
 }

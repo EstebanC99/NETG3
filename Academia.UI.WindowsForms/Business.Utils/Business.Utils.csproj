@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.7.1\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IIoCContainer.cs" />
+    <Compile Include="IoCContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
+      <Project>{ABE0F263-9192-4FF7-A0B9-383FDAA60924}</Project>
+      <Name>Business.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceAccess.Repository\ResourceAccess.Repository.csproj">
+      <Project>{98D5C669-A801-4F32-945C-2954EE3FB145}</Project>
+      <Name>ResourceAccess.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

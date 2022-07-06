@@ -1,7 +1,7 @@
 ﻿
 namespace Academia.UI.WindowsForms
 {
-    partial class Form1
+    partial class ApplicationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,19 @@ namespace Academia.UI.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ApplicationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(782, 450);
+            this.Name = "ApplicationForm";
+            this.Text = "ApplicationForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

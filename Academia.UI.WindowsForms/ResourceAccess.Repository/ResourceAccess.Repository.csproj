@@ -52,9 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcademiaDbContext.cs" />
+    <Compile Include="IDataAccessBase.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Usuario\IUsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="Usuario\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\NET2022\TrabajoPractico2\TP2\Entidades\Business.Entities.csproj">
