@@ -61,19 +61,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
-    <Build Include="Tables\alumno_inscripcion.sql" />
-    <Build Include="Tables\comision.sql" />
-    <Build Include="Tables\curso.sql" />
-    <Build Include="Tables\docente_curso.sql" />
-    <Build Include="Tables\especialidad.sql" />
+    <Build Include="Tables\t_AlumnoInscripcion.sql" />
+    <Build Include="Tables\t_Comision.sql" />
+    <Build Include="Tables\t_Curso.sql" />
+    <Build Include="Tables\t_DocenteCurso.sql" />
+    <Build Include="Tables\t_Especialidad.sql" />
     <None Include="Db.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\materia.sql" />
-    <Build Include="Tables\modulo.sql" />
-    <Build Include="Tables\modulo_usuario.sql" />
-    <Build Include="Tables\persona.sql" />
-    <Build Include="Tables\plan.sql" />
-    <Build Include="Tables\usuario.sql" />
+    <Build Include="Tables\t_Materia.sql" />
+    <Build Include="Tables\t_Modulo.sql" />
+    <Build Include="Tables\t_ModuloUsuario.sql" />
+    <Build Include="Tables\t_Persona.sql" />
+    <Build Include="Tables\t_Plan.sql" />
+    <Build Include="Tables\t_Usuario.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Db.refactorlog" />
   </ItemGroup>
 </Project>

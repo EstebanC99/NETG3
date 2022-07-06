@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourceAccess", "ResourceA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceAccess.Repository", "ResourceAccess.Repository\ResourceAccess.Repository.csproj", "{98D5C669-A801-4F32-945C-2954EE3FB145}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceAccess.Repository.Config", "ResourceAccess.Repository.Config\ResourceAccess.Repository.Config.csproj", "{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{98D5C669-A801-4F32-945C-2954EE3FB145}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98D5C669-A801-4F32-945C-2954EE3FB145}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98D5C669-A801-4F32-945C-2954EE3FB145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{ABE0F263-9192-4FF7-A0B9-383FDAA60924} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
 		{6F80A8F1-1146-4515-BC81-62574824ACAB} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
 		{98D5C669-A801-4F32-945C-2954EE3FB145} = {6F3AB297-45B1-4818-A64E-8A9423B13BC6}
+		{539C75AC-27C3-4FB6-A14B-EA34EDAC0969} = {6F3AB297-45B1-4818-A64E-8A9423B13BC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
