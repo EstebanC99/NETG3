@@ -246,8 +246,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\NET2022\TrabajoPractico2\TP2\Entidades\Business.Entities.csproj">
-      <Project>{f9d92829-1fb8-401a-8221-adcc01baa9f8}</Project>
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
+      <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>
       <Name>Business.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">

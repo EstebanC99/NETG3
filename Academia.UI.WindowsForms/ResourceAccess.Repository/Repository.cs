@@ -1,10 +1,7 @@
 ﻿using Business.Entities;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ResourceAccess.Repository
 {
@@ -12,7 +9,7 @@ namespace ResourceAccess.Repository
         where TEntity : BusinessEntity
     {
 
-        public Repository() 
+        public Repository()
         {
 
         }
