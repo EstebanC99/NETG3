@@ -83,67 +83,16 @@ namespace Academia.UI.WindowsForms
         {
             this.MapearADatos();
 
-            //this.Logic.Save(this.UsuarioActual);
+            this.Logic.AgregarUsuario(this.UsuarioActual);
         }
 
         public override bool Validar()
         {
             var esValido = true;
 
-            //var validaciones = new ValidationException();
-            //
-            //this.ValidarCampos(validaciones);
-            //
-            //this.ValidarClaves(validaciones);
-            //
-            //this.ValidarEmail(validaciones);
-
-            //if (validaciones.Any())
-            //{
-            //    this.Notificar(this.Modo.ToString(), validaciones.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //
-            //    esValido = false;
-            //}
-            //
             return esValido;
 
         }
-
-        //private void ValidarEmail(ValidationException validaciones)
-        //{
-        //    if (!this.txtEmail.Text.Contains("@") ||
-        //        !this.txtEmail.Text.Contains(".com"))
-        //    {
-        //        validaciones.Add("El formato del Email es incorrecto");
-        //    }
-        //}
-        //
-        //private void ValidarClaves(ValidationException validaciones)
-        //{
-        //    if (!this.txtClave.Text.Equals(this.txtConfirmarClave.Text))
-        //    {
-        //        validaciones.Add("Las claves no coinciden");
-        //    }
-        //
-        //}
-        //
-        //private void ValidarCampos(ValidationException validaciones)
-        //{
-        //    if (this.Modo != ModoForm.Alta && string.IsNullOrEmpty(this.txtID.Text))
-        //    {
-        //        validaciones.Add("ID de Usuario Incorrecto");
-        //    }
-        //
-        //
-        //    if (string.IsNullOrEmpty(this.txtNombre.Text) ||
-        //        string.IsNullOrEmpty(this.txtApellido.Text) ||
-        //        string.IsNullOrEmpty(this.txtEmail.Text) ||
-        //        string.IsNullOrEmpty(this.txtUsuario.Text) ||
-        //        string.IsNullOrEmpty(this.txtClave.Text))
-        //    {
-        //        validaciones.Add("Campos vacíos");
-        //    }
-        //}
 
         private void SetearBoton()
         {

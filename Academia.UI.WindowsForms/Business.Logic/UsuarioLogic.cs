@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,16 @@ namespace Business.Logic
     public class UsuarioLogic : LogicBase<Usuario, IUsuarioRepository>, IUsuarioLogic
     {
         public UsuarioLogic(Usuario usuario,
-                            IUsuarioRepository repository)
-            : base(usuario, repository)
+                            IUsuarioRepository repository,
+                            IDbContextScopeFactory dbContextScopeFactory)
+            : base(usuario, repository, dbContextScopeFactory)
         {
             
         }
 
         public Usuario GetByID(int ID)
         {
-            using (var context = new AcademiaDbContext())
+            using (this.DbContextScopeFactory.CreateReadOnly())
             {
                 return this.Repository.GetByID(ID);
             }
@@ -27,10 +29,29 @@ namespace Business.Logic
 
         public List<Usuario> GetAll()
         {
-            using (var context = new AcademiaDbContext())
+            using (this.DbContextScopeFactory.CreateReadOnly())
             {
                 return this.Repository.GetAll();
             }
+        }
+
+        public void AgregarUsuario(Usuario usuario)
+        {
+            using (var context = this.DbContextScopeFactory.Create())
+            {
+                this.ValidarUsuario(usuario);
+
+                this.Repository.Add(this.Entity);
+
+                context.SaveChanges();
+            }
+        }
+
+        private void ValidarUsuario(Usuario usuario)
+        {
+            // Aca validaciones
+
+            this.Entity = usuario;
         }
     }
 }

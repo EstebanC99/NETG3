@@ -1,10 +1,10 @@
 ﻿namespace Business.Entities
 {
-    public class BusinessEntity
+    public class BusinessEntity : IIdentificable
     {
         public BusinessEntity()
         {
-            this.State = States.New;
+            
         }
 
         private int _ID;

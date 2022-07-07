@@ -37,6 +37,9 @@
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.DbContextScope, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DbContextScope.1.0.0\lib\net46\EntityFramework.DbContextScope.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -52,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcademiaDbContext.cs" />
+    <Compile Include="AcademiaDbContextFactory.cs" />
+    <Compile Include="DataAccessBase.cs" />
     <Compile Include="IDataAccessBase.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Usuario\IUsuarioRepository.cs" />
@@ -67,6 +72,10 @@
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>
       <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceAccess.Repository.Config\ResourceAccess.Repository.Config.csproj">
+      <Project>{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}</Project>
+      <Name>ResourceAccess.Repository.Config</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

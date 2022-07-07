@@ -47,7 +47,7 @@
         private bool _CambiaClave;
         public virtual bool CambiaClave
         {
-            get { return this._Habilitado; }
+            get { return this._CambiaClave; }
             set { this._CambiaClave = value; }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace ResourceAccess.Repository.Config
@@ -9,7 +10,7 @@ namespace ResourceAccess.Repository.Config
         {
             this.ToTable("t_Usuario");
 
-            this.HasKey(p => p.ID).Property(p => p.ID).HasColumnName("ID_Usuario");
+            this.HasKey(p => p.ID).Property(p => p.ID).HasColumnName("ID_Usuario").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             this.Property(p => p.NombreUsuario).IsRequired();
             this.Property(p => p.Clave).IsRequired();
@@ -18,6 +19,8 @@ namespace ResourceAccess.Repository.Config
             this.Property(p => p.Apellido).IsRequired();
             this.Property(p => p.Email).IsOptional();
             this.Property(p => p.CambiaClave).IsOptional();
+
+            this.Ignore(p => p.State);
         }
     }
 }

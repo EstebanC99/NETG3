@@ -45,9 +45,9 @@ namespace Academia.UI.WindowsForms
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            //UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
-            //
-            //usuarioDesktop.ShowDialog();
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ApplicationForm.ModoForm.Alta, this.Logic);
+            
+            usuarioDesktop.ShowDialog();
 
             this.Listar();
         }

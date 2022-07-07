@@ -1,4 +1,6 @@
 ﻿using Business.Logic;
+using EntityFramework.DbContextScope;
+using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository;
 using StructureMap;
 using StructureMap.Graph;
@@ -46,8 +48,31 @@ namespace Business.Utils
 
         public void Register()
         {
-            this.RegisterAssembly<ILogicBase>("Business.Logic");
-            this.RegisterAssembly<IDataAccessBase>("ResourceAccess.Repository");
+
+            #region Register DbContextScope
+
+            Instance.Register<IAmbientDbContextLocator, AmbientDbContextLocator>();
+            Instance.Register<IDbContextFactory, AcademiaDbContextFactory>();
+            Instance.Register<IDbContextScopeFactory, DbContextScopeFactory>();
+
+            #endregion
+
+            #region Register Logic
+
+            Instance.RegisterAssembly<ILogicBase>("Business.Logic");
+
+            #endregion
+
+            #region Register Repositories
+
+            Instance.RegisterAssembly<IDataAccessBase>("ResourceAccess.Repository");
+
+            #endregion
+        }
+
+        public void Register<TPluginType, TConcreteType>() where TConcreteType : TPluginType
+        {
+            this.iocContainer.Configure(x => x.For<TPluginType>().Use<TConcreteType>());
         }
 
         public void RegisterAssembly<TPluginType>(string assemblyName)

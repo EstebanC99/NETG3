@@ -12,5 +12,7 @@ namespace Business.Logic
         Usuario GetByID(int ID);
 
         List<Usuario> GetAll();
+
+        void AgregarUsuario(Usuario usuario);
     }
 }

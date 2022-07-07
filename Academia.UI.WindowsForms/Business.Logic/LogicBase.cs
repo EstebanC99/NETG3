@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository;
 
 namespace Business.Logic
@@ -11,10 +12,13 @@ namespace Business.Logic
 
         protected TRepository Repository { get; set; }
 
-        public LogicBase(TEntity entity, TRepository repository)
+        protected IDbContextScopeFactory DbContextScopeFactory { get; private set; }
+
+        public LogicBase(TEntity entity, TRepository repository, IDbContextScopeFactory dbContextScopeFactory)
         {
             this.Entity = entity;
             this.Repository = repository;
+            this.DbContextScopeFactory = dbContextScopeFactory;
         }
 
     }
