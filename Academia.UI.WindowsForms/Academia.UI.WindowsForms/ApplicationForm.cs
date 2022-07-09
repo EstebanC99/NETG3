@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System.Windows.Forms;
 
 namespace Academia.UI.WindowsForms
@@ -9,6 +10,11 @@ namespace Academia.UI.WindowsForms
         public ApplicationForm()
         {
             InitializeComponent();
+        }
+
+        public ApplicationForm(ModoForm modo) : this()
+        {
+            this.Modo = modo;
         }
 
         public enum ModoForm
@@ -23,11 +29,11 @@ namespace Academia.UI.WindowsForms
 
         public virtual void MapearDeDatos() { }
 
-        public virtual void MapearADatos() { }
+        protected virtual void MapearADatos() { }
 
-        public virtual void GuardarCambios() { }
+        protected virtual void GuardarCambios() { }
 
-        public virtual bool Validar() { return false; }
+        protected virtual bool Validar() { return false; }
 
         public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
@@ -38,5 +44,46 @@ namespace Academia.UI.WindowsForms
             this.Notificar(this.Text, mensaje, botones, icono);
         }
 
+        protected virtual void SetearBoton(Button btn)
+        {
+            switch (this.Modo)
+            {
+                case ModoForm.Alta:
+                    btn.Text = "Guardar";
+                    break;
+                case ModoForm.Modificacion:
+                    btn.Text = "Guardar";
+                    break;
+                case ModoForm.Baja:
+                    btn.Text = "Eliminar";
+                    break;
+                case ModoForm.Consulta:
+                    btn.Text = "Aceptar";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected void SetearEstadoEntidad(BusinessEntity entity)
+        {
+            switch (this.Modo)
+            {
+                case ModoForm.Alta:
+                    entity.State = BusinessEntity.States.New;
+                    break;
+                case ModoForm.Modificacion:
+                    entity.State = BusinessEntity.States.Modified;
+                    break;
+                case ModoForm.Baja:
+                    entity.State = BusinessEntity.States.Deleted;
+                    break;
+                case ModoForm.Consulta:
+                    entity.State = BusinessEntity.States.Unmodified;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -43,5 +43,7 @@
             get { return this._PermiteConsulta; }
             set { this._PermiteConsulta = value; }
         }
+
+        public override void Validar() { }
     }
 }

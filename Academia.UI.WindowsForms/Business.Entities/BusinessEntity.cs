@@ -1,6 +1,6 @@
 ﻿namespace Business.Entities
 {
-    public class BusinessEntity : IIdentificable
+    public abstract class BusinessEntity : IIdentificable
     {
         public BusinessEntity()
         {
@@ -28,5 +28,7 @@
             Modified,
             Unmodified
         }
+
+        public abstract void Validar();
     }
 }

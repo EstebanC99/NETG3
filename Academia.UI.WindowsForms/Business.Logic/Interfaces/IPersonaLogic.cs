@@ -7,7 +7,7 @@ namespace Business.Logic.Interfaces
     {
     }
 
-    public interface IPersonaLogic<TPersona> : ILogicBase
+    public interface IPersonaLogic<TPersona> : ILogicBase<TPersona>
         where TPersona : Persona
     {
         List<TPersona> GetAll();

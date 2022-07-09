@@ -30,24 +30,5 @@ namespace Business.Logic.Usuarios
                 return this.Repository.GetAll();
             }
         }
-
-        public void AgregarUsuario(Usuario usuario)
-        {
-            using (var context = this.DbContextScopeFactory.Create())
-            {
-                this.ValidarUsuario(usuario);
-
-                this.Repository.Add(this.Entity);
-
-                context.SaveChanges();
-            }
-        }
-
-        private void ValidarUsuario(Usuario usuario)
-        {
-            // Aca validaciones
-
-            this.Entity = usuario;
-        }
     }
 }

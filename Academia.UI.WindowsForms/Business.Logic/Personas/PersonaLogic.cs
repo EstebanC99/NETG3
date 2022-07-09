@@ -32,18 +32,6 @@ namespace Business.Logic.Personas
 
         }
 
-        public void Agregar(TPersona persona)
-        {
-            using (var context = this.DbContextScopeFactory.Create())
-            {
-                this.ValidarPersona(persona);
-
-                this.Repository.Add(this.Entity);
-
-                context.SaveChanges();
-            }
-        }
-
         public List<TPersona> GetAll() 
         {
             using (this.DbContextScopeFactory.CreateReadOnly())

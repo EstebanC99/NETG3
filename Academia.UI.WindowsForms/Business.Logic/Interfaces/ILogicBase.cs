@@ -11,4 +11,10 @@ namespace Business.Logic
     {
 
     }
+
+    public interface ILogicBase<TEntity> : ILogicBase
+        where TEntity : BusinessEntity
+    {
+        void GuardarCambios(TEntity entity);
+    }
 }

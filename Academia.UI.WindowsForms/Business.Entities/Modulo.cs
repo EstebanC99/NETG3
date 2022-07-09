@@ -8,5 +8,7 @@
             get { return this._Descripcion; }
             set { this._Descripcion = value; }
         }
+
+        public override void Validar() { }
     }
 }

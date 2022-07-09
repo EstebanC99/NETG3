@@ -61,7 +61,7 @@ namespace Academia.UI.WindowsForms
             // tcPersonas.ContentPanel
             // 
             this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(952, 425);
+            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(952, 450);
             this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPersonas.Location = new System.Drawing.Point(0, 0);
             this.tcPersonas.Name = "tcPersonas";
@@ -86,7 +86,7 @@ namespace Academia.UI.WindowsForms
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlPersonas.Size = new System.Drawing.Size(952, 425);
+            this.tlPersonas.Size = new System.Drawing.Size(952, 450);
             this.tlPersonas.TabIndex = 0;
             // 
             // tsPersonas
@@ -114,6 +114,7 @@ namespace Academia.UI.WindowsForms
             this.tsbNuevo.Size = new System.Drawing.Size(24, 17);
             this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.ToolTipText = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
             // 
@@ -138,7 +139,7 @@ namespace Academia.UI.WindowsForms
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(793, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(793, 424);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -147,7 +148,7 @@ namespace Academia.UI.WindowsForms
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(874, 399);
+            this.btnSalir.Location = new System.Drawing.Point(874, 424);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -171,7 +172,7 @@ namespace Academia.UI.WindowsForms
             this.dgvProfesores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProfesores.Location = new System.Drawing.Point(3, 23);
             this.dgvProfesores.Name = "dgvProfesores";
-            this.dgvProfesores.Size = new System.Drawing.Size(946, 370);
+            this.dgvProfesores.Size = new System.Drawing.Size(946, 395);
             this.dgvProfesores.TabIndex = 3;
             // 
             // ID

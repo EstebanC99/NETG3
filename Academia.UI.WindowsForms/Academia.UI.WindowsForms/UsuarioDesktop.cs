@@ -10,31 +10,23 @@ namespace Academia.UI.WindowsForms
     {
         private IUsuarioLogic Logic { get; set; }
 
-        public UsuarioDesktop(IUsuarioLogic logic)
+        public Usuario UsuarioActual { get; set; }
+
+        public UsuarioDesktop(ModoForm modo, IUsuarioLogic logic) : base(modo)
         {
-            this.Logic = logic;
             InitializeComponent();
+
+            this.SetearBoton(this.btnAceptar);
+
+            this.Logic = logic;
         }
 
-        public UsuarioDesktop(ModoForm modo, IUsuarioLogic logic) : this(logic)
+        public UsuarioDesktop(int usuarioID, ModoForm modo, IUsuarioLogic logic) : this(modo, logic)
         {
-            this.Modo = modo;
-
-            this.SetearBoton();
-        }
-
-        public UsuarioDesktop(int usuarioID, ModoForm modo, IUsuarioLogic logic) : this(logic)
-        {
-            this.Modo = modo;
-
-            this.SetearBoton();
-
             this.UsuarioActual = this.Logic.GetByID(usuarioID);
 
             this.MapearDeDatos();
         }
-
-        public Usuario UsuarioActual { get; set; }
 
         public override void MapearDeDatos()
         {
@@ -47,30 +39,14 @@ namespace Academia.UI.WindowsForms
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
         }
 
-        public override void MapearADatos()
+        protected override void MapearADatos()
         {
-            switch (this.Modo)
-            {
-                case ModoForm.Alta:
-                    this.UsuarioActual = new Usuario();
-                    this.UsuarioActual.State = BusinessEntity.States.New;
-                    break;
-                case ModoForm.Modificacion:
-                    this.UsuarioActual.ID = int.Parse(this.txtID.Text);
-                    this.UsuarioActual.State = BusinessEntity.States.Modified;
-                    break;
-                case ModoForm.Consulta:
-                    this.UsuarioActual.ID = int.Parse(this.txtID.Text);
-                    this.UsuarioActual.State = BusinessEntity.States.Unmodified;
-                    break;
-                case ModoForm.Baja:
-                    this.UsuarioActual.ID = int.Parse(this.txtID.Text);
-                    this.UsuarioActual.State = BusinessEntity.States.Deleted;
-                    break;
-                default:
-                    break;
-            }
+            if (this.UsuarioActual == null)
+                this.UsuarioActual = new Usuario();
 
+            this.SetearEstadoEntidad(this.UsuarioActual);
+
+            this.UsuarioActual.ID = int.Parse(this.txtID.Text);
             this.UsuarioActual.Nombre = this.txtNombre.Text;
             this.UsuarioActual.Apellido = this.txtApellido.Text;
             this.UsuarioActual.Email = this.txtEmail.Text;
@@ -79,40 +55,19 @@ namespace Academia.UI.WindowsForms
             this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
         }
 
-        public override void GuardarCambios()
+        protected override void GuardarCambios()
         {
             this.MapearADatos();
 
-            this.Logic.AgregarUsuario(this.UsuarioActual);
+            this.Logic.GuardarCambios(this.UsuarioActual);
         }
 
-        public override bool Validar()
+        protected override bool Validar()
         {
             var esValido = true;
 
             return esValido;
 
-        }
-
-        private void SetearBoton()
-        {
-            switch (this.Modo)
-            {
-                case ModoForm.Alta:
-                    this.btnAceptar.Text = "Guardar";
-                    break;
-                case ModoForm.Modificacion:
-                    this.btnAceptar.Text = "Guardar";
-                    break;
-                case ModoForm.Baja:
-                    this.btnAceptar.Text = "Eliminar";
-                    break;
-                case ModoForm.Consulta:
-                    this.btnAceptar.Text = "Aceptar";
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

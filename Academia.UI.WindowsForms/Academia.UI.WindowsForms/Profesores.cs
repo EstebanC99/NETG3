@@ -1,6 +1,7 @@
 ﻿using Business.Logic.Interfaces;
 using System;
 using System.Windows.Forms;
+using static Academia.UI.WindowsForms.ApplicationForm;
 
 namespace Academia.UI.WindowsForms
 {
@@ -22,6 +23,15 @@ namespace Academia.UI.WindowsForms
 
         private void Profesores_Load(object sender, EventArgs e)
         {
+            this.Listar();
+        }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            ProfesorDesktop profesorDesktop = new ProfesorDesktop(ModoForm.Alta, this.Logic);
+
+            profesorDesktop.ShowDialog();
+
             this.Listar();
         }
     }

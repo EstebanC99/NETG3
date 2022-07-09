@@ -4,7 +4,7 @@ using ResourceAccess.Repository;
 
 namespace Business.Logic
 {
-    public abstract class LogicBase<TEntity, TRepository> : ILogicBase
+    public abstract class LogicBase<TEntity, TRepository> : ILogicBase<TEntity>
         where TEntity : BusinessEntity
         where TRepository : IRepository<TEntity>
     {
@@ -19,6 +19,30 @@ namespace Business.Logic
             this.Entity = entity;
             this.Repository = repository;
             this.DbContextScopeFactory = dbContextScopeFactory;
+        }
+
+        public void GuardarCambios(TEntity entity)
+        {
+            using (var context = this.DbContextScopeFactory.Create())
+            {
+                entity.Validar();
+
+                this.Entity = entity;
+
+                switch (this.Entity.State)
+                {
+                    case BusinessEntity.States.New:
+                        this.Repository.Add(this.Entity);
+                        break;
+                    case BusinessEntity.States.Deleted:
+                        this.Repository.Remove(this.Entity);
+                        break;
+                    default:
+                        break;
+                }
+
+                context.SaveChanges();
+            }
         }
 
     }

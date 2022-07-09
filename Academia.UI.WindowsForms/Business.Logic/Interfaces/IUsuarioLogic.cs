@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Business.Logic
 {
-    public interface IUsuarioLogic : ILogicBase
+    public interface IUsuarioLogic : ILogicBase<Usuario>
     {
         Usuario GetByID(int ID);
 
         List<Usuario> GetAll();
 
-        void AgregarUsuario(Usuario usuario);
     }
 }

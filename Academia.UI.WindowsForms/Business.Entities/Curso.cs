@@ -37,5 +37,6 @@
             set { this._IdMateria = value; }
         }
 
+        public override void Validar() { }
     }
 }

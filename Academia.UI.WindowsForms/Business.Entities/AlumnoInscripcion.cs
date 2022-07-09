@@ -30,5 +30,6 @@
             set { this._Nota = value; }
         }
 
+        public override void Validar() { }
     }
 }
