@@ -59,10 +59,16 @@
     <Compile Include="DataAccessBase.cs" />
     <Compile Include="IDataAccessBase.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Usuario\IUsuarioRepository.cs" />
+    <Compile Include="Personas\AlumnoRepository.cs" />
+    <Compile Include="Personas\IAlumnoRepository.cs" />
+    <Compile Include="Personas\IPersonaRepository.cs" />
+    <Compile Include="Personas\IProfesorRepository.cs" />
+    <Compile Include="Personas\PersonaRepository.cs" />
+    <Compile Include="Personas\ProfesorRepository.cs" />
+    <Compile Include="Usuarios\IUsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="Usuario\UsuarioRepository.cs" />
+    <Compile Include="Usuarios\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

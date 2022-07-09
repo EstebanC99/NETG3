@@ -1,7 +1,6 @@
 ﻿using Business.Entities;
-using System.Collections.Generic;
 
-namespace ResourceAccess.Repository
+namespace ResourceAccess.Repository.Usuarios
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {

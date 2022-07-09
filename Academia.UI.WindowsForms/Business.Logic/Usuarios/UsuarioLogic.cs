@@ -1,13 +1,9 @@
 ﻿using Business.Entities;
 using EntityFramework.DbContextScope.Interfaces;
-using ResourceAccess.Repository;
-using System;
+using ResourceAccess.Repository.Usuarios;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Business.Logic
+namespace Business.Logic.Usuarios
 {
     public class UsuarioLogic : LogicBase<Usuario, IUsuarioRepository>, IUsuarioLogic
     {
@@ -16,7 +12,7 @@ namespace Business.Logic
                             IDbContextScopeFactory dbContextScopeFactory)
             : base(usuario, repository, dbContextScopeFactory)
         {
-            
+
         }
 
         public Usuario GetByID(int ID)

@@ -1,53 +1,54 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Business.Entities
 {
-    public class Persona : BusinessEntity
+    public abstract class Persona : BusinessEntity
     {
         private string _Apellido;
-        public string Apellido
+        public virtual string Apellido
         {
             get { return this._Apellido; }
             set { this._Apellido = value; }
         }
 
         private string _Direccion;
-        public string Direccion
+        public virtual string Direccion
         {
             get { return this._Direccion; }
             set { this._Direccion = value; }
         }
 
         private string _Email;
-        public string Email
+        public virtual string Email
         {
             get { return this._Email; }
             set { this._Email = value; }
         }
 
         private DateTime _FechaNacimiento;
-        public DateTime FechaNacimiento
+        public virtual DateTime FechaNacimiento
         {
             get { return this._FechaNacimiento; }
             set { this._FechaNacimiento = value; }
         }
 
-        private int _IdPlan;
-        public int IdPlan
+        private Plan _Plan;
+        public virtual Plan Plan
         {
-            get { return this._IdPlan; }
-            set { this._IdPlan = value; }
+            get { return this._Plan; }
+            set { this._Plan = value; }
         }
 
-        private int _Legajo;
-        public int Legajo
+        private int? _Legajo;
+        public virtual int? Legajo
         {
             get { return this._Legajo; }
             set { this._Legajo = value; }
         }
 
         private string _Nombre;
-        public string Nombre
+        public virtual string Nombre
         {
             get { return this._Nombre; }
             set { this._Nombre = value; }
@@ -60,16 +61,13 @@ namespace Business.Entities
             set { this._Telefono = value; }
         }
 
-        private TiposPersona _TipoPersona;
-        public TiposPersona TipoPersona
+        private int _TipoPersona;
+        [NotMapped]
+        public virtual int TipoPersona
         {
             get { return this._TipoPersona; }
             set { this._TipoPersona = value; }
         }
 
-        public enum TiposPersona
-        {
-
-        }
     }
 }

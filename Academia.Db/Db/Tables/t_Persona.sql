@@ -8,7 +8,7 @@
 	[FechaNacimiento] [datetime] NOT NULL,
 	[Legajo] [int] NULL,
 	[TipoPersona] [int] NOT NULL,
-	[ID_Plan] [int] NOT NULL, 
+	[ID_Plan] [int] NULL, 
     CONSTRAINT [PK_t_Persona] PRIMARY KEY ([ID_Persona]),
 	CONSTRAINT [FK_t_Persona_t_Plan] FOREIGN KEY ([ID_Plan]) REFERENCES [t_Plan]([ID_Plan])
 )

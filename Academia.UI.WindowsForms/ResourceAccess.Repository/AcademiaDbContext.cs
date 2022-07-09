@@ -1,4 +1,5 @@
-﻿using EntityFramework.DbContextScope.Interfaces;
+﻿using Business.Entities;
+using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Config;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using Business.Logic;
+﻿using Business.Logic.Interfaces;
 using Business.Utils;
 using System;
 using System.Windows.Forms;
@@ -19,7 +19,8 @@ namespace Academia.UI.WindowsForms
 
             RegisterDependencyResolver();
 
-            Application.Run(new Usuarios(IoCContainer.TryResolve<IUsuarioLogic>()));
+            //Application.Run(new Usuarios(IoCContainer.TryResolve<IUsuarioLogic>()));
+            Application.Run(new Profesores(IoCContainer.TryResolve<IProfesorLogic>()));
         }
 
         static void RegisterDependencyResolver()

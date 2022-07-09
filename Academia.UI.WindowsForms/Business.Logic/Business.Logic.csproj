@@ -54,11 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAlumnoLogic.cs" />
     <Compile Include="Interfaces\ILogicBase.cs" />
+    <Compile Include="Interfaces\IPersonaLogic.cs" />
+    <Compile Include="Interfaces\IProfesorLogic.cs" />
     <Compile Include="Interfaces\IUsuarioLogic.cs" />
     <Compile Include="LogicBase.cs" />
+    <Compile Include="Personas\AlumnoLogic.cs" />
+    <Compile Include="Personas\PersonaLogic.cs" />
+    <Compile Include="Personas\ProfesorLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioLogic.cs" />
+    <Compile Include="Usuarios\UsuarioLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
