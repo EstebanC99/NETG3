@@ -6,6 +6,5 @@ namespace Business.Entities
     {
         public override int TipoPersona { get { return (int)TiposPersona.Alumno; } }
 
-        public override void Validar() { }
     }
 }

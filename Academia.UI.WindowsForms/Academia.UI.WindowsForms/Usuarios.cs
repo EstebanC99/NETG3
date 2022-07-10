@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Business.Logic;
+using System;
 using System.Windows.Forms;
-using Business.Entities;
-using Business.Logic;
+using static Academia.UI.WindowsForms.ApplicationForm;
 
 namespace Academia.UI.WindowsForms
 {
@@ -38,15 +31,10 @@ namespace Academia.UI.WindowsForms
             this.Listar();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ApplicationForm.ModoForm.Alta, this.Logic);
-            
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ModoForm.Alta, this.Logic);
+
             usuarioDesktop.ShowDialog();
 
             this.Listar();
@@ -54,28 +42,34 @@ namespace Academia.UI.WindowsForms
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            //UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerIDUsuarioSeleccionado(), ApplicationForm.ModoForm.Modificacion);
-            //
-            //usuarioDesktop.ShowDialog();
+            if (this.dgvUsuarios.SelectedRows.Count == 0) return;
+
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Modificacion, this.Logic);
+
+            usuarioDesktop.ShowDialog();
 
             this.Listar();
-        }
-
-        private int ObtenerIDUsuarioSeleccionado() 
-        {
-            if (this.dgvUsuarios.RowCount == 0 || this.dgvUsuarios.SelectedRows.Count <= 0)
-                return 0;
-
-            return ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            //UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerIDUsuarioSeleccionado(), ApplicationForm.ModoForm.Baja);
-            //
-            //usuarioDesktop.ShowDialog();
+            if (this.dgvUsuarios.SelectedRows.Count == 0) return;
+
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Baja, this.Logic);
+
+            usuarioDesktop.ShowDialog();
 
             this.Listar();
+        }
+
+        private int ObtenerItemSeleccionadoID()
+        {
+            return (int)this.dgvUsuarios.SelectedRows[0].Cells[0].Value;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

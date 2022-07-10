@@ -29,7 +29,5 @@
             get { return this._Nota; }
             set { this._Nota = value; }
         }
-
-        public override void Validar() { }
     }
 }

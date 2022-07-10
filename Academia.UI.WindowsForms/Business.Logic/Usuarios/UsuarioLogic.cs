@@ -15,20 +15,11 @@ namespace Business.Logic.Usuarios
 
         }
 
-        public Usuario GetByID(int ID)
+        protected override void Validar(Usuario entity)
         {
-            using (this.DbContextScopeFactory.CreateReadOnly())
-            {
-                return this.Repository.GetByID(ID);
-            }
-        }
+            // Aca las validaciones
 
-        public List<Usuario> GetAll()
-        {
-            using (this.DbContextScopeFactory.CreateReadOnly())
-            {
-                return this.Repository.GetAll();
-            }
+            this.Entity = entity;
         }
     }
 }

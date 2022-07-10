@@ -28,7 +28,7 @@ namespace Academia.UI.WindowsForms
             this.MapearDeDatos();
         }
 
-        public override void MapearDeDatos()
+        protected override void MapearDeDatos()
         {
             this.txtID.Text = this.UsuarioActual.ID.ToString();
             this.txtNombre.Text = this.UsuarioActual.Nombre;

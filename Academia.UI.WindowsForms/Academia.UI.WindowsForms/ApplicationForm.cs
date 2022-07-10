@@ -27,7 +27,7 @@ namespace Academia.UI.WindowsForms
 
         public ModoForm Modo { get; set; }
 
-        public virtual void MapearDeDatos() { }
+        protected virtual void MapearDeDatos() { }
 
         protected virtual void MapearADatos() { }
 

@@ -20,7 +20,7 @@ namespace Academia.UI.WindowsForms
             RegisterDependencyResolver();
 
             //Application.Run(new Usuarios(IoCContainer.TryResolve<IUsuarioLogic>()));
-            Application.Run(new Profesores(IoCContainer.TryResolve<IProfesorLogic>()));
+            Application.Run(new MenuPrincipal());
         }
 
         static void RegisterDependencyResolver()

@@ -69,6 +69,6 @@ namespace Business.Entities
             set { this._TipoPersona = value; }
         }
 
-        public override void Validar() { }
+        
     }
 }

@@ -34,5 +34,38 @@ namespace Academia.UI.WindowsForms
 
             this.Listar();
         }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvProfesores.SelectedRows.Count == 0) return;
+
+            ProfesorDesktop profesorDesktop = new ProfesorDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Modificacion, this.Logic);
+
+            profesorDesktop.ShowDialog();
+
+            this.Listar();
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvProfesores.SelectedRows.Count == 0) return;
+
+            ProfesorDesktop profesorDesktop = new ProfesorDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Baja, this.Logic);
+
+            profesorDesktop.ShowDialog();
+
+            this.Listar();
+        }
+
+        private int ObtenerItemSeleccionadoID()
+        {
+            return (int)this.dgvProfesores.SelectedRows[0].Cells[0].Value; 
+        }
+
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

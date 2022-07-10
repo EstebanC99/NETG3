@@ -50,7 +50,5 @@
             get { return this._CambiaClave; }
             set { this._CambiaClave = value; }
         }
-
-        public override void Validar() { }
     }
 }

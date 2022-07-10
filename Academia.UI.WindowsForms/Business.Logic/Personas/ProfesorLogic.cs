@@ -12,7 +12,14 @@ namespace Business.Logic.Personas
                              DbContextScopeFactory dbContextScopeFactory)
             : base(entity, repository, dbContextScopeFactory)
         {
+            
+        }
 
+        protected override void Validar(Profesor entity)
+        {
+            // Aca las validaciones
+
+            this.Entity = entity;
         }
 
     }

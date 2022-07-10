@@ -23,6 +23,6 @@
             set { this._AnioEspecialidad = value; }
         }
 
-        public override void Validar() { }
+        
     }
 }

@@ -2,8 +2,6 @@
 using Business.Logic.Interfaces;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Personas;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Business.Logic.Personas
 {
@@ -26,25 +24,10 @@ namespace Business.Logic.Personas
     {
         public PersonaLogic(TPersona entity,
                             TPersonaRepository repository,
-                            IDbContextScopeFactory dbContextScopeFactory) 
+                            IDbContextScopeFactory dbContextScopeFactory)
             : base(entity, repository, dbContextScopeFactory)
         {
 
-        }
-
-        public List<TPersona> GetAll() 
-        {
-            using (this.DbContextScopeFactory.CreateReadOnly())
-            {
-                return this.Repository.GetAll();
-            }
-        }
-
-        private void ValidarPersona(TPersona persona)
-        {
-            // Aca las validaciones
-
-            this.Entity = persona;
         }
 
     }

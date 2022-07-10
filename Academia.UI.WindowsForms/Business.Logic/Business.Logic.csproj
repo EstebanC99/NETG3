@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Academicos\EspecialidadLogic.cs" />
     <Compile Include="Interfaces\IAlumnoLogic.cs" />
+    <Compile Include="Interfaces\IEspecialidadLogic.cs" />
     <Compile Include="Interfaces\ILogicBase.cs" />
     <Compile Include="Interfaces\IPersonaLogic.cs" />
     <Compile Include="Interfaces\IProfesorLogic.cs" />

@@ -21,7 +21,9 @@ namespace Academia.UI.WindowsForms
 
         public ProfesorDesktop(int usuarioID, ModoForm modo, IProfesorLogic logic) : this(modo, logic)
         {
+            this.ProfesorActual = this.Logic.GetByID(usuarioID);
 
+            this.MapearDeDatos();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -48,8 +50,14 @@ namespace Academia.UI.WindowsForms
 
         protected override void MapearADatos()
         {
-            if (this.ProfesorActual == null)
+            if (this.Modo == ModoForm.Alta)
+            {
                 this.ProfesorActual = new Profesor();
+            }
+            else
+            {
+                this.ProfesorActual = this.Logic.GetByID(int.Parse(this.txtID.Text));
+            }
 
             this.SetearEstadoEntidad(this.ProfesorActual);
 
@@ -62,6 +70,23 @@ namespace Academia.UI.WindowsForms
             this.ProfesorActual.Telefono = this.txtTelefono.Text;
             this.ProfesorActual.Legajo = int.Parse(this.txtLegajo.Text);
             this.ProfesorActual.FechaNacimiento = this.dtFechaNacimiento.Value.Date;
+        }
+        protected override void MapearDeDatos()
+        {
+            this.txtID.Text = this.ProfesorActual.ID.ToString();
+            this.txtNombre.Text = this.ProfesorActual.Nombre;
+            this.txtApellido.Text = this.ProfesorActual.Apellido;
+            this.txtEmail.Text = this.ProfesorActual.Email;
+            this.txtLegajo.Text = this.ProfesorActual.Legajo.ToString();
+            this.txtDireccion.Text = this.ProfesorActual.Direccion;
+            this.txtTelefono.Text = this.ProfesorActual.Telefono;
+            this.dtFechaNacimiento.Value = this.ProfesorActual.FechaNacimiento;
+        }
+
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,6 +30,6 @@
             set { this._HSTotales = value; }
         }
 
-        public override void Validar() { }
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Business.Entities;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository;
+using System.Collections.Generic;
 
 namespace Business.Logic
 {
@@ -25,16 +26,18 @@ namespace Business.Logic
         {
             using (var context = this.DbContextScopeFactory.Create())
             {
-                entity.Validar();
+                this.Entity = this.Repository.GetByID(entity.ID);
 
-                this.Entity = entity;
+                this.Validar(entity);
 
                 switch (this.Entity.State)
                 {
                     case BusinessEntity.States.New:
+                        this.Entity = entity;
                         this.Repository.Add(this.Entity);
                         break;
                     case BusinessEntity.States.Deleted:
+                        this.Entity = this.Repository.GetByID(entity.ID);
                         this.Repository.Remove(this.Entity);
                         break;
                     default:
@@ -44,6 +47,24 @@ namespace Business.Logic
                 context.SaveChanges();
             }
         }
+
+        public TEntity GetByID(int ID)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.GetByID(ID);
+            }
+        }
+
+        public List<TEntity> GetAll()
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.GetAll();
+            }
+        }
+
+        protected abstract void Validar(TEntity entity);
 
     }
 }

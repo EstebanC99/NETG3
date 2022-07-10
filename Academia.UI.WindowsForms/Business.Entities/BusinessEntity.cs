@@ -29,6 +29,5 @@
             Unmodified
         }
 
-        public abstract void Validar();
     }
 }

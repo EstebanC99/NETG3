@@ -16,5 +16,9 @@ namespace Business.Logic
         where TEntity : BusinessEntity
     {
         void GuardarCambios(TEntity entity);
+        
+        TEntity GetByID(int ID);
+
+        List<TEntity> GetAll();
     }
 }

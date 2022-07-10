@@ -9,6 +9,6 @@
             set { this._Descripcion = value; }
         }
 
-        public override void Validar() { }
+        
     }
 }

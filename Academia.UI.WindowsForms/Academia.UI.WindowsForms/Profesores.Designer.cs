@@ -125,6 +125,7 @@ namespace Academia.UI.WindowsForms
             this.tsbEditar.Size = new System.Drawing.Size(24, 17);
             this.tsbEditar.Text = "Editar";
             this.tsbEditar.ToolTipText = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -135,28 +136,34 @@ namespace Academia.UI.WindowsForms
             this.tsbEliminar.Size = new System.Drawing.Size(24, 17);
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.ToolTipText = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnActualizar.Location = new System.Drawing.Point(793, 424);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.Profesores_Load);
             // 
             // btnSalir
             // 
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Location = new System.Drawing.Point(874, 424);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvProfesores
             // 
+            this.dgvProfesores.AllowUserToAddRows = false;
+            this.dgvProfesores.AllowUserToDeleteRows = false;
             this.dgvProfesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfesores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -171,7 +178,9 @@ namespace Academia.UI.WindowsForms
             this.tlPersonas.SetColumnSpan(this.dgvProfesores, 2);
             this.dgvProfesores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProfesores.Location = new System.Drawing.Point(3, 23);
+            this.dgvProfesores.MultiSelect = false;
             this.dgvProfesores.Name = "dgvProfesores";
+            this.dgvProfesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProfesores.Size = new System.Drawing.Size(946, 395);
             this.dgvProfesores.TabIndex = 3;
             // 
@@ -235,8 +244,10 @@ namespace Academia.UI.WindowsForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 450);
             this.Controls.Add(this.tcPersonas);
+            this.MaximizeBox = false;
             this.Name = "Profesores";
-            this.Text = "Personas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Profesores";
             this.Load += new System.EventHandler(this.Profesores_Load);
             this.tcPersonas.ContentPanel.ResumeLayout(false);
             this.tcPersonas.ResumeLayout(false);
