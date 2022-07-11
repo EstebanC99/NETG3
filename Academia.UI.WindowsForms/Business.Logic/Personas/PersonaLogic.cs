@@ -59,7 +59,17 @@ namespace Business.Logic.Personas
 
         protected override void MapearDatos(TPersona entity)
         {
+            if (entity.State == BusinessEntity.States.New)
+            {
+                this.Entity = (TPersona)Activator.CreateInstance(typeof(TPersona));
+            }
+            else
+            {
+                this.Entity = this.Repository.GetByID(entity.ID);
+            }
+            
             base.MapearDatos(entity);
+
             this.Entity.Nombre = entity.Nombre;
             this.Entity.Apellido = entity.Apellido;
             this.Entity.Direccion = entity.Direccion;
