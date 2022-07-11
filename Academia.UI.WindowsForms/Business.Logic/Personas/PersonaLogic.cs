@@ -1,7 +1,9 @@
 ﻿using Business.Entities;
 using Business.Logic.Interfaces;
+using Cross.Exceptions;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Personas;
+using System;
 
 namespace Business.Logic.Personas
 {
@@ -32,14 +34,27 @@ namespace Business.Logic.Personas
 
         protected override void Validar(TPersona entity)
         {
-            if (entity.State == BusinessEntity.States.New)
-            {
-                this.Entity = (TPersona)new object();
-            }
-            else
-            {
-                this.Entity = this.Repository.GetByID(entity.ID);
-            }
+            var validaciones = new ValidationException();
+
+            if (this.Entity.Legajo == default(int) || !this.Entity.Legajo.HasValue)
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXDebeSerNumerico, nameof(this.Entity.Legajo)));
+
+            if (string.IsNullOrEmpty(this.Entity.Nombre))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Nombre)));
+
+            if (string.IsNullOrEmpty(this.Entity.Apellido))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Apellido)));
+
+            if (this.Entity.FechaNacimiento == DateTime.MinValue)
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.FechaNacimiento)));
+
+            if (this.Entity.FechaNacimiento.Date >= DateTime.Today.Date)
+                validaciones.AddValidationResult(Messages.LaFechaDeNacimientoNoPuedeSerMayorOIgualALaFechaDeHoy);
+
+            if (this.Repository.ObtenerPorLegajo(this.Entity.Legajo.Value) != null)
+                validaciones.AddValidationResult(string.Format(Messages.YaExisteUnaPersonaRegistradaConLegajoX, this.Entity.Legajo));
+
+            validaciones.Throw();
         }
 
         protected override void MapearDatos(TPersona entity)

@@ -1,6 +1,7 @@
 ﻿using Business.Entities;
 using Business.Logic.Interfaces;
 using System;
+using System.Windows.Forms;
 
 namespace Academia.UI.WindowsForms
 {
@@ -28,6 +29,10 @@ namespace Academia.UI.WindowsForms
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            this.CamposRequeridos.Add(this.txtNombre);
+            this.CamposRequeridos.Add(this.txtApellido);
+            this.CamposNumericosRequeridos.Add(this.txtLegajo);
+
             if (this.Validar())
             {
                 this.GuardarCambios();
@@ -41,11 +46,6 @@ namespace Academia.UI.WindowsForms
             this.MapearADatos();
 
             this.Logic.GuardarCambios(this.AlumnoActual);
-        }
-
-        protected override bool Validar()
-        {
-            return true;
         }
 
         protected override void MapearADatos()
@@ -88,5 +88,6 @@ namespace Academia.UI.WindowsForms
         {
             this.Close();
         }
+
     }
 }

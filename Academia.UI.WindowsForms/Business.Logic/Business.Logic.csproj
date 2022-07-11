@@ -73,6 +73,10 @@
       <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>
       <Name>Business.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cross.Exceptions\Cross.Exceptions.csproj">
+      <Project>{66e79f51-28a8-4540-847b-50714a8438a9}</Project>
+      <Name>Cross.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ResourceAccess.Repository\ResourceAccess.Repository.csproj">
       <Project>{98d5c669-a801-4f32-945c-2954ee3fb145}</Project>
       <Name>ResourceAccess.Repository</Name>

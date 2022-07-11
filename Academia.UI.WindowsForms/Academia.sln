@@ -21,6 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceAccess.Repository.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Entities", "Business.Entities\Business.Entities.csproj", "{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross", "Cross", "{55F1E4A8-61F7-40A3-BF09-95AC741A58FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross.Exceptions", "Cross.Exceptions\Cross.Exceptions.csproj", "{66E79F51-28A8-4540-847B-50714A8438A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross.Labels", "Cross.Labels\Cross.Labels.csproj", "{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +57,14 @@ Global
 		{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66E79F51-28A8-4540-847B-50714A8438A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E79F51-28A8-4540-847B-50714A8438A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E79F51-28A8-4540-847B-50714A8438A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E79F51-28A8-4540-847B-50714A8438A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,8 +76,11 @@ Global
 		{98D5C669-A801-4F32-945C-2954EE3FB145} = {6F3AB297-45B1-4818-A64E-8A9423B13BC6}
 		{539C75AC-27C3-4FB6-A14B-EA34EDAC0969} = {6F3AB297-45B1-4818-A64E-8A9423B13BC6}
 		{F9D92829-1FB8-401A-8221-ADCC01BAA9F8} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
+		{66E79F51-28A8-4540-847B-50714A8438A9} = {55F1E4A8-61F7-40A3-BF09-95AC741A58FC}
+		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195} = {55F1E4A8-61F7-40A3-BF09-95AC741A58FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
 	EndGlobalSection
 EndGlobal

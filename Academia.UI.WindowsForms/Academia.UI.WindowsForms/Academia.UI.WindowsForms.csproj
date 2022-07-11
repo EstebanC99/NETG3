@@ -338,6 +338,10 @@
       <Project>{6F80A8F1-1146-4515-BC81-62574824ACAB}</Project>
       <Name>Business.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cross.Labels\Cross.Labels.csproj">
+      <Project>{ce1dd48c-6d48-4aa5-8cda-a946c78ea195}</Project>
+      <Name>Cross.Labels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

@@ -1,6 +1,7 @@
-﻿using Business.Logic.Interfaces;
-using Business.Utils;
+﻿using Business.Utils;
+using Cross.Labels;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Academia.UI.WindowsForms
@@ -16,10 +17,11 @@ namespace Academia.UI.WindowsForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadException += new ThreadExceptionEventHandler(MyHandler);
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
             RegisterDependencyResolver();
 
-            //Application.Run(new Usuarios(IoCContainer.TryResolve<IUsuarioLogic>()));
             Application.Run(new MenuPrincipal());
         }
 
@@ -29,6 +31,11 @@ namespace Academia.UI.WindowsForms
 
             IoCContainer.Register();
 
+        }
+
+        static void MyHandler(object sender, ThreadExceptionEventArgs args)
+        {
+            MessageBox.Show(args.Exception.Message,  Labels.Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

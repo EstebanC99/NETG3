@@ -26,9 +26,8 @@ namespace Business.Logic
         {
             using (var context = this.DbContextScopeFactory.Create())
             {
-                this.Validar(entity);
-
                 this.MapearDatos(entity);
+                this.Validar(entity);
                 
                 switch (this.Entity.State)
                 {

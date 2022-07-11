@@ -15,6 +15,18 @@ namespace Business.Logic.Personas
             
         }
 
+        protected override void MapearDatos(Alumno entity)
+        {
+            if (entity.State == BusinessEntity.States.New)
+            {
+                this.Entity = new Alumno();
+            }
+            else
+            {
+                this.Entity = this.Repository.GetByID(entity.ID);
+            }
 
+            base.MapearDatos(entity);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using Cross.Exceptions;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Usuarios;
 
@@ -16,6 +17,25 @@ namespace Business.Logic.Usuarios
 
         protected override void Validar(Usuario entity)
         {
+            var validaciones = new ValidationException();
+
+            if (string.IsNullOrEmpty(this.Entity.Nombre))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Nombre)));
+
+            if (string.IsNullOrEmpty(this.Entity.Apellido))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Apellido)));
+
+            if (string.IsNullOrEmpty(this.Entity.NombreUsuario))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.NombreUsuario)));
+
+            if (string.IsNullOrEmpty(this.Entity.Clave))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Clave)));
+
+            validaciones.Throw();
+        }
+
+        protected override void MapearDatos(Usuario entity)
+        {
             if (entity.State == BusinessEntity.States.New)
             {
                 this.Entity = new Usuario();
@@ -24,10 +44,7 @@ namespace Business.Logic.Usuarios
             {
                 this.Entity = this.Repository.GetByID(entity.ID);
             }
-        }
 
-        protected override void MapearDatos(Usuario entity)
-        {
             base.MapearDatos(entity);
 
             this.Entity.Nombre = entity.Nombre;

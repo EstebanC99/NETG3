@@ -202,6 +202,7 @@ namespace Academia.UI.WindowsForms
             // 
             // txtLegajo
             // 
+            this.txtLegajo.BackColor = System.Drawing.SystemColors.Window;
             this.txtLegajo.Location = new System.Drawing.Point(406, 3);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(127, 20);
@@ -288,7 +289,9 @@ namespace Academia.UI.WindowsForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 161);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.Name = "AlumnoDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AlumnoDesktop";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

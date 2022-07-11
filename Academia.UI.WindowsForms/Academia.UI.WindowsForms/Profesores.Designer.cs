@@ -49,6 +49,7 @@ namespace Academia.UI.WindowsForms
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcPersonas.ContentPanel.SuspendLayout();
+            this.tcPersonas.TopToolStripPanel.SuspendLayout();
             this.tcPersonas.SuspendLayout();
             this.tlPersonas.SuspendLayout();
             this.tsPersonas.SuspendLayout();
@@ -61,7 +62,7 @@ namespace Academia.UI.WindowsForms
             // tcPersonas.ContentPanel
             // 
             this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(952, 450);
+            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(952, 430);
             this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPersonas.Location = new System.Drawing.Point(0, 0);
             this.tcPersonas.Name = "tcPersonas";
@@ -69,39 +70,40 @@ namespace Academia.UI.WindowsForms
             this.tcPersonas.TabIndex = 1;
             this.tcPersonas.Text = "toolStripContainer1";
             // 
+            // tcPersonas.TopToolStripPanel
+            // 
+            this.tcPersonas.TopToolStripPanel.Controls.Add(this.tsPersonas);
+            // 
             // tlPersonas
             // 
             this.tlPersonas.ColumnCount = 2;
             this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlPersonas.Controls.Add(this.tsPersonas, 0, 0);
-            this.tlPersonas.Controls.Add(this.btnActualizar, 0, 2);
-            this.tlPersonas.Controls.Add(this.btnSalir, 1, 2);
-            this.tlPersonas.Controls.Add(this.dgvProfesores, 0, 1);
+            this.tlPersonas.Controls.Add(this.btnActualizar, 0, 1);
+            this.tlPersonas.Controls.Add(this.btnSalir, 1, 1);
+            this.tlPersonas.Controls.Add(this.dgvProfesores, 0, 0);
             this.tlPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPersonas.Location = new System.Drawing.Point(0, 0);
             this.tlPersonas.Name = "tlPersonas";
-            this.tlPersonas.RowCount = 3;
-            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlPersonas.RowCount = 2;
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlPersonas.Size = new System.Drawing.Size(952, 450);
+            this.tlPersonas.Size = new System.Drawing.Size(952, 430);
             this.tlPersonas.TabIndex = 0;
             // 
             // tsPersonas
             // 
             this.tsPersonas.AutoSize = false;
-            this.tlPersonas.SetColumnSpan(this.tsPersonas, 2);
-            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
             this.tsPersonas.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
-            this.tsPersonas.Location = new System.Drawing.Point(0, 0);
+            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
             this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(952, 20);
+            this.tsPersonas.Size = new System.Drawing.Size(949, 20);
             this.tsPersonas.TabIndex = 4;
             this.tsPersonas.Text = "toolStrip1";
             // 
@@ -141,7 +143,7 @@ namespace Academia.UI.WindowsForms
             // btnActualizar
             // 
             this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(793, 424);
+            this.btnActualizar.Location = new System.Drawing.Point(793, 404);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -152,7 +154,7 @@ namespace Academia.UI.WindowsForms
             // btnSalir
             // 
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSalir.Location = new System.Drawing.Point(874, 424);
+            this.btnSalir.Location = new System.Drawing.Point(874, 404);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -177,7 +179,7 @@ namespace Academia.UI.WindowsForms
             this.TipoPersona});
             this.tlPersonas.SetColumnSpan(this.dgvProfesores, 2);
             this.dgvProfesores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProfesores.Location = new System.Drawing.Point(3, 23);
+            this.dgvProfesores.Location = new System.Drawing.Point(3, 3);
             this.dgvProfesores.MultiSelect = false;
             this.dgvProfesores.Name = "dgvProfesores";
             this.dgvProfesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -250,6 +252,7 @@ namespace Academia.UI.WindowsForms
             this.Text = "Profesores";
             this.Load += new System.EventHandler(this.Profesores_Load);
             this.tcPersonas.ContentPanel.ResumeLayout(false);
+            this.tcPersonas.TopToolStripPanel.ResumeLayout(false);
             this.tcPersonas.ResumeLayout(false);
             this.tcPersonas.PerformLayout();
             this.tlPersonas.ResumeLayout(false);

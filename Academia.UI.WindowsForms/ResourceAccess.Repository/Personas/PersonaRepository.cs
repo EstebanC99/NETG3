@@ -25,5 +25,10 @@ namespace ResourceAccess.Repository.Personas
         {
 
         }
+
+        public TPersona ObtenerPorLegajo(int nroLegajo)
+        {
+            return this.DbSet.Where(p => p.Legajo == nroLegajo).FirstOrDefault();
+        }
     }
 }

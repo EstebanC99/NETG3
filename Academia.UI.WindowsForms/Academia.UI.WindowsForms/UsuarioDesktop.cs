@@ -1,8 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Academia.UI.WindowsForms
 {
@@ -62,16 +60,13 @@ namespace Academia.UI.WindowsForms
             this.Logic.GuardarCambios(this.UsuarioActual);
         }
 
-        protected override bool Validar()
-        {
-            var esValido = true;
-
-            return esValido;
-
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            this.CamposRequeridos.Add(this.txtUsuario);
+            this.CamposRequeridos.Add(this.txtClave);
+            this.CamposRequeridos.Add(this.txtNombre);
+            this.CamposRequeridos.Add(this.txtApellido);
+
             if (this.Validar())
             {
                 this.GuardarCambios();

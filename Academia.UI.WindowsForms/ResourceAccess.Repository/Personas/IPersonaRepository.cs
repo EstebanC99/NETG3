@@ -9,6 +9,6 @@ namespace ResourceAccess.Repository.Personas
     public interface IPersonaRepository<TPersona> : IRepository<TPersona>
         where TPersona : Persona
     {
-        
+        TPersona ObtenerPorLegajo(int nroLegajo);
     }
 }

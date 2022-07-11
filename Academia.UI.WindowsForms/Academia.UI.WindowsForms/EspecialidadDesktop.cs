@@ -28,6 +28,8 @@ namespace Academia.UI.WindowsForms
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            this.CamposRequeridos.Add(this.txtDescripcion);
+
             if (this.Validar())
             {
                 this.GuardarCambios();
@@ -41,11 +43,6 @@ namespace Academia.UI.WindowsForms
             this.MapearADatos();
 
             this.Logic.GuardarCambios(this.EspecialidadActual);
-        }
-
-        protected override bool Validar()
-        {
-            return true;
         }
 
         protected override void MapearADatos()
