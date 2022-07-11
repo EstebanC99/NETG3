@@ -13,11 +13,24 @@ namespace Business.Logic.Academicos
 
         }
 
+        protected override void MapearDatos(Especialidad entity)
+        {
+            base.MapearDatos(entity);
+
+            this.Entity.Descripcion = entity.Descripcion;
+        }
+
         protected override void Validar(Especialidad entity)
         {
-            // Aca las validaciones
+            if (entity.State == BusinessEntity.States.New)
+            {
+                this.Entity = new Especialidad();
+            }
+            else
+            {
+                this.Entity = this.Repository.GetByID(entity.ID);
+            }
 
-            this.Entity = entity;
         }
     }
 }

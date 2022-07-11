@@ -30,5 +30,29 @@ namespace Business.Logic.Personas
 
         }
 
+        protected override void Validar(TPersona entity)
+        {
+            if (entity.State == BusinessEntity.States.New)
+            {
+                this.Entity = (TPersona)new object();
+            }
+            else
+            {
+                this.Entity = this.Repository.GetByID(entity.ID);
+            }
+        }
+
+        protected override void MapearDatos(TPersona entity)
+        {
+            base.MapearDatos(entity);
+            this.Entity.Nombre = entity.Nombre;
+            this.Entity.Apellido = entity.Apellido;
+            this.Entity.Direccion = entity.Direccion;
+            this.Entity.Email = entity.Email;
+            this.Entity.FechaNacimiento = entity.FechaNacimiento.Date;
+            this.Entity.Legajo = entity.Legajo;
+            this.Entity.Telefono = entity.Telefono;
+            this.Entity.State = entity.State;
+        }
     }
 }

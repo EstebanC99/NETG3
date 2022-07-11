@@ -1,7 +1,6 @@
 ﻿using Business.Entities;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Usuarios;
-using System.Collections.Generic;
 
 namespace Business.Logic.Usuarios
 {
@@ -17,9 +16,27 @@ namespace Business.Logic.Usuarios
 
         protected override void Validar(Usuario entity)
         {
-            // Aca las validaciones
+            if (entity.State == BusinessEntity.States.New)
+            {
+                this.Entity = new Usuario();
+            }
+            else
+            {
+                this.Entity = this.Repository.GetByID(entity.ID);
+            }
+        }
 
-            this.Entity = entity;
+        protected override void MapearDatos(Usuario entity)
+        {
+            base.MapearDatos(entity);
+
+            this.Entity.Nombre = entity.Nombre;
+            this.Entity.Apellido = entity.Apellido;
+            this.Entity.Email = entity.Email;
+            this.Entity.NombreUsuario = entity.NombreUsuario;
+            this.Entity.Clave = entity.Clave;
+            this.Entity.CambiaClave = entity.CambiaClave;
+            this.Entity.Habilitado = entity.Habilitado;
         }
     }
 }

@@ -26,18 +26,16 @@ namespace Business.Logic
         {
             using (var context = this.DbContextScopeFactory.Create())
             {
-                this.Entity = this.Repository.GetByID(entity.ID);
-
                 this.Validar(entity);
 
+                this.MapearDatos(entity);
+                
                 switch (this.Entity.State)
                 {
                     case BusinessEntity.States.New:
-                        this.Entity = entity;
                         this.Repository.Add(this.Entity);
                         break;
                     case BusinessEntity.States.Deleted:
-                        this.Entity = this.Repository.GetByID(entity.ID);
                         this.Repository.Remove(this.Entity);
                         break;
                     default:
@@ -66,5 +64,9 @@ namespace Business.Logic
 
         protected abstract void Validar(TEntity entity);
 
+        protected virtual void MapearDatos(TEntity entity) 
+        {
+            this.Entity.State = entity.State;
+        }
     }
 }

@@ -15,12 +15,5 @@ namespace Business.Logic.Personas
             
         }
 
-        protected override void Validar(Profesor entity)
-        {
-            // Aca las validaciones
-
-            this.Entity = entity;
-        }
-
     }
 }
