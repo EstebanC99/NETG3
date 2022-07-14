@@ -1,29 +1,21 @@
-﻿using Business.Logic.Interfaces;
+﻿using Academia.UI.Services;
 using System;
-using System.Windows.Forms;
-using static Academia.UI.WindowsForms.ApplicationForm;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class Alumnos : Form
+    public partial class Alumnos : FormAdministracionBase<IAlumnoUIService>
     {
-        private IAlumnoLogic Logic { get; set; }
-
-        public Alumnos()
+        public Alumnos(IAlumnoUIService uiService) : base(uiService)
         {
             InitializeComponent();
-        }
 
-        public Alumnos(IAlumnoLogic alumnoLogic)
-        {
-            InitializeComponent();
-            this.Logic = alumnoLogic;
             this.dgvAlumnos.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            this.dgvAlumnos.DataSource = this.Logic.GetAll();
+            this.dgvAlumnos.DataSource = this.UIService.LeerTodos();
         }
 
         private void Alumnos_Load(object sender, EventArgs e)
@@ -33,7 +25,7 @@ namespace Academia.UI.WindowsForms
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            AlumnoDesktop alumnoDesktop = new AlumnoDesktop(ModoForm.Alta, this.Logic);
+            AlumnoDesktop alumnoDesktop = new AlumnoDesktop(this.UIService, ModoForm.Alta);
 
             alumnoDesktop.ShowDialog();
 
@@ -44,7 +36,7 @@ namespace Academia.UI.WindowsForms
         {
             if (this.dgvAlumnos.SelectedRows.Count == 0) return;
 
-            AlumnoDesktop alumnoDesktop = new AlumnoDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Modificacion, this.Logic);
+            AlumnoDesktop alumnoDesktop = new AlumnoDesktop(this.ObtenerItemSeleccionadoID(), this.UIService, ModoForm.Modificacion);
 
             alumnoDesktop.ShowDialog();
 
@@ -55,7 +47,7 @@ namespace Academia.UI.WindowsForms
         {
             if (this.dgvAlumnos.SelectedRows.Count == 0) return;
 
-            AlumnoDesktop alumnoDesktop = new AlumnoDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Baja, this.Logic);
+            AlumnoDesktop alumnoDesktop = new AlumnoDesktop(this.ObtenerItemSeleccionadoID(), this.UIService, ModoForm.Baja);
 
             alumnoDesktop.ShowDialog();
 

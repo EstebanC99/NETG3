@@ -58,8 +58,12 @@
     <Compile Include="AcademiaDbContextFactory.cs" />
     <Compile Include="Academicos\EspecialidadRepository.cs" />
     <Compile Include="Academicos\IEspecialidadRepository.cs" />
+    <Compile Include="Academicos\IPlanRepository.cs" />
+    <Compile Include="Academicos\PlanRepository.cs" />
     <Compile Include="DataAccessBase.cs" />
+    <Compile Include="EntityLoaderRepository.cs" />
     <Compile Include="IDataAccessBase.cs" />
+    <Compile Include="IEntityLoaderRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Personas\AlumnoRepository.cs" />
     <Compile Include="Personas\IAlumnoRepository.cs" />

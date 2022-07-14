@@ -57,6 +57,7 @@
     <Compile Include="DummyConfig.cs" />
     <Compile Include="EspecialidadConfig.cs" />
     <Compile Include="PersonaConfig.cs" />
+    <Compile Include="PlanConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioConfig.cs" />
   </ItemGroup>

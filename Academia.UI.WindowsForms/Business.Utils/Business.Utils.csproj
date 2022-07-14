@@ -69,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Academia.UI.Services\Academia.UI.Services.csproj">
+      <Project>{0B1048C1-87D0-43CE-843B-9808A43DC36D}</Project>
+      <Name>Academia.UI.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
       <Project>{ABE0F263-9192-4FF7-A0B9-383FDAA60924}</Project>
       <Name>Business.Logic</Name>

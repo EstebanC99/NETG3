@@ -1,11 +1,13 @@
 ﻿using Business.Entities;
+using Business.Views;
 using Cross.Exceptions;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Usuarios;
+using System.Collections.Generic;
 
 namespace Business.Logic.Usuarios
 {
-    public class UsuarioLogic : LogicBase<Usuario, IUsuarioRepository>, IUsuarioLogic
+    public class UsuarioLogic : LogicBase<UsuarioDataView, Usuario, IUsuarioRepository>, IUsuarioLogic
     {
         public UsuarioLogic(Usuario usuario,
                             IUsuarioRepository repository,
@@ -15,45 +17,73 @@ namespace Business.Logic.Usuarios
 
         }
 
-        protected override void Validar(Usuario entity)
+        public UsuarioDataView LeerPorID(int ID)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                this.Entity = this.Repository.GetByID(ID);
+
+                return new UsuarioDataView()
+                {
+                    ID = this.Entity.ID,
+                    Nombre = this.Entity.Nombre,
+                    Apellido = this.Entity.Apellido,
+                    NombreUsuario = this.Entity.Nombre,
+                    Clave = this.Entity.Clave,
+                    Habilitado = this.Entity.Habilitado,
+                    Email = this.Entity.Email,
+                    CambiaClave = this.Entity.CambiaClave
+                };
+            }
+        }
+
+        public List<UsuarioDataView> LeerTodos()
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.GetAll().ConvertAll(m =>
+                new UsuarioDataView()
+                {
+                    ID = this.Entity.ID,
+                    Nombre = this.Entity.Nombre,
+                    Apellido = this.Entity.Apellido,
+                    NombreUsuario = this.Entity.Nombre,
+                    Clave = this.Entity.Clave,
+                    Habilitado = this.Entity.Habilitado,
+                    Email = this.Entity.Email,
+                    CambiaClave = this.Entity.CambiaClave
+                });
+            }
+        }
+
+        protected override void Validar(UsuarioDataView usuario)
         {
             var validaciones = new ValidationException();
 
-            if (string.IsNullOrEmpty(this.Entity.Nombre))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Nombre)));
+            if (string.IsNullOrEmpty(usuario.Nombre))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.Nombre)));
 
-            if (string.IsNullOrEmpty(this.Entity.Apellido))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Apellido)));
+            if (string.IsNullOrEmpty(usuario.Apellido))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.Apellido)));
 
-            if (string.IsNullOrEmpty(this.Entity.NombreUsuario))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.NombreUsuario)));
+            if (string.IsNullOrEmpty(usuario.NombreUsuario))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.NombreUsuario)));
 
-            if (string.IsNullOrEmpty(this.Entity.Clave))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Clave)));
+            if (string.IsNullOrEmpty(usuario.Clave))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.Clave)));
 
             validaciones.Throw();
         }
 
-        protected override void MapearDatos(Usuario entity)
+        protected override void Mapear(UsuarioDataView usuario)
         {
-            if (entity.State == BusinessEntity.States.New)
-            {
-                this.Entity = new Usuario();
-            }
-            else
-            {
-                this.Entity = this.Repository.GetByID(entity.ID);
-            }
-
-            base.MapearDatos(entity);
-
-            this.Entity.Nombre = entity.Nombre;
-            this.Entity.Apellido = entity.Apellido;
-            this.Entity.Email = entity.Email;
-            this.Entity.NombreUsuario = entity.NombreUsuario;
-            this.Entity.Clave = entity.Clave;
-            this.Entity.CambiaClave = entity.CambiaClave;
-            this.Entity.Habilitado = entity.Habilitado;
+            this.Entity.Nombre = usuario.Nombre;
+            this.Entity.Apellido = usuario.Apellido;
+            this.Entity.Email = usuario.Email;
+            this.Entity.NombreUsuario = usuario.NombreUsuario;
+            this.Entity.Clave = usuario.Clave;
+            this.Entity.CambiaClave = usuario.CambiaClave;
+            this.Entity.Habilitado = usuario.Habilitado;
         }
     }
 }

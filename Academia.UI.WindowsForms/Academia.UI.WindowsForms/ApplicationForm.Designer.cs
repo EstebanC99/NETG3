@@ -1,7 +1,12 @@
 ﻿
+using Academia.UI.Services;
+using Academia.UI.ViewModels;
+
 namespace Academia.UI.WindowsForms
 {
-    partial class ApplicationForm
+    partial class ApplicationForm<TUIService, TViewModel>
+        where TUIService : IUIService<TViewModel>
+        where TViewModel : ViewModel
     {
         /// <summary>
         /// Required designer variable.

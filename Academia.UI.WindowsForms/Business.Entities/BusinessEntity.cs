@@ -8,26 +8,17 @@
         }
 
         private int _ID;
-        public int ID
+        public virtual int ID
         {
             get { return this._ID; }
             set { this._ID = value; }
         }
 
-        private States _State;
-        public States State
+        private string _Descripcion;
+        public virtual string Descripcion
         {
-            get { return this._State; }
-            set { this._State = value; }
+            get { return this._Descripcion; }
+            set { this._Descripcion = value; }
         }
-
-        public enum States
-        {
-            Deleted,
-            New,
-            Modified,
-            Unmodified
-        }
-
     }
 }

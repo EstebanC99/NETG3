@@ -9,13 +9,6 @@
             set { this._IdPlan = value; }
         }
 
-        private string _Descripcion;
-        public string Descripcion
-        {
-            get { return this._Descripcion; }
-            set { this._Descripcion = value; }
-        }
-
         private int _HSSemanales;
         public int HSSemanales
         {
@@ -29,7 +22,5 @@
             get { return this._HSTotales; }
             set { this._HSTotales = value; }
         }
-
-        
     }
 }

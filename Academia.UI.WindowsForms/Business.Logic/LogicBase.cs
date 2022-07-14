@@ -1,14 +1,41 @@
 ﻿using Business.Entities;
+using Business.Views;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Logic
 {
-    public abstract class LogicBase<TEntity, TRepository> : ILogicBase<TEntity>
+    public abstract class LogicBase : ILogicBase
+    {
+        protected LogicBase()
+        {
+
+        }
+    }
+
+    public abstract class LogicBase<TRepository> : LogicBase
+        where TRepository : IDataAccessBase
+    {
+        protected IDbContextScopeFactory DbContextScopeFactory { get; private set; }
+
+        protected TRepository Repository { get; private set; }
+
+        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, TRepository repository)
+        {
+            this.DbContextScopeFactory = dbContextScopeFactory;
+            this.Repository = repository;
+        }
+    }
+
+    public abstract class LogicBase<TDataView, TEntity, TRepository> : ILogicBase<TDataView, TEntity>
         where TEntity : BusinessEntity
         where TRepository : IRepository<TEntity>
+        where TDataView : DataView
     {
+        #region Propiedades
+
         protected TEntity Entity { get; set; }
 
         protected TRepository Repository { get; set; }
@@ -16,56 +43,93 @@ namespace Business.Logic
         protected IDbContextScopeFactory DbContextScopeFactory { get; private set; }
 
         public LogicBase(TEntity entity, TRepository repository, IDbContextScopeFactory dbContextScopeFactory)
+             : base()
         {
             this.Entity = entity;
             this.Repository = repository;
             this.DbContextScopeFactory = dbContextScopeFactory;
         }
 
-        public void GuardarCambios(TEntity entity)
+        #endregion
+
+        #region Metodos ABM
+
+        public void Registrar(TDataView dataView)
         {
             using (var context = this.DbContextScopeFactory.Create())
             {
-                this.MapearDatos(entity);
-                this.Validar(entity);
-                
-                switch (this.Entity.State)
-                {
-                    case BusinessEntity.States.New:
-                        this.Repository.Add(this.Entity);
-                        break;
-                    case BusinessEntity.States.Deleted:
-                        this.Repository.Remove(this.Entity);
-                        break;
-                    default:
-                        break;
-                }
+                this.Validar(dataView);
+
+                this.Entity = (TEntity)Activator.CreateInstance(typeof(TEntity));
+
+                this.Mapear(dataView);
+
+                this.Repository.Add(this.Entity);
 
                 context.SaveChanges();
             }
         }
 
-        public TEntity GetByID(int ID)
+        public void Modificar(TDataView dataView)
         {
-            using (this.DbContextScopeFactory.CreateReadOnly())
+            using (var context = this.DbContextScopeFactory.Create())
             {
-                return this.Repository.GetByID(ID);
+                this.Validar(dataView);
+
+                this.Entity = this.Repository.GetByID(dataView.ID);
+
+                this.Mapear(dataView);
+
+                context.SaveChanges();
             }
         }
 
-        public List<TEntity> GetAll()
+        public void Eliminar(TDataView dataView)
         {
-            using (this.DbContextScopeFactory.CreateReadOnly())
+            using (var context = this.DbContextScopeFactory.Create())
             {
-                return this.Repository.GetAll();
+                this.Entity = this.Repository.GetByID(dataView.ID);
+
+                this.Repository.Remove(this.Entity);
+
+                context.SaveChanges();
             }
         }
 
-        protected abstract void Validar(TEntity entity);
+        #endregion
 
-        protected virtual void MapearDatos(TEntity entity) 
+        public DataView GetByID(int ID)
         {
-            this.Entity.State = entity.State;
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                var entity = this.Repository.GetByID(ID);
+
+                return new DataView()
+                {
+                    ID = entity.ID,
+                    Descripcion = entity.Descripcion
+                };
+            }
         }
+
+        public List<DataView> GetAll()
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.GetAll().ConvertAll(m => new DataView()
+                {
+                    ID = m.ID,
+                    Descripcion = m.Descripcion
+                });
+            }
+        }
+
+        #region Metodos Protegidos
+
+        protected abstract void Validar(TDataView dataView);
+
+        protected abstract void Mapear(TDataView dataView);
+
+        #endregion
     }
 }

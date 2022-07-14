@@ -1,27 +1,26 @@
-﻿using Business.Entities;
-using Business.Logic.Interfaces;
+﻿using Academia.UI.Services;
+using Academia.UI.ViewModels;
 using System;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class ProfesorDesktop : ApplicationForm
+    public partial class ProfesorDesktop : ApplicationForm<IProfesorUIService, ProfesorVM>
     {
-        private IProfesorLogic Logic { get; set; }
+        public ProfesorDesktop()
+        {
 
-        public Profesor ProfesorActual { get; set; }
-
-        public ProfesorDesktop(ModoForm modo, IProfesorLogic logic) : base(modo)
+        }
+        public ProfesorDesktop(IProfesorUIService uiService, ModoForm modo) : base(uiService, modo)
         {
             InitializeComponent();
 
             this.SetearBoton(this.btnAceptar);
-
-            this.Logic = logic;
         }
 
-        public ProfesorDesktop(int usuarioID, ModoForm modo, IProfesorLogic logic) : this(modo, logic)
+        public ProfesorDesktop(int profesorID, IProfesorUIService uiService, ModoForm modo) : this(uiService, modo)
         {
-            this.ProfesorActual = this.Logic.GetByID(usuarioID);
+            this.Model = this.UIService.LeerPorID(profesorID);
 
             this.MapearDeDatos();
         }
@@ -40,46 +39,28 @@ namespace Academia.UI.WindowsForms
             }
         }
 
-        protected override void GuardarCambios()
-        {
-            this.MapearADatos();
-
-            this.Logic.GuardarCambios(this.ProfesorActual);
-        }
-
         protected override void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta)
-            {
-                this.ProfesorActual = new Profesor();
-            }
-            else
-            {
-                this.ProfesorActual = this.Logic.GetByID(int.Parse(this.txtID.Text));
-            }
-
-            this.SetearEstadoEntidad(this.ProfesorActual);
-
-            if (int.TryParse(this.txtID.Text, out var r))
-                this.ProfesorActual.ID = r;
-            this.ProfesorActual.Nombre = this.txtNombre.Text;
-            this.ProfesorActual.Apellido = this.txtApellido.Text;
-            this.ProfesorActual.Email = this.txtEmail.Text;
-            this.ProfesorActual.Direccion = this.txtDireccion.Text;
-            this.ProfesorActual.Telefono = this.txtTelefono.Text;
-            this.ProfesorActual.Legajo = int.Parse(this.txtLegajo.Text);
-            this.ProfesorActual.FechaNacimiento = this.dtFechaNacimiento.Value.Date;
+            this.Model.ID = int.Parse(this.txtID.Text);
+            this.Model.Nombre = this.txtNombre.Text;
+            this.Model.Apellido = this.txtApellido.Text;
+            this.Model.Email = this.txtEmail.Text;
+            this.Model.Direccion = this.txtDireccion.Text;
+            this.Model.Telefono = this.txtTelefono.Text;
+            this.Model.Legajo = int.Parse(this.txtLegajo.Text);
+            this.Model.FechaNacimiento = this.dtFechaNacimiento.Value.Date;
         }
+
         protected override void MapearDeDatos()
         {
-            this.txtID.Text = this.ProfesorActual.ID.ToString();
-            this.txtNombre.Text = this.ProfesorActual.Nombre;
-            this.txtApellido.Text = this.ProfesorActual.Apellido;
-            this.txtEmail.Text = this.ProfesorActual.Email;
-            this.txtLegajo.Text = this.ProfesorActual.Legajo.ToString();
-            this.txtDireccion.Text = this.ProfesorActual.Direccion;
-            this.txtTelefono.Text = this.ProfesorActual.Telefono;
-            this.dtFechaNacimiento.Value = this.ProfesorActual.FechaNacimiento;
+            this.txtID.Text = this.Model.ID.ToString();
+            this.txtNombre.Text = this.Model.Nombre;
+            this.txtApellido.Text = this.Model.Apellido;
+            this.txtEmail.Text = this.Model.Email;
+            this.txtLegajo.Text = this.Model.Legajo.ToString();
+            this.txtDireccion.Text = this.Model.Direccion;
+            this.txtTelefono.Text = this.Model.Telefono;
+            this.dtFechaNacimiento.Value = this.Model.FechaNacimiento;
         }
 
 

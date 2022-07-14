@@ -16,13 +16,6 @@
             set { this._Cupo = value; }
         }
 
-        private string _Descripcion;
-        public string Descripcion
-        {
-            get { return this._Descripcion; }
-            set { this._Descripcion = value; }
-        }
-
         private int _IdComision;
         public int IdComision
         {

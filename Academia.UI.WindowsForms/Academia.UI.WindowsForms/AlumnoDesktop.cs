@@ -1,28 +1,23 @@
-﻿using Business.Entities;
-using Business.Logic.Interfaces;
+﻿using Academia.UI.Services;
+using Academia.UI.ViewModels;
 using System;
 using System.Windows.Forms;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class AlumnoDesktop : ApplicationForm
+    public partial class AlumnoDesktop : ApplicationForm<IAlumnoUIService, AlumnoVM>
     {
-        private IAlumnoLogic Logic { get; set; }
-
-        public Alumno AlumnoActual { get; set; }
-
-        public AlumnoDesktop(ModoForm modo, IAlumnoLogic logic) : base(modo)
+        public AlumnoDesktop(IAlumnoUIService uiService, ModoForm modo) : base(uiService, modo)
         {
             InitializeComponent();
 
             this.SetearBoton(this.btnAceptar);
-
-            this.Logic = logic;
         }
 
-        public AlumnoDesktop(int alumnoID, ModoForm modo, IAlumnoLogic logic) : this(modo, logic)
+        public AlumnoDesktop(int alumnoID, IAlumnoUIService uiService, ModoForm modo) : this(uiService, modo)
         {
-            this.AlumnoActual = this.Logic.GetByID(alumnoID);
+            this.Model = this.UIService.LeerPorID(alumnoID);
 
             this.MapearDeDatos();
         }
@@ -41,46 +36,28 @@ namespace Academia.UI.WindowsForms
             }
         }
 
-        protected override void GuardarCambios()
-        {
-            this.MapearADatos();
-
-            this.Logic.GuardarCambios(this.AlumnoActual);
-        }
-
         protected override void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta)
-            {
-                this.AlumnoActual = new Alumno();
-            }
-            else
-            {
-                this.AlumnoActual = this.Logic.GetByID(int.Parse(this.txtID.Text));
-            }
-
-            this.SetearEstadoEntidad(this.AlumnoActual);
-
-            if (int.TryParse(this.txtID.Text, out var r))
-                this.AlumnoActual.ID = r;
-            this.AlumnoActual.Nombre = this.txtNombre.Text;
-            this.AlumnoActual.Apellido = this.txtApellido.Text;
-            this.AlumnoActual.Email = this.txtEmail.Text;
-            this.AlumnoActual.Direccion = this.txtDireccion.Text;
-            this.AlumnoActual.Telefono = this.txtTelefono.Text;
-            this.AlumnoActual.Legajo = int.Parse(this.txtLegajo.Text);
-            this.AlumnoActual.FechaNacimiento = this.dtFechaNacimiento.Value.Date;
+            this.Model.ID = int.Parse(this.txtID.Text);
+            this.Model.Nombre = this.txtNombre.Text;
+            this.Model.Apellido = this.txtApellido.Text;
+            this.Model.Email = this.txtEmail.Text;
+            this.Model.Direccion = this.txtDireccion.Text;
+            this.Model.Telefono = this.txtTelefono.Text;
+            this.Model.Legajo = int.Parse(this.txtLegajo.Text);
+            this.Model.FechaNacimiento = this.dtFechaNacimiento.Value.Date;
         }
+
         protected override void MapearDeDatos()
         {
-            this.txtID.Text = this.AlumnoActual.ID.ToString();
-            this.txtNombre.Text = this.AlumnoActual.Nombre;
-            this.txtApellido.Text = this.AlumnoActual.Apellido;
-            this.txtEmail.Text = this.AlumnoActual.Email;
-            this.txtLegajo.Text = this.AlumnoActual.Legajo.ToString();
-            this.txtDireccion.Text = this.AlumnoActual.Direccion;
-            this.txtTelefono.Text = this.AlumnoActual.Telefono;
-            this.dtFechaNacimiento.Value = this.AlumnoActual.FechaNacimiento;
+            this.txtID.Text = this.Model.ID.ToString();
+            this.txtNombre.Text = this.Model.Nombre;
+            this.txtApellido.Text = this.Model.Apellido;
+            this.txtEmail.Text = this.Model.Email;
+            this.txtLegajo.Text = this.Model.Legajo.ToString();
+            this.txtDireccion.Text = this.Model.Direccion;
+            this.txtTelefono.Text = this.Model.Telefono;
+            this.dtFechaNacimiento.Value = this.Model.FechaNacimiento;
         }
 
 

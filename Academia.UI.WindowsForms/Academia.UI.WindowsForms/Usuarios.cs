@@ -1,24 +1,21 @@
-﻿using Business.Logic;
+﻿using Academia.UI.Services;
 using System;
-using System.Windows.Forms;
-using static Academia.UI.WindowsForms.ApplicationForm;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : FormAdministracionBase<IUsuarioUIService>
     {
-        private IUsuarioLogic Logic { get; set; }
-
-        public Usuarios(IUsuarioLogic logic)
+        public Usuarios(IUsuarioUIService uiService) : base(uiService)
         {
             InitializeComponent();
-            this.Logic = logic;
+
             this.dgvUsuarios.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            this.dgvUsuarios.DataSource = this.Logic.GetAll();
+            this.dgvUsuarios.DataSource = this.UIService.LeerTodos();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
@@ -33,7 +30,7 @@ namespace Academia.UI.WindowsForms
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ModoForm.Alta, this.Logic);
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.UIService, ModoForm.Alta);
 
             usuarioDesktop.ShowDialog();
 
@@ -44,7 +41,7 @@ namespace Academia.UI.WindowsForms
         {
             if (this.dgvUsuarios.SelectedRows.Count == 0) return;
 
-            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Modificacion, this.Logic);
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerItemSeleccionadoID(), this.UIService, ModoForm.Modificacion);
 
             usuarioDesktop.ShowDialog();
 
@@ -55,7 +52,7 @@ namespace Academia.UI.WindowsForms
         {
             if (this.dgvUsuarios.SelectedRows.Count == 0) return;
 
-            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Baja, this.Logic);
+            UsuarioDesktop usuarioDesktop = new UsuarioDesktop(this.ObtenerItemSeleccionadoID(), this.UIService, ModoForm.Baja);
 
             usuarioDesktop.ShowDialog();
 

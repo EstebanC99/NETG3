@@ -13,8 +13,6 @@ namespace ResourceAccess.Repository.Config
             this.HasKey(m => m.ID).Property(m => m.ID).HasColumnName("ID_Especialidad").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             this.Property(m => m.Descripcion).IsRequired();
-
-            this.Ignore(m => m.State);
         }
     }
 }

@@ -55,10 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academicos\EspecialidadLogic.cs" />
+    <Compile Include="Academicos\PlanLogic.cs" />
+    <Compile Include="EntityLoaderLogic.cs" />
     <Compile Include="Interfaces\IAlumnoLogic.cs" />
+    <Compile Include="Interfaces\IEntityLoaderLogicService.cs" />
     <Compile Include="Interfaces\IEspecialidadLogic.cs" />
     <Compile Include="Interfaces\ILogicBase.cs" />
     <Compile Include="Interfaces\IPersonaLogic.cs" />
+    <Compile Include="Interfaces\IPlanLogic.cs" />
     <Compile Include="Interfaces\IProfesorLogic.cs" />
     <Compile Include="Interfaces\IUsuarioLogic.cs" />
     <Compile Include="LogicBase.cs" />
@@ -69,9 +73,17 @@
     <Compile Include="Usuarios\UsuarioLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Academia.UI.ViewModels\Academia.UI.ViewModels.csproj">
+      <Project>{E2818191-254E-4685-9F1A-C751F757AEBD}</Project>
+      <Name>Academia.UI.ViewModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>
       <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Views\Business.Views.csproj">
+      <Project>{D608B5D0-74A9-47E5-9943-467780ECD630}</Project>
+      <Name>Business.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\Cross.Exceptions\Cross.Exceptions.csproj">
       <Project>{66e79f51-28a8-4540-847b-50714a8438a9}</Project>

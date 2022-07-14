@@ -1,27 +1,26 @@
-﻿using Business.Entities;
-using Business.Logic.Interfaces;
+﻿using Academia.UI.Services;
+using Academia.UI.ViewModels;
 using System;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class EspecialidadDesktop : ApplicationForm
+    public partial class EspecialidadDesktop : ApplicationForm<IEspecialidadUIService, EspecialidadVM>
     {
-        private IEspecialidadLogic Logic { get; set; }
+        public EspecialidadDesktop()
+        {
 
-        private Especialidad EspecialidadActual { get; set; }
-
-        public EspecialidadDesktop(ModoForm modo, IEspecialidadLogic logic) : base(modo)
+        }
+        public EspecialidadDesktop(IEspecialidadUIService uiService, ModoForm modo) : base(uiService, modo)
         {
             InitializeComponent();
 
             this.SetearBoton(this.btnAceptar);
-
-            this.Logic = logic;
         }
 
-        public EspecialidadDesktop(int especialidadID, ModoForm modo, IEspecialidadLogic logic) : this(modo, logic)
+        public EspecialidadDesktop(int especialidadID, IEspecialidadUIService uiService, ModoForm modo) : this(uiService, modo)
         {
-            this.EspecialidadActual = this.Logic.GetByID(especialidadID);
+            this.Model = this.UIService.LeerPorID(especialidadID);
 
             this.MapearDeDatos();
         }
@@ -32,40 +31,24 @@ namespace Academia.UI.WindowsForms
 
             if (this.Validar())
             {
+                this.MapearADatos();
+
                 this.GuardarCambios();
 
                 this.Close();
             }
         }
 
-        protected override void GuardarCambios()
-        {
-            this.MapearADatos();
-
-            this.Logic.GuardarCambios(this.EspecialidadActual);
-        }
-
         protected override void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta)
-            {
-                this.EspecialidadActual = new Especialidad();
-            }
-            else
-            {
-                this.EspecialidadActual = this.Logic.GetByID(int.Parse(this.txtID.Text));
-            }
-
-            this.SetearEstadoEntidad(this.EspecialidadActual);
-
-            if (int.TryParse(this.txtID.Text, out var r))
-                this.EspecialidadActual.ID = r;
-            this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
+            this.Model.ID = int.Parse(this.txtID.Text);
+            this.Model.Descripcion = this.txtDescripcion.Text;
         }
+
         protected override void MapearDeDatos()
         {
-            this.txtID.Text = this.EspecialidadActual.ID.ToString();
-            this.txtDescripcion.Text = this.EspecialidadActual.Descripcion;
+            this.txtID.Text = this.Model.ID.ToString();
+            this.txtDescripcion.Text = this.Model.Descripcion;
         }
 
 

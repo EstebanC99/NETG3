@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Academia.UI.Services;
+using Business.Logic;
 using EntityFramework.DbContextScope;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository;
@@ -66,6 +67,12 @@ namespace Business.Utils
             #region Register Repositories
 
             Instance.RegisterAssembly<IDataAccessBase>("ResourceAccess.Repository");
+
+            #endregion
+
+            #region UI Services
+
+            Instance.RegisterAssembly<IUIService>("Academia.UI.Services");
 
             #endregion
         }

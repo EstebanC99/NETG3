@@ -14,6 +14,5 @@ namespace Business.Logic.Personas
         {
             
         }
-
     }
 }

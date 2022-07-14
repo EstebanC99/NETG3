@@ -27,6 +27,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross.Exceptions", "Cross.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross.Labels", "Cross.Labels\Cross.Labels.csproj", "{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia.UI.ViewModels", "Academia.UI.ViewModels\Academia.UI.ViewModels.csproj", "{E2818191-254E-4685-9F1A-C751F757AEBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Views", "Business.Views\Business.Views.csproj", "{D608B5D0-74A9-47E5-9943-467780ECD630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia.UI.Services", "Academia.UI.Services\Academia.UI.Services.csproj", "{0B1048C1-87D0-43CE-843B-9808A43DC36D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +71,18 @@ Global
 		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2818191-254E-4685-9F1A-C751F757AEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2818191-254E-4685-9F1A-C751F757AEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2818191-254E-4685-9F1A-C751F757AEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2818191-254E-4685-9F1A-C751F757AEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D608B5D0-74A9-47E5-9943-467780ECD630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D608B5D0-74A9-47E5-9943-467780ECD630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D608B5D0-74A9-47E5-9943-467780ECD630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D608B5D0-74A9-47E5-9943-467780ECD630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +96,9 @@ Global
 		{F9D92829-1FB8-401A-8221-ADCC01BAA9F8} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
 		{66E79F51-28A8-4540-847B-50714A8438A9} = {55F1E4A8-61F7-40A3-BF09-95AC741A58FC}
 		{CE1DD48C-6D48-4AA5-8CDA-A946C78EA195} = {55F1E4A8-61F7-40A3-BF09-95AC741A58FC}
+		{E2818191-254E-4685-9F1A-C751F757AEBD} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
+		{D608B5D0-74A9-47E5-9943-467780ECD630} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
+		{0B1048C1-87D0-43CE-843B-9808A43DC36D} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45

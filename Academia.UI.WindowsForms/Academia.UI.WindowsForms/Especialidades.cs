@@ -1,29 +1,26 @@
-﻿using Business.Logic.Interfaces;
+﻿using Academia.UI.Services;
 using System;
-using System.Windows.Forms;
-using static Academia.UI.WindowsForms.ApplicationForm;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class Especialidades : Form
+    public partial class Especialidades : FormAdministracionBase<IEspecialidadUIService>
     {
-        private IEspecialidadLogic Logic { get; set; }
-
         public Especialidades()
         {
-            InitializeComponent();
+
         }
 
-        public Especialidades(IEspecialidadLogic especialidadLogic)
+        public Especialidades(IEspecialidadUIService uiService) : base(uiService)
         {
             InitializeComponent();
-            this.Logic = especialidadLogic;
+
             this.dgvEspecialidades.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            this.dgvEspecialidades.DataSource = this.Logic.GetAll();
+            this.dgvEspecialidades.DataSource = this.UIService.LeerTodos();
         }
 
         private void Especialidades_Load(object sender, EventArgs e)
@@ -33,7 +30,7 @@ namespace Academia.UI.WindowsForms
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ModoForm.Alta, this.Logic);
+            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(this.UIService, ModoForm.Alta);
 
             especialidadDesktop.ShowDialog();
 
@@ -44,7 +41,7 @@ namespace Academia.UI.WindowsForms
         {
             if (this.dgvEspecialidades.SelectedRows.Count == 0) return;
 
-            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Modificacion, this.Logic);
+            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(this.ObtenerItemSeleccionadoID(), this.UIService, ModoForm.Modificacion);
 
             especialidadDesktop.ShowDialog();
 
@@ -55,7 +52,7 @@ namespace Academia.UI.WindowsForms
         {
             if (this.dgvEspecialidades.SelectedRows.Count == 0) return;
 
-            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(this.ObtenerItemSeleccionadoID(), ModoForm.Baja, this.Logic);
+            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(this.ObtenerItemSeleccionadoID(), this.UIService, ModoForm.Baja);
 
             especialidadDesktop.ShowDialog();
 

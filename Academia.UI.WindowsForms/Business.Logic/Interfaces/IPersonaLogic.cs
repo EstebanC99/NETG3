@@ -1,4 +1,6 @@
 ﻿using Business.Entities;
+using Business.Views;
+using System.Collections.Generic;
 
 namespace Business.Logic.Interfaces
 {
@@ -6,8 +8,11 @@ namespace Business.Logic.Interfaces
     {
     }
 
-    public interface IPersonaLogic<TPersona> : ILogicBase<TPersona>
+    public interface IPersonaLogic<TPersona> : ILogicBase<PersonaDataView, TPersona>
         where TPersona : Persona
     {
+        TPersonaDataView LeerPorID<TPersonaDataView>(int ID) where TPersonaDataView : PersonaDataView;
+
+        List<TPersonaDataView> LeerTodos<TPersonaDataView>() where TPersonaDataView : PersonaDataView;
     }
 }

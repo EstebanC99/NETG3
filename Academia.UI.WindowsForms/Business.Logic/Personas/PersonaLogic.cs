@@ -1,13 +1,15 @@
 ﻿using Business.Entities;
 using Business.Logic.Interfaces;
+using Business.Views;
 using Cross.Exceptions;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Personas;
 using System;
+using System.Collections.Generic;
 
 namespace Business.Logic.Personas
 {
-    public abstract class PersonaLogic : LogicBase<Persona, IPersonaRepository>, IPersonaLogic
+    public abstract class PersonaLogic : LogicBase<PersonaDataView, Persona, IPersonaRepository>, IPersonaLogic
     {
 
         public PersonaLogic(Persona entity,
@@ -20,7 +22,7 @@ namespace Business.Logic.Personas
 
     }
 
-    public abstract class PersonaLogic<TPersona, TPersonaRepository> : LogicBase<TPersona, TPersonaRepository>, IPersonaLogic<TPersona>
+    public abstract class PersonaLogic<TPersona, TPersonaRepository> : LogicBase<PersonaDataView, TPersona, TPersonaRepository>, IPersonaLogic<TPersona>
         where TPersona : Persona
         where TPersonaRepository : IPersonaRepository<TPersona>
     {
@@ -32,52 +34,85 @@ namespace Business.Logic.Personas
 
         }
 
-        protected override void Validar(TPersona entity)
+        public TPersonaDataView LeerPorID<TPersonaDataView>(int ID)
+            where TPersonaDataView : PersonaDataView
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                this.Entity = this.Repository.GetByID(ID);
+
+                return (TPersonaDataView)(new PersonaDataView()
+                {
+                    ID = this.Entity.ID,
+                    Nombre = this.Entity.Nombre,
+                    Apellido = this.Entity.Apellido,
+                    Legajo = this.Entity.Legajo,
+                    Direccion = this.Entity.Direccion,
+                    Telefono = this.Entity.Telefono,
+                    Email = this.Entity.Email,
+                    FechaNacimiento = this.Entity.FechaNacimiento,
+                    PlanID = this.Entity.Plan.ID,
+                    PlanDescripcion = this.Entity.Plan.Descripcion
+                });
+            }
+        }
+
+        public List<TPersonaDataView> LeerTodos<TPersonaDataView>()
+            where TPersonaDataView : PersonaDataView
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.GetAll().ConvertAll(m => (TPersonaDataView)
+                (new PersonaDataView()
+                {
+                    ID = this.Entity.ID,
+                    Nombre = this.Entity.Nombre,
+                    Apellido = this.Entity.Apellido,
+                    Legajo = this.Entity.Legajo,
+                    Direccion = this.Entity.Direccion,
+                    Telefono = this.Entity.Telefono,
+                    Email = this.Entity.Email,
+                    FechaNacimiento = this.Entity.FechaNacimiento,
+                    PlanID = this.Entity.Plan.ID,
+                    PlanDescripcion = this.Entity.Plan.Descripcion
+                }));
+            }
+        }
+
+        protected override void Validar(PersonaDataView persona)
         {
             var validaciones = new ValidationException();
 
-            if (this.Entity.Legajo == default(int) || !this.Entity.Legajo.HasValue)
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXDebeSerNumerico, nameof(this.Entity.Legajo)));
+            if (persona.Legajo == default(int) || !persona.Legajo.HasValue)
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXDebeSerNumerico, nameof(persona.Legajo)));
 
-            if (string.IsNullOrEmpty(this.Entity.Nombre))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Nombre)));
+            if (string.IsNullOrEmpty(persona.Nombre))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(persona.Nombre)));
 
-            if (string.IsNullOrEmpty(this.Entity.Apellido))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Apellido)));
+            if (string.IsNullOrEmpty(persona.Apellido))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(persona.Apellido)));
 
-            if (this.Entity.FechaNacimiento == DateTime.MinValue)
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.FechaNacimiento)));
+            if (persona.FechaNacimiento == DateTime.MinValue)
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(persona.FechaNacimiento)));
 
-            if (this.Entity.FechaNacimiento.Date >= DateTime.Today.Date)
+            if (persona.FechaNacimiento.Date >= DateTime.Today.Date)
                 validaciones.AddValidationResult(Messages.LaFechaDeNacimientoNoPuedeSerMayorOIgualALaFechaDeHoy);
 
-            if (this.Repository.ObtenerPorLegajo(this.Entity.Legajo.Value) != null)
-                validaciones.AddValidationResult(string.Format(Messages.YaExisteUnaPersonaRegistradaConLegajoX, this.Entity.Legajo));
+            if (this.Repository.ObtenerPorLegajo(persona.Legajo.Value) != null)
+                validaciones.AddValidationResult(string.Format(Messages.YaExisteUnaPersonaRegistradaConLegajoX, persona.Legajo));
 
             validaciones.Throw();
         }
 
-        protected override void MapearDatos(TPersona entity)
+        protected override void Mapear(PersonaDataView persona)
         {
-            if (entity.State == BusinessEntity.States.New)
-            {
-                this.Entity = (TPersona)Activator.CreateInstance(typeof(TPersona));
-            }
-            else
-            {
-                this.Entity = this.Repository.GetByID(entity.ID);
-            }
-            
-            base.MapearDatos(entity);
-
-            this.Entity.Nombre = entity.Nombre;
-            this.Entity.Apellido = entity.Apellido;
-            this.Entity.Direccion = entity.Direccion;
-            this.Entity.Email = entity.Email;
-            this.Entity.FechaNacimiento = entity.FechaNacimiento.Date;
-            this.Entity.Legajo = entity.Legajo;
-            this.Entity.Telefono = entity.Telefono;
-            this.Entity.State = entity.State;
+            this.Entity.Nombre = persona.Nombre;
+            this.Entity.Apellido = persona.Apellido;
+            this.Entity.Direccion = persona.Direccion;
+            this.Entity.Email = persona.Email;
+            this.Entity.FechaNacimiento = persona.FechaNacimiento.Date;
+            this.Entity.Legajo = persona.Legajo;
+            this.Entity.Telefono = persona.Telefono;
         }
     }
 }

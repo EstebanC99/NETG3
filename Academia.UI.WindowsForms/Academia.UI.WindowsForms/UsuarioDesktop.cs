@@ -1,63 +1,50 @@
-﻿using Business.Entities;
-using Business.Logic;
+﻿using Academia.UI.Services;
+using Academia.UI.ViewModels;
 using System;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class UsuarioDesktop : ApplicationForm
+    public partial class UsuarioDesktop : ApplicationForm<IUsuarioUIService, UsuarioVM>
     {
-        private IUsuarioLogic Logic { get; set; }
+        public UsuarioDesktop()
+        {
 
-        public Usuario UsuarioActual { get; set; }
-
-        public UsuarioDesktop(ModoForm modo, IUsuarioLogic logic) : base(modo)
+        }
+        public UsuarioDesktop(IUsuarioUIService uiService, ModoForm modo) : base(uiService, modo)
         {
             InitializeComponent();
 
             this.SetearBoton(this.btnAceptar);
-
-            this.Logic = logic;
         }
 
-        public UsuarioDesktop(int usuarioID, ModoForm modo, IUsuarioLogic logic) : this(modo, logic)
+        public UsuarioDesktop(int usuarioID, IUsuarioUIService uiService, ModoForm modo) : this(uiService, modo)
         {
-            this.UsuarioActual = this.Logic.GetByID(usuarioID);
+            this.Model = this.UIService.LeerPorID(usuarioID);
 
             this.MapearDeDatos();
         }
 
         protected override void MapearDeDatos()
         {
-            this.txtID.Text = this.UsuarioActual.ID.ToString();
-            this.txtNombre.Text = this.UsuarioActual.Nombre;
-            this.txtApellido.Text = this.UsuarioActual.Apellido;
-            this.txtEmail.Text = this.UsuarioActual.Email;
-            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
-            this.txtClave.Text = this.UsuarioActual.Clave;
-            this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
+            this.txtID.Text = this.Model.ID.ToString();
+            this.txtNombre.Text = this.Model.Nombre;
+            this.txtApellido.Text = this.Model.Apellido;
+            this.txtEmail.Text = this.Model.Email;
+            this.txtUsuario.Text = this.Model.NombreUsuario;
+            this.txtClave.Text = this.Model.Clave;
+            this.chkHabilitado.Checked = this.Model.Habilitado;
         }
 
         protected override void MapearADatos()
         {
-            if (this.UsuarioActual == null)
-                this.UsuarioActual = new Usuario();
-
-            this.SetearEstadoEntidad(this.UsuarioActual);
-
-            this.UsuarioActual.ID = int.Parse(this.txtID.Text);
-            this.UsuarioActual.Nombre = this.txtNombre.Text;
-            this.UsuarioActual.Apellido = this.txtApellido.Text;
-            this.UsuarioActual.Email = this.txtEmail.Text;
-            this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
-            this.UsuarioActual.Clave = this.txtClave.Text;
-            this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-        }
-
-        protected override void GuardarCambios()
-        {
-            this.MapearADatos();
-
-            this.Logic.GuardarCambios(this.UsuarioActual);
+            this.Model.ID = int.Parse(this.txtID.Text);
+            this.Model.Nombre = this.txtNombre.Text;
+            this.Model.Apellido = this.txtApellido.Text;
+            this.Model.Email = this.txtEmail.Text;
+            this.Model.NombreUsuario = this.txtUsuario.Text;
+            this.Model.Clave = this.txtClave.Text;
+            this.Model.Habilitado = this.chkHabilitado.Checked;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -79,7 +66,5 @@ namespace Academia.UI.WindowsForms
         {
             this.Close();
         }
-
-
     }
 }

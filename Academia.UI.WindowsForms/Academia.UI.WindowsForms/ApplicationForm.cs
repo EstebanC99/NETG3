@@ -1,49 +1,71 @@
-﻿using Business.Entities;
-using Business.Logic;
+﻿using Academia.UI.Services;
+using Academia.UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
+using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
 {
-    public partial class ApplicationForm : Form
+    public partial class ApplicationForm<TUIService, TViewModel> : Form, IApplicationForm
+        where TUIService : IUIService<TViewModel>
+        where TViewModel : ViewModel
     {
+        protected TUIService UIService { get; set; }
+
+        protected TViewModel Model { get; set; }
+
         protected List<Control> CamposRequeridos { get; set; }
 
         protected List<Control> CamposNumericosRequeridos { get; set; }
 
         public ApplicationForm()
         {
-            InitializeComponent();
+
+        }
+
+        public ApplicationForm(TUIService uiService) : base()
+        {
+            this.UIService = uiService;
 
             this.CamposRequeridos = new List<Control>();
 
             this.CamposNumericosRequeridos = new List<Control>();
+
+            this.Model = (TViewModel)Activator.CreateInstance(typeof(TViewModel));
         }
 
-        public ApplicationForm(ModoForm modo) : this()
+        public ApplicationForm(TUIService uiService, ModoForm modo) : this(uiService)
         {
             this.Modo = modo;
         }
 
-        public enum ModoForm
-        {
-            Alta,
-            Baja,
-            Modificacion,
-            Consulta
-        }
-
         public ModoForm Modo { get; set; }
 
-        protected virtual void MapearDeDatos() { }
+        protected virtual void MapearDeDatos() { throw new NotImplementedException(); }
 
-        protected virtual void MapearADatos() { }
+        protected virtual void MapearADatos() { throw new NotImplementedException(); }
 
-        protected virtual void GuardarCambios() { }
+        protected virtual void GuardarCambios()
+        {
+            switch (this.Modo)
+            {
+                case ModoForm.Alta:
+                    this.UIService.Registrar(this.Model);
+                    break;
+                case ModoForm.Modificacion:
+                    this.UIService.Modificar(this.Model);
+                    break;
+                case ModoForm.Baja:
+                    this.UIService.Eliminar(this.Model);
+                    break;
+                default:
+                    break;
+            }
+        }
 
-        protected virtual bool Validar() 
+        protected virtual bool Validar()
         {
             bool valido = true;
 
@@ -75,16 +97,7 @@ namespace Academia.UI.WindowsForms
                 }
             }
 
-            return valido; 
-        }
-
-        public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
-        {
-            MessageBox.Show(mensaje, titulo, botones, icono);
-        }
-        public void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
-        {
-            this.Notificar(this.Text, mensaje, botones, icono);
+            return valido;
         }
 
         protected virtual void SetearBoton(Button btn)
@@ -102,27 +115,6 @@ namespace Academia.UI.WindowsForms
                     break;
                 case ModoForm.Consulta:
                     btn.Text = "Aceptar";
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        protected void SetearEstadoEntidad(BusinessEntity entity)
-        {
-            switch (this.Modo)
-            {
-                case ModoForm.Alta:
-                    entity.State = BusinessEntity.States.New;
-                    break;
-                case ModoForm.Modificacion:
-                    entity.State = BusinessEntity.States.Modified;
-                    break;
-                case ModoForm.Baja:
-                    entity.State = BusinessEntity.States.Deleted;
-                    break;
-                case ModoForm.Consulta:
-                    entity.State = BusinessEntity.States.Unmodified;
                     break;
                 default:
                     break;

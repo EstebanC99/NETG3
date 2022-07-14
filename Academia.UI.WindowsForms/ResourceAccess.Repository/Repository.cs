@@ -40,6 +40,5 @@ namespace ResourceAccess.Repository
         {
             return this.DbSet.ToList();
         }
-
     }
 }

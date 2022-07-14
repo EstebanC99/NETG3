@@ -1,24 +1,30 @@
 ﻿using Business.Entities;
-using System;
+using Business.Views;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Logic
 {
     public interface ILogicBase
     {
-
+        
     }
 
-    public interface ILogicBase<TEntity> : ILogicBase
+    public interface ILogicBase<TDataView, TEntity> : ILogicBase
         where TEntity : BusinessEntity
+        where TDataView : DataView
     {
-        void GuardarCambios(TEntity entity);
-        
-        TEntity GetByID(int ID);
+        #region Metodos ABM
 
-        List<TEntity> GetAll();
+        void Registrar(TDataView dataView);
+
+        void Modificar(TDataView dataView);
+
+        void Eliminar(TDataView dataView);
+
+        #endregion
+
+        DataView GetByID(int ID);
+
+        List<DataView> GetAll();
     }
 }

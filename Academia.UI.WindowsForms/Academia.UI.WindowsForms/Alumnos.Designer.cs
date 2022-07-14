@@ -1,7 +1,8 @@
-﻿
+﻿using System.Windows.Forms;
+
 namespace Academia.UI.WindowsForms
 {
-    partial class Alumnos
+    partial class Alumnos 
     {
         /// <summary>
         /// Required designer variable.

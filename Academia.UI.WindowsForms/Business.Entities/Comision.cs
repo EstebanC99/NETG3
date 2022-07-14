@@ -9,13 +9,6 @@
             set { this._IdPlan = value; }
         }
 
-        private string _Descripcion;
-        public string Descripcion
-        {
-            get { return this._Descripcion; }
-            set { this._Descripcion = value; }
-        }
-
         private int _AnioEspecialidad;
         public int AnioEspecialidad
         {
