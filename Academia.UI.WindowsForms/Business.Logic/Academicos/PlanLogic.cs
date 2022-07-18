@@ -69,7 +69,7 @@ namespace Business.Logic.Academicos
             if (string.IsNullOrEmpty(plan.Descripcion))
                 validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(plan.Descripcion)));
 
-            if (this.Entity.Especialidad == null)
+            if (plan.EspecialidadID == 0)
                 validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Especialidad)));
 
             validaciones.Throw();

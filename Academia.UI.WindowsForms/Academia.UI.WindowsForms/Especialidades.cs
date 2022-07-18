@@ -1,5 +1,6 @@
 ﻿using Academia.UI.Services;
 using System;
+using System.Windows.Forms;
 using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms

@@ -55,12 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academicos\EspecialidadLogic.cs" />
+    <Compile Include="Academicos\MateriaLogic.cs" />
     <Compile Include="Academicos\PlanLogic.cs" />
     <Compile Include="EntityLoaderLogic.cs" />
     <Compile Include="Interfaces\IAlumnoLogic.cs" />
     <Compile Include="Interfaces\IEntityLoaderLogicService.cs" />
     <Compile Include="Interfaces\IEspecialidadLogic.cs" />
     <Compile Include="Interfaces\ILogicBase.cs" />
+    <Compile Include="Interfaces\IMateriaLogic.cs" />
     <Compile Include="Interfaces\IPersonaLogic.cs" />
     <Compile Include="Interfaces\IPlanLogic.cs" />
     <Compile Include="Interfaces\IProfesorLogic.cs" />

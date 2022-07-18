@@ -44,6 +44,8 @@
     <Compile Include="Especialidades\EspecialidadUIService.cs" />
     <Compile Include="Especialidades\IEspecialidadUIService.cs" />
     <Compile Include="IUIService.cs" />
+    <Compile Include="Materias\IMateriaUIService.cs" />
+    <Compile Include="Materias\MateriaUIService.cs" />
     <Compile Include="Personas\Alumnos\AlumnoUIService.cs" />
     <Compile Include="Personas\Alumnos\IAlumnoUIService.cs" />
     <Compile Include="Personas\IPersonaUIService.cs" />

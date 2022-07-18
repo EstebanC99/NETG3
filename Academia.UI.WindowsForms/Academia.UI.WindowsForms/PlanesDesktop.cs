@@ -52,9 +52,8 @@ namespace Academia.UI.WindowsForms
 
         protected override void MapearADatos()
         {
-            this.Model.ID = int.Parse(this.txtID.Text);
             this.Model.Descripcion = this.txtDescripcion.Text;
-            this.Model.EspecialidadID = int.Parse(this.comboEspecialidades.SelectedItem.ToString());
+            this.Model.EspecialidadID = ((EspecialidadVM)this.comboEspecialidades.SelectedItem).ID;
         }
 
         protected override void MapearDeDatos()

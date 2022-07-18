@@ -2,25 +2,26 @@
 {
     public class Materia : BusinessEntity
     {
-        private int _IdPlan;
-        public int IdPlan
+        private int _HsSemanales;
+        public int HsSemanales
         {
-            get { return this._IdPlan; }
-            set { this._IdPlan = value; }
+            get { return this._HsSemanales; }
+            set { this._HsSemanales = value; }
         }
 
-        private int _HSSemanales;
-        public int HSSemanales
+        private int _HsTotales;
+        public int HsTotales
         {
-            get { return this._HSSemanales; }
-            set { this._HSSemanales = value; }
+            get { return this._HsTotales; }
+            set { this._HsTotales = value; }
         }
 
-        private int _HSTotales;
-        public int HSTotales
+        private Plan _Plan;
+        public virtual Plan Plan
         {
-            get { return this._HSTotales; }
-            set { this._HSTotales = value; }
+            get { return this._Plan; }
+            set { this._Plan = value; }
         }
+
     }
 }

@@ -92,7 +92,7 @@ namespace Academia.UI.WindowsForms
             // tsPersonas
             // 
             this.tsPersonas.AutoSize = false;
-            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
             this.tsPersonas.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
@@ -100,7 +100,7 @@ namespace Academia.UI.WindowsForms
             this.tsbEliminar});
             this.tsPersonas.Location = new System.Drawing.Point(3, 0);
             this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(332, 20);
+            this.tsPersonas.Size = new System.Drawing.Size(147, 20);
             this.tsPersonas.TabIndex = 6;
             this.tsPersonas.Text = "toolStrip1";
             // 
@@ -144,6 +144,7 @@ namespace Academia.UI.WindowsForms
             this.ClientSize = new System.Drawing.Size(335, 450);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "Especialidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.Especialidades_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);

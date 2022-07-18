@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Especialidades\EspecialidadVM.cs" />
+    <Compile Include="Materias\MateriaVM.cs" />
     <Compile Include="Personas\Alumnos\AlumnoVM.cs" />
     <Compile Include="Personas\PersonaVM.cs" />
     <Compile Include="Personas\Profesores\ProfesorVM.cs" />

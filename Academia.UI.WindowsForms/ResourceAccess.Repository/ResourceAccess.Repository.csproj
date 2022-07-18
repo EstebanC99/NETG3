@@ -56,10 +56,12 @@
   <ItemGroup>
     <Compile Include="AcademiaDbContext.cs" />
     <Compile Include="AcademiaDbContextFactory.cs" />
-    <Compile Include="Academicos\EspecialidadRepository.cs" />
-    <Compile Include="Academicos\IEspecialidadRepository.cs" />
-    <Compile Include="Academicos\IPlanRepository.cs" />
-    <Compile Include="Academicos\PlanRepository.cs" />
+    <Compile Include="Academicos\Especialidades\EspecialidadRepository.cs" />
+    <Compile Include="Academicos\Especialidades\IEspecialidadRepository.cs" />
+    <Compile Include="Academicos\Materias\IMateriaRepository.cs" />
+    <Compile Include="Academicos\Materias\MateriaRepository.cs" />
+    <Compile Include="Academicos\Planes\IPlanRepository.cs" />
+    <Compile Include="Academicos\Planes\PlanRepository.cs" />
     <Compile Include="DataAccessBase.cs" />
     <Compile Include="EntityLoaderRepository.cs" />
     <Compile Include="IDataAccessBase.cs" />

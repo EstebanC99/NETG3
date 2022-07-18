@@ -1,4 +1,5 @@
 ﻿using Academia.UI.Services;
+using Academia.UI.Services.Materias;
 using Business.Utils;
 using System;
 using System.Windows.Forms;
@@ -46,6 +47,13 @@ namespace Academia.UI.WindowsForms
             Planes planes = new Planes(IoCContainer.Instance.TryResolve<IPlanUIService>());
 
             planes.ShowDialog();
+        }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Materias materias = new Materias(IoCContainer.Instance.TryResolve<IMateriaUIService>());
+
+            materias.ShowDialog();
         }
     }
 }

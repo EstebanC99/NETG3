@@ -41,7 +41,6 @@ namespace Academia.UI.WindowsForms
 
         protected override void MapearADatos()
         {
-            this.Model.ID = int.Parse(this.txtID.Text);
             this.Model.Descripcion = this.txtDescripcion.Text;
         }
 
