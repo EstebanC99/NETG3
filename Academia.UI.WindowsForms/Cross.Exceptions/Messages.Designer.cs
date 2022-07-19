@@ -88,6 +88,15 @@ namespace Cross.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La Materia y la Comision seleccionadas no pertenecen al mismo Plan: {0}..
+        /// </summary>
+        public static string LaMateriaYLaComisionNoPertenecenAlMismoPlanX {
+            get {
+                return ResourceManager.GetString("LaMateriaYLaComisionNoPertenecenAlMismoPlanX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ya existe una Persona registrada con Legajo: {0}..
         /// </summary>
         public static string YaExisteUnaPersonaRegistradaConLegajoX {

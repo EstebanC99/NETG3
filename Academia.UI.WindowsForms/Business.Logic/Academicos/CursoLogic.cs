@@ -107,6 +107,12 @@ namespace Business.Logic.Academicos
                 validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, this.Entity.Comision));
 
             validaciones.Throw();
+
+            var comision = this.EntityLoaderLogicService.GetByID<Comision>(curso.ComisionID);
+            var materia = this.EntityLoaderLogicService.GetByID<Materia>(curso.MateriaID);
+
+            if (comision != null && materia != null && comision.Plan != materia.Plan)
+                throw new ValidationException(string.Format(Messages.LaMateriaYLaComisionNoPertenecenAlMismoPlanX, materia.Plan.Descripcion));
         }
 
         #endregion

@@ -126,6 +126,9 @@
   <data name="LaFechaDeNacimientoNoPuedeSerMayorOIgualALaFechaDeHoy" xml:space="preserve">
     <value>La Fecha de Nacimiento no puede ser mayor o igual a la Fecha de Hoy.</value>
   </data>
+  <data name="LaMateriaYLaComisionNoPertenecenAlMismoPlanX" xml:space="preserve">
+    <value>La Materia y la Comision seleccionadas no pertenecen al mismo Plan: {0}.</value>
+  </data>
   <data name="YaExisteUnaPersonaRegistradaConLegajoX" xml:space="preserve">
     <value>Ya existe una Persona registrada con Legajo: {0}.</value>
   </data>
