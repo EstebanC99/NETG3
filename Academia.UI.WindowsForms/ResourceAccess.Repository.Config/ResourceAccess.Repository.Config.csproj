@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComisionConfig.cs" />
     <Compile Include="DummyConfig.cs" />
     <Compile Include="EspecialidadConfig.cs" />
     <Compile Include="MateriaConfig.cs" />

@@ -16,18 +16,18 @@
             set { this._Cupo = value; }
         }
 
-        private int _IdComision;
-        public int IdComision
+        private Comision _Comision;
+        public virtual Comision Comision
         {
-            get { return this._IdComision; }
-            set { this._IdComision = value; }
+            get { return this._Comision; }
+            set { this._Comision = value; }
         }
 
-        private int _IdMateria;
-        public int IdMateria
+        private Materia _Materia;
+        public virtual Materia Materia
         {
-            get { return this._IdMateria; }
-            set { this._IdMateria = value; }
+            get { return this._Materia; }
+            set { this._Materia = value; }
         }
 
         

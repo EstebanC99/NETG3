@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comisiones\ComisionVM.cs" />
     <Compile Include="Especialidades\EspecialidadVM.cs" />
     <Compile Include="Materias\MateriaVM.cs" />
     <Compile Include="Personas\Alumnos\AlumnoVM.cs" />

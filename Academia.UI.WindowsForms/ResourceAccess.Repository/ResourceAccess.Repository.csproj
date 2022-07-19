@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="AcademiaDbContext.cs" />
     <Compile Include="AcademiaDbContextFactory.cs" />
+    <Compile Include="Academicos\Comisiones\ComisionRepository.cs" />
+    <Compile Include="Academicos\Comisiones\IComisionRepository.cs" />
     <Compile Include="Academicos\Especialidades\EspecialidadRepository.cs" />
     <Compile Include="Academicos\Especialidades\IEspecialidadRepository.cs" />
     <Compile Include="Academicos\Materias\IMateriaRepository.cs" />

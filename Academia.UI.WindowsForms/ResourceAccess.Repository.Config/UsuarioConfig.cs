@@ -19,6 +19,8 @@ namespace ResourceAccess.Repository.Config
             this.Property(p => p.Apellido).IsRequired();
             this.Property(p => p.Email).IsOptional();
             this.Property(p => p.CambiaClave).IsOptional();
+
+            this.Ignore(p => p.Descripcion);
         }
     }
 }

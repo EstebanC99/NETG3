@@ -28,6 +28,8 @@ namespace ResourceAccess.Repository.Config
             this.Property(p => p.Legajo).IsOptional();
 
             this.HasOptional(p => p.Plan).WithMany().Map(m => m.MapKey("ID_Plan"));
+
+            this.Ignore(p => p.Descripcion);
         }
     }
 }

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comisiones\ComisionUIService.cs" />
+    <Compile Include="Comisiones\IComisionUIService.cs" />
     <Compile Include="Especialidades\EspecialidadUIService.cs" />
     <Compile Include="Especialidades\IEspecialidadUIService.cs" />
     <Compile Include="IUIService.cs" />

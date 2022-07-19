@@ -55,5 +55,12 @@ namespace Academia.UI.WindowsForms
 
             materias.ShowDialog();
         }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Comisiones comisiones = new Comisiones(IoCContainer.Instance.TryResolve<IComisionUIService>());
+
+            comisiones.ShowDialog();
+        }
     }
 }

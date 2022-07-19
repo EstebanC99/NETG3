@@ -2,11 +2,11 @@
 {
     public class Comision : BusinessEntity
     {
-        private int _IdPlan;    
-        public int IdPlan
+        private Plan _Plan;    
+        public virtual Plan Plan
         {
-            get { return this._IdPlan; }
-            set { this._IdPlan = value; }
+            get { return this._Plan; }
+            set { this._Plan = value; }
         }
 
         private int _AnioEspecialidad;
