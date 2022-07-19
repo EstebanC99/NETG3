@@ -58,6 +58,8 @@
     <Compile Include="AcademiaDbContextFactory.cs" />
     <Compile Include="Academicos\Comisiones\ComisionRepository.cs" />
     <Compile Include="Academicos\Comisiones\IComisionRepository.cs" />
+    <Compile Include="Academicos\Cursos\CursoRepository.cs" />
+    <Compile Include="Academicos\Cursos\ICursoRepository.cs" />
     <Compile Include="Academicos\Especialidades\EspecialidadRepository.cs" />
     <Compile Include="Academicos\Especialidades\IEspecialidadRepository.cs" />
     <Compile Include="Academicos\Materias\IMateriaRepository.cs" />

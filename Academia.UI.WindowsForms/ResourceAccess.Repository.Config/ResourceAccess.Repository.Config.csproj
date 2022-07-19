@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComisionConfig.cs" />
+    <Compile Include="CursoConfig.cs" />
     <Compile Include="DummyConfig.cs" />
     <Compile Include="EspecialidadConfig.cs" />
     <Compile Include="MateriaConfig.cs" />

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Comisiones\ComisionUIService.cs" />
     <Compile Include="Comisiones\IComisionUIService.cs" />
+    <Compile Include="Cursos\CursoUIService.cs" />
+    <Compile Include="Cursos\ICursoUIService.cs" />
     <Compile Include="Especialidades\EspecialidadUIService.cs" />
     <Compile Include="Especialidades\IEspecialidadUIService.cs" />
     <Compile Include="IUIService.cs" />

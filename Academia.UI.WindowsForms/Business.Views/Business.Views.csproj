@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comisiones\ComisionDataView.cs" />
+    <Compile Include="Cursos\CursoDataView.cs" />
     <Compile Include="DataView.cs" />
     <Compile Include="Especialidades\EspecialidadDataView.cs" />
     <Compile Include="Materias\MateriaDataView.cs" />
