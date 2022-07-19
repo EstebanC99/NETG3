@@ -62,5 +62,12 @@ namespace Academia.UI.WindowsForms
 
             comisiones.ShowDialog();
         }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cursos cursos = new Cursos(IoCContainer.Instance.TryResolve<ICursoUIService>());
+
+            cursos.ShowDialog();
+        }
     }
 }
