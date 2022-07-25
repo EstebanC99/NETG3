@@ -33,6 +33,8 @@ namespace Academia.UI.WindowsForms
 
             if (this.Validar())
             {
+                this.MapearADatos();
+
                 this.GuardarCambios();
 
                 this.Close();
@@ -41,7 +43,6 @@ namespace Academia.UI.WindowsForms
 
         protected override void MapearADatos()
         {
-            this.Model.ID = int.Parse(this.txtID.Text);
             this.Model.Nombre = this.txtNombre.Text;
             this.Model.Apellido = this.txtApellido.Text;
             this.Model.Email = this.txtEmail.Text;

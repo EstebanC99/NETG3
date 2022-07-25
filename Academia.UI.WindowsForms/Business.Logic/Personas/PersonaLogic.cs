@@ -6,6 +6,7 @@ using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Personas;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Business.Logic.Personas
 {
@@ -35,13 +36,13 @@ namespace Business.Logic.Personas
         }
 
         public TPersonaDataView LeerPorID<TPersonaDataView>(int ID)
-            where TPersonaDataView : PersonaDataView
+            where TPersonaDataView : IPersonaDataView, new()
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
                 this.Entity = this.Repository.GetByID(ID);
 
-                return (TPersonaDataView)(new PersonaDataView()
+                return new TPersonaDataView()
                 {
                     ID = this.Entity.ID,
                     Nombre = this.Entity.Nombre,
@@ -51,31 +52,31 @@ namespace Business.Logic.Personas
                     Telefono = this.Entity.Telefono,
                     Email = this.Entity.Email,
                     FechaNacimiento = this.Entity.FechaNacimiento,
-                    PlanID = this.Entity.Plan.ID,
-                    PlanDescripcion = this.Entity.Plan.Descripcion
-                });
+                    PlanID = this.Entity.Plan?.ID,
+                    PlanDescripcion = this.Entity.Plan?.Descripcion
+                };
             }
         }
 
         public List<TPersonaDataView> LeerTodos<TPersonaDataView>()
-            where TPersonaDataView : PersonaDataView
+            where TPersonaDataView : IPersonaDataView, new()
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
-                return this.Repository.GetAll().ConvertAll(m => (TPersonaDataView)
-                (new PersonaDataView()
+                return this.Repository.GetAll().ConvertAll(m => 
+                new TPersonaDataView()
                 {
-                    ID = this.Entity.ID,
-                    Nombre = this.Entity.Nombre,
-                    Apellido = this.Entity.Apellido,
-                    Legajo = this.Entity.Legajo,
-                    Direccion = this.Entity.Direccion,
-                    Telefono = this.Entity.Telefono,
-                    Email = this.Entity.Email,
-                    FechaNacimiento = this.Entity.FechaNacimiento,
-                    PlanID = this.Entity.Plan.ID,
-                    PlanDescripcion = this.Entity.Plan.Descripcion
-                }));
+                    ID = m.ID,
+                    Nombre = m.Nombre,
+                    Apellido = m.Apellido,
+                    Legajo = m.Legajo,
+                    Direccion = m.Direccion,
+                    Telefono = m.Telefono,
+                    Email = m.Email,
+                    FechaNacimiento = m.FechaNacimiento,
+                    PlanID = m.Plan?.ID,
+                    PlanDescripcion = m.Plan?.Descripcion
+                });
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿namespace Business.Views
 {
-    public class ProfesorDataView : PersonaDataView
+    public class ProfesorDataView : PersonaDataView, IPersonaDataView
     {
+
     }
 }

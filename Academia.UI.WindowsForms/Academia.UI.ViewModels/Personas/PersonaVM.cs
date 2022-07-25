@@ -19,7 +19,7 @@ namespace Academia.UI.ViewModels
         public DateTime FechaNacimiento { get; set; }
 
         #region Plan
-        public int PlanID { get; set; }
+        public int? PlanID { get; set; }
 
         public string PlanDescripcion { get; set; }
         #endregion
