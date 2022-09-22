@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Scripts\" />
+    <Folder Include="Scripts\PostDeploy" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
@@ -67,14 +68,15 @@
     <Build Include="Tables\t_DocenteCurso.sql" />
     <Build Include="Tables\t_Especialidad.sql" />
     <None Include="Db.publish.xml" />
+    <None Include="Scripts\PostDeploy\t_Rol.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\t_Materia.sql" />
-    <Build Include="Tables\t_Modulo.sql" />
-    <Build Include="Tables\t_ModuloUsuario.sql" />
     <Build Include="Tables\t_Persona.sql" />
     <Build Include="Tables\t_Plan.sql" />
     <Build Include="Tables\t_Usuario.sql" />
+    <Build Include="Tables\t_Rol.sql" />
+    <PostDeploy Include="Scripts\PostDeploy\Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Db.refactorlog" />

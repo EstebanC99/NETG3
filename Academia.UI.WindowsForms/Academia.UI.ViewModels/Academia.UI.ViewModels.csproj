@@ -46,9 +46,11 @@
     <Compile Include="Especialidades\EspecialidadVM.cs" />
     <Compile Include="Materias\MateriaVM.cs" />
     <Compile Include="Personas\Alumnos\AlumnoVM.cs" />
+    <Compile Include="Personas\PersonaFiltroVM.cs" />
     <Compile Include="Personas\PersonaVM.cs" />
     <Compile Include="Personas\Profesores\ProfesorVM.cs" />
     <Compile Include="Planes\PlanVM.cs" />
+    <Compile Include="Usuarios\LoginVM.cs" />
     <Compile Include="Usuarios\UsuarioVM.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

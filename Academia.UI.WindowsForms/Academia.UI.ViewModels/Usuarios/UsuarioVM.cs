@@ -6,6 +6,8 @@
 
         public string Clave { get; set; }
 
+        public int PersonaID { get; set; }
+
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }

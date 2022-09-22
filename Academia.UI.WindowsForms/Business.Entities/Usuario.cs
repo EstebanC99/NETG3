@@ -16,27 +16,6 @@
             set { this._Clave = value; }
         }
 
-        private string _Nombre;
-        public virtual string Nombre
-        {
-            get { return this._Nombre; }
-            set { this._Nombre = value; }
-        }
-
-        private string _Apellido;
-        public virtual string Apellido
-        {
-            get { return this._Apellido; }
-            set { this._Apellido = value; }
-        }
-
-        private string _Email;
-        public virtual string Email
-        {
-            get { return this._Email; }
-            set { this._Email = value; }
-        }
-
         private bool _Habilitado;
         public virtual bool Habilitado
         {
@@ -49,6 +28,20 @@
         {
             get { return this._CambiaClave; }
             set { this._CambiaClave = value; }
+        }
+
+        private Persona _Persona;
+        public virtual Persona Persona
+        {
+            get { return this._Persona; }
+            set { this._Persona = value; }
+        }
+
+        private Rol _Rol;
+        public virtual Rol Rol
+        {
+            get { return this._Rol; }
+            set { this._Rol = value; }
         }
     }
 }

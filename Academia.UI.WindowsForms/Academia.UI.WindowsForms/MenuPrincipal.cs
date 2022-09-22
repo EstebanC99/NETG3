@@ -1,6 +1,7 @@
 ﻿using Academia.UI.Services;
 using Academia.UI.Services.Materias;
 using Business.Utils;
+using Security.Desktop;
 using System;
 using System.Windows.Forms;
 
@@ -12,7 +13,6 @@ namespace Academia.UI.WindowsForms
         {
             InitializeComponent();
         }
-
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -68,6 +68,19 @@ namespace Academia.UI.WindowsForms
             Cursos cursos = new Cursos(IoCContainer.Instance.TryResolve<ICursoUIService>());
 
             cursos.ShowDialog();
+        }
+
+        private void SolicitarCredenciales()
+        {
+            var loging = new Login().ShowDialog();
+
+            if (!SessionInfo.EstaLogeado)
+                this.Close();
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            this.SolicitarCredenciales();
         }
     }
 }

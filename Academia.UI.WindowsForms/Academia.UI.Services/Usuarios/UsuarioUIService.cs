@@ -1,5 +1,6 @@
 ﻿using Academia.UI.ViewModels;
 using Business.Logic;
+using Business.Logic.Interfaces;
 using Business.Views;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,12 @@ namespace Academia.UI.Services
 {
     public class UsuarioUIService : UIService<IUsuarioLogic, UsuarioVM>, IUsuarioUIService
     {
-        public UsuarioUIService(IUsuarioLogic logic) : base(logic)
-        {
+        private IRolLogic RolLogic { get; set; }
 
+        public UsuarioUIService(IUsuarioLogic logic,
+                                IRolLogic rolLogic) : base(logic)
+        {
+            this.RolLogic = rolLogic;
         }
 
         public UsuarioVM LeerPorID(int ID)
@@ -39,6 +43,15 @@ namespace Academia.UI.Services
             this.Logic.Eliminar(this.CrearDataViewDeViewModel(vm));
         }
 
+        public List<ViewModel> LeerRoles()
+        {
+            return this.RolLogic.GetAll().ConvertAll<ViewModel>(p => new ViewModel()
+            {
+                ID = p.ID,
+                Descripcion = p.Descripcion
+            });
+        }
+
         #region Funciones de Conversion
 
         private readonly Func<UsuarioDataView, UsuarioVM> CrearViewModelDeDataView = e =>
@@ -46,12 +59,13 @@ namespace Academia.UI.Services
             var vm = new UsuarioVM();
 
             vm.ID = e.ID;
-            vm.Nombre = e.Nombre;
-            vm.Apellido = e.Apellido;
+            vm.PersonaID = e.PersonaID;
+            vm.Nombre = e.PersonaNombre;
+            vm.Apellido = e.PersonaApellido;
             vm.NombreUsuario = e.NombreUsuario;
             vm.Clave = e.Clave;
             vm.Habilitado = e.Habilitado;
-            vm.Email = e.Email;
+            vm.Email = e.PersonaEmail;
             vm.CambiaClave = e.CambiaClave;
 
             return vm;
@@ -62,12 +76,10 @@ namespace Academia.UI.Services
             var dv = new UsuarioDataView();
 
             dv.ID = e.ID;
-            dv.Nombre = e.Nombre;
-            dv.Apellido = e.Apellido;
+            dv.PersonaID = e.PersonaID;
             dv.NombreUsuario = e.NombreUsuario;
             dv.Clave = e.Clave;
             dv.Habilitado = e.Habilitado;
-            dv.Email = e.Email;
             dv.CambiaClave = e.CambiaClave;
 
             return dv;

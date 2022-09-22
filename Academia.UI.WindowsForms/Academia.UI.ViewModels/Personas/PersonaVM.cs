@@ -2,7 +2,7 @@
 
 namespace Academia.UI.ViewModels
 {
-    public abstract class PersonaVM : ViewModel
+    public class PersonaVM : ViewModel
     {
         public string Nombre { get; set; }
 
@@ -23,6 +23,8 @@ namespace Academia.UI.ViewModels
 
         public string PlanDescripcion { get; set; }
         #endregion
+
+        public int TipoPersonaID { get; set; }
 
     }
 }

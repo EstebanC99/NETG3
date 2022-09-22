@@ -1,6 +1,7 @@
 ﻿using Academia.UI.Services;
 using Academia.UI.ViewModels;
 using System;
+using System.Windows.Forms;
 using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
@@ -16,6 +17,16 @@ namespace Academia.UI.WindowsForms
             InitializeComponent();
 
             this.SetearBoton(this.btnAceptar);
+
+            var roles = this.UIService.LeerRoles();
+
+            this.comboRoles.DisplayMember = nameof(this.Model.Descripcion);
+            this.comboRoles.ValueMember = nameof(this.Model.ID);
+
+            foreach (var rol in roles)
+            {
+                this.comboRoles.Items.Add(rol);
+            }
         }
 
         public UsuarioDesktop(int usuarioID, IUsuarioUIService uiService, ModoForm modo) : this(uiService, modo)
@@ -66,6 +77,48 @@ namespace Academia.UI.WindowsForms
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var personasList = new PersonasList())
+            {
+                personasList.ShowDialog(this);
+            }
+        }
+
+        public void RecuperarPersonaElegida(PersonaVM persona)
+        {
+            if (persona == null)
+                return;
+
+            this.Model.PersonaID = persona.ID;
+            this.Model.Nombre = persona.Nombre;
+            this.Model.Apellido = persona.Apellido;
+            this.Model.Email = persona.Email;
+            this.txtNombre.Text = this.Model.Nombre;
+            this.txtApellido.Text = this.Model.Apellido;
+            this.txtEmail.Text = this.Model.Email;
+        }
+
+        private void btnVerClave_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.txtClave.PasswordChar = '\0';
+        }
+
+        private void btnVerClave_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.txtClave.PasswordChar = '*';
+        }
+
+        private void btnVerConfirmarClave_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.txtConfirmarClave.PasswordChar = '\0';
+        }
+
+        private void btnVerConfirmarClave_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.txtConfirmarClave.PasswordChar = '*';
         }
     }
 }

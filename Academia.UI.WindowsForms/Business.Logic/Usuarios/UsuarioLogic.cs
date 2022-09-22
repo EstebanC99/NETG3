@@ -1,4 +1,5 @@
 ﻿using Business.Entities;
+using Business.Logic.Interfaces;
 using Business.Views;
 using Cross.Exceptions;
 using EntityFramework.DbContextScope.Interfaces;
@@ -9,12 +10,15 @@ namespace Business.Logic.Usuarios
 {
     public class UsuarioLogic : LogicBase<UsuarioDataView, Usuario, IUsuarioRepository>, IUsuarioLogic
     {
+        private IEntityLoaderLogicService EntityLoaderLogicService { get; set; }
+
         public UsuarioLogic(Usuario usuario,
                             IUsuarioRepository repository,
-                            IDbContextScopeFactory dbContextScopeFactory)
+                            IDbContextScopeFactory dbContextScopeFactory,
+                            IEntityLoaderLogicService entityLoaderLogicService)
             : base(usuario, repository, dbContextScopeFactory)
         {
-
+            this.EntityLoaderLogicService = entityLoaderLogicService;
         }
 
         public UsuarioDataView LeerPorID(int ID)
@@ -26,12 +30,12 @@ namespace Business.Logic.Usuarios
                 return new UsuarioDataView()
                 {
                     ID = this.Entity.ID,
-                    Nombre = this.Entity.Nombre,
-                    Apellido = this.Entity.Apellido,
-                    NombreUsuario = this.Entity.Nombre,
+                    PersonaNombre = this.Entity.Persona?.Nombre,
+                    PersonaApellido = this.Entity.Persona?.Apellido,
+                    PersonaEmail = this.Entity.Persona?.Email,
+                    NombreUsuario = this.Entity.NombreUsuario,
                     Clave = this.Entity.Clave,
                     Habilitado = this.Entity.Habilitado,
-                    Email = this.Entity.Email,
                     CambiaClave = this.Entity.CambiaClave
                 };
             }
@@ -44,14 +48,14 @@ namespace Business.Logic.Usuarios
                 return this.Repository.GetAll().ConvertAll(m =>
                 new UsuarioDataView()
                 {
-                    ID = this.Entity.ID,
-                    Nombre = this.Entity.Nombre,
-                    Apellido = this.Entity.Apellido,
-                    NombreUsuario = this.Entity.Nombre,
-                    Clave = this.Entity.Clave,
-                    Habilitado = this.Entity.Habilitado,
-                    Email = this.Entity.Email,
-                    CambiaClave = this.Entity.CambiaClave
+                    ID = m.ID,
+                    PersonaNombre = m.Persona?.Nombre,
+                    PersonaApellido = m.Persona?.Apellido,
+                    PersonaEmail = m.Persona?.Email,
+                    NombreUsuario = m.NombreUsuario,
+                    Clave = m.Clave,
+                    Habilitado = m.Habilitado,
+                    CambiaClave = m.CambiaClave
                 });
             }
         }
@@ -59,12 +63,6 @@ namespace Business.Logic.Usuarios
         protected override void Validar(UsuarioDataView usuario)
         {
             var validaciones = new ValidationException();
-
-            if (string.IsNullOrEmpty(usuario.Nombre))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.Nombre)));
-
-            if (string.IsNullOrEmpty(usuario.Apellido))
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.Apellido)));
 
             if (string.IsNullOrEmpty(usuario.NombreUsuario))
                 validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.NombreUsuario)));
@@ -77,9 +75,7 @@ namespace Business.Logic.Usuarios
 
         protected override void Mapear(UsuarioDataView usuario)
         {
-            this.Entity.Nombre = usuario.Nombre;
-            this.Entity.Apellido = usuario.Apellido;
-            this.Entity.Email = usuario.Email;
+            this.Entity.Persona = this.EntityLoaderLogicService.GetByID<Persona>(usuario.PersonaID);
             this.Entity.NombreUsuario = usuario.NombreUsuario;
             this.Entity.Clave = usuario.Clave;
             this.Entity.CambiaClave = usuario.CambiaClave;

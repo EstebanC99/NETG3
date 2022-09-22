@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Personas;
+using Business.Entities;
 using EntityFramework.DbContextScope.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,14 @@ namespace ResourceAccess.Repository.Personas
         {
 
         }
+
+        public List<Persona> SearchByPattern(PersonaCriteria criteria)
+        {
+            return this.DbSet.Where(p => p.Nombre.Contains(criteria.Descripcion)
+                                      || p.Apellido.Contains(criteria.Descripcion))
+                             .ToList();
+        }
+
     }
 
     public class PersonaRepository<TPersona> : Repository<TPersona>, IPersonaRepository<TPersona>

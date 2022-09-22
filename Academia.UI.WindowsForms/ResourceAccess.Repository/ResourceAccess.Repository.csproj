@@ -77,9 +77,11 @@
     <Compile Include="Personas\IProfesorRepository.cs" />
     <Compile Include="Personas\PersonaRepository.cs" />
     <Compile Include="Personas\ProfesorRepository.cs" />
+    <Compile Include="Usuarios\IRolRepository.cs" />
     <Compile Include="Usuarios\IUsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="Usuarios\RolRepository.cs" />
     <Compile Include="Usuarios\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +89,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.Criterias\Business.Criterias.csproj">
+      <Project>{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}</Project>
+      <Name>Business.Criterias</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>
       <Name>Business.Entities</Name>

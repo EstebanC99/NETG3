@@ -1,5 +1,7 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Usuarios;
+using Business.Entities;
 using EntityFramework.DbContextScope.Interfaces;
+using System.Linq;
 
 namespace ResourceAccess.Repository.Usuarios
 {
@@ -11,5 +13,11 @@ namespace ResourceAccess.Repository.Usuarios
 
         }
 
+        public Usuario Login(UsuarioCriteria criteria)
+        {
+            return this.DbSet.FirstOrDefault(u => u.NombreUsuario == criteria.Username 
+                                               && u.Clave == criteria.Password 
+                                               && u.Habilitado);
+        }
     }
 }

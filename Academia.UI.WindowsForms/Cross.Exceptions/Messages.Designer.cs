@@ -97,6 +97,24 @@ namespace Cross.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No se encontraron Resultados..
+        /// </summary>
+        public static string SinResultados {
+            get {
+                return ResourceManager.GetString("SinResultados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuario y/o Contraseña incorrectos..
+        /// </summary>
+        public static string UsuarioOContraseniaIncorrectos {
+            get {
+                return ResourceManager.GetString("UsuarioOContraseniaIncorrectos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ya existe una Persona registrada con Legajo: {0}..
         /// </summary>
         public static string YaExisteUnaPersonaRegistradaConLegajoX {

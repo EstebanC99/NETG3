@@ -66,22 +66,30 @@
     <Compile Include="Interfaces\IEntityLoaderLogicService.cs" />
     <Compile Include="Interfaces\IEspecialidadLogic.cs" />
     <Compile Include="Interfaces\ILogicBase.cs" />
+    <Compile Include="Interfaces\ILoginLogic.cs" />
     <Compile Include="Interfaces\IMateriaLogic.cs" />
     <Compile Include="Interfaces\IPersonaLogic.cs" />
     <Compile Include="Interfaces\IPlanLogic.cs" />
     <Compile Include="Interfaces\IProfesorLogic.cs" />
+    <Compile Include="Interfaces\IRolLogic.cs" />
     <Compile Include="Interfaces\IUsuarioLogic.cs" />
     <Compile Include="LogicBase.cs" />
     <Compile Include="Personas\AlumnoLogic.cs" />
     <Compile Include="Personas\PersonaLogic.cs" />
     <Compile Include="Personas\ProfesorLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios\LoginLogic.cs" />
+    <Compile Include="Usuarios\RolLogic.cs" />
     <Compile Include="Usuarios\UsuarioLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Academia.UI.ViewModels\Academia.UI.ViewModels.csproj">
       <Project>{E2818191-254E-4685-9F1A-C751F757AEBD}</Project>
       <Name>Academia.UI.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Criterias\Business.Criterias.csproj">
+      <Project>{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}</Project>
+      <Name>Business.Criterias</Name>
     </ProjectReference>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>

@@ -29,6 +29,29 @@ namespace Business.Logic
         }
     }
 
+    public abstract class LogicBase<TEntity, TRepository>: LogicBase<TRepository>
+        where TRepository: IRepository<TEntity>
+        where TEntity: BusinessEntity
+    {
+        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, TRepository repository)
+            : base(dbContextScopeFactory, repository)
+        {
+
+        }
+
+        public List<DataView> GetAll()
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.GetAll().ConvertAll<DataView>(p => new DataView()
+                {
+                    ID = p.ID,
+                    Descripcion = p.Descripcion
+                });
+            }
+        }
+    }
+
     public abstract class LogicBase<TDataView, TEntity, TRepository> : ILogicBase<TDataView, TEntity>
         where TEntity : BusinessEntity
         where TRepository : IRepository<TEntity>
@@ -98,7 +121,7 @@ namespace Business.Logic
 
         #endregion
 
-        public DataView GetByID(int ID)
+        public virtual DataView GetByID(int ID)
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
@@ -112,7 +135,7 @@ namespace Business.Logic
             }
         }
 
-        public List<DataView> GetAll()
+        public virtual List<DataView> GetAll()
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {

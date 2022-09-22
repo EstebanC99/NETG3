@@ -33,6 +33,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Views", "Business.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia.UI.Services", "Academia.UI.Services\Academia.UI.Services.csproj", "{0B1048C1-87D0-43CE-843B-9808A43DC36D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Criterias", "Business.Criterias\Business.Criterias.csproj", "{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{9972741E-42D9-4F72-8D83-F29654E7DB02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security.Desktop", "Security.Desktop\Security.Desktop.csproj", "{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +89,14 @@ Global
 		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B1048C1-87D0-43CE-843B-9808A43DC36D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,9 +113,11 @@ Global
 		{E2818191-254E-4685-9F1A-C751F757AEBD} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
 		{D608B5D0-74A9-47E5-9943-467780ECD630} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
 		{0B1048C1-87D0-43CE-843B-9808A43DC36D} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
+		{52FF5F5E-E69C-42B8-9F4D-8A0741266B71} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
+		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0} = {9972741E-42D9-4F72-8D83-F29654E7DB02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

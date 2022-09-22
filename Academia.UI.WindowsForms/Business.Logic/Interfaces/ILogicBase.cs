@@ -9,6 +9,12 @@ namespace Business.Logic
         
     }
 
+    public interface ILogicBase<TEntity>: ILogicBase
+        where TEntity: BusinessEntity
+    {
+        List<DataView> GetAll();
+    }
+
     public interface ILogicBase<TDataView, TEntity> : ILogicBase
         where TEntity : BusinessEntity
         where TDataView : DataView

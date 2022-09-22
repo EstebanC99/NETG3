@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Personas;
+using Business.Entities;
 using Business.Logic.Interfaces;
 using Business.Views;
 using Cross.Exceptions;
@@ -6,19 +7,72 @@ using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Personas;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Business.Logic.Personas
 {
-    public abstract class PersonaLogic : LogicBase<PersonaDataView, Persona, IPersonaRepository>, IPersonaLogic
+    public class PersonaLogic : LogicBase<IPersonaRepository>, IPersonaLogic
     {
 
-        public PersonaLogic(Persona entity,
-                            IPersonaRepository repository,
-                            IDbContextScopeFactory dbContextScopeFactory)
-            : base(entity, repository, dbContextScopeFactory)
+        public PersonaLogic(IDbContextScopeFactory dbContextScopeFactory,
+                            IPersonaRepository repository)
+            : base(dbContextScopeFactory, repository)
         {
 
+        }
+
+        public List<PersonaDataView> LeerTodas()
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                var personas = this.Repository.GetAll();
+
+                return personas.ConvertAll<PersonaDataView>(p => new PersonaDataView()
+                {
+                    ID = p.ID,
+                    Nombre = p.Nombre,
+                    Apellido = p.Apellido,
+                    Email = p.Email,
+                    TipoPersonaID = p.TipoPersona
+                });
+            }
+        }
+
+        public PersonaDataView LeerPorID(int ID)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                var persona = this.Repository.GetByID(ID);
+
+                if (persona == null)
+                {
+                    throw new ValidationException(Messages.SinResultados);
+                }
+
+                return new PersonaDataView()
+                {
+                    ID = persona.ID,
+                    Nombre = persona.Nombre,
+                    Apellido = persona.Apellido,
+                    Email = persona.Email,
+                    TipoPersonaID = persona.TipoPersona
+                };
+            }
+        }
+
+        public List<PersonaDataView> SearchByPattern(PersonaCriteria criteria)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                var personas = this.Repository.SearchByPattern(criteria);
+
+                return personas.ConvertAll<PersonaDataView>(p => new PersonaDataView()
+                {
+                    ID = p.ID,
+                    Nombre = p.Nombre,
+                    Apellido = p.Apellido,
+                    Email = p.Email
+                });
+            }
         }
 
     }
@@ -63,7 +117,7 @@ namespace Business.Logic.Personas
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
-                return this.Repository.GetAll().ConvertAll(m => 
+                return this.Repository.GetAll().ConvertAll(m =>
                 new TPersonaDataView()
                 {
                     ID = m.ID,

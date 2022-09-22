@@ -8,5 +8,7 @@ namespace Academia.UI.Services
         UsuarioVM LeerPorID(int ID);
 
         List<UsuarioVM> LeerTodos();
+
+        List<ViewModel> LeerRoles();
     }
 }

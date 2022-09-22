@@ -10,4 +10,13 @@ namespace Academia.UI.Services
 
         List<TViewModel> LeerTodos();
     }
+
+    public interface IPersonaUIService: IUIService<PersonaVM>
+    {
+        List<PersonaVM> LeerTodas();
+
+        PersonaVM LeerPorID(int ID);
+
+        List<PersonaVM> BuscarPorPatron(PersonaFiltroVM filtroVM);
+    }
 }

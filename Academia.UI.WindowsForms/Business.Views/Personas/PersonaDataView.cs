@@ -15,6 +15,7 @@ namespace Business.Views
         public int? PlanID { get; set; }
         public string PlanDescripcion { get; set; }
         #endregion
+        public int TipoPersonaID { get; set; }
     }
 
     public interface IPersonaDataView : IDataView
@@ -38,5 +39,7 @@ namespace Business.Views
 
         string PlanDescripcion { get; set; }
         #endregion
+
+        int TipoPersonaID { get; set; }
     }
 }
