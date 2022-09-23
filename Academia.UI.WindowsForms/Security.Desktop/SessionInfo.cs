@@ -1,29 +1,44 @@
 ﻿namespace Security.Desktop
 {
-    public static class SessionInfo
+    public sealed class SessionInfo
     {
-        public static int? UserID { get; private set; }
+        private readonly static SessionInfo _instancia = new SessionInfo();
 
-        public static string UserName { get; private set; }
-
-        public static int? UserRolID { get; private set; }
-
-        public static bool EstaLogeado { get; private set; }
-
-        public static void SetInfo(int userID, string username, int userRolID)
+        private SessionInfo()
         {
-            UserID = userID;
-            UserName = username;
-            UserRolID = userRolID;
-            EstaLogeado = true;
+
         }
 
-        public static void LimpiarSession()
+        public static SessionInfo Instance
         {
-            UserID = null;
-            UserName = string.Empty;
-            UserRolID = null;
-            EstaLogeado = false;
+            get
+            {
+                return _instancia;
+            }
+        }
+
+        public int? UserID { get; private set; }
+
+        public string UserName { get; private set; }
+
+        public int? UserRolID { get; private set; }
+
+        public bool EstaLogeado { get; private set; }
+
+        public void SetInfo(int userID, string username, int userRolID)
+        {
+            this.UserID = userID;
+            this.UserName = username;
+            this.UserRolID = userRolID;
+            this.EstaLogeado = true;
+        }
+
+        public void LimpiarSession()
+        {
+            this.UserID = null;
+            this.UserName = string.Empty;
+            this.UserRolID = null;
+            this.EstaLogeado = false;
         }
     }
 }

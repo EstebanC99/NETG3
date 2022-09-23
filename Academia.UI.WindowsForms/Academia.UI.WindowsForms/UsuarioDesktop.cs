@@ -1,4 +1,5 @@
-﻿using Academia.UI.Services;
+﻿using Academia.UI.Globals;
+using Academia.UI.Services;
 using Academia.UI.ViewModels;
 using System;
 using System.Windows.Forms;
@@ -101,6 +102,17 @@ namespace Academia.UI.WindowsForms
             this.txtNombre.Text = this.Model.Nombre;
             this.txtApellido.Text = this.Model.Apellido;
             this.txtEmail.Text = this.Model.Email;
+
+            if (persona.TipoPersonaID == TiposPersona.Administrador)
+            {
+                this.comboRoles.SelectedIndex = this.comboRoles.FindStringExact(nameof(TiposPersona.Administrador));
+                this.comboRoles.Enabled = false;
+            } else
+            {
+                this.comboRoles.Enabled = true;
+            }
+
+
         }
 
         protected override bool Validar()

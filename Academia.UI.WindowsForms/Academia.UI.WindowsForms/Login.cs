@@ -40,7 +40,7 @@ namespace Academia.UI.WindowsForms
             this.Model.ID = usuario.ID;
             this.Model.RolUsuarioID = usuario.RolUsuarioID;
 
-            SessionInfo.SetInfo(this.Model.ID, this.Model.Username, this.Model.RolUsuarioID);
+            SessionInfo.Instance.SetInfo(this.Model.ID, this.Model.Username, this.Model.RolUsuarioID);
 
             this.Close();
         }

@@ -83,7 +83,7 @@ namespace Academia.UI.WindowsForms
         {
             var loging = new Login().ShowDialog();
 
-            if (!SessionInfo.EstaLogeado)
+            if (!SessionInfo.Instance.EstaLogeado)
                 this.Close();
         }
 
@@ -96,21 +96,29 @@ namespace Academia.UI.WindowsForms
 
         private void HabilitarMenues()
         {
-            this.administradoresToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
-            this.alumnosToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
-            this.comisionesToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && (SessionInfo.UserRolID == RolesUsuario.Administrador || SessionInfo.UserRolID == RolesUsuario.Profesor);
-            this.profesoresToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && (SessionInfo.UserRolID == RolesUsuario.Administrador || SessionInfo.UserRolID == RolesUsuario.Profesor);
-            this.usuariosToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
+            this.administradoresToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
+            this.alumnosToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
+            this.comisionesToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && (SessionInfo.Instance.UserRolID == RolesUsuario.Administrador || SessionInfo.Instance.UserRolID == RolesUsuario.Profesor);
+            this.profesoresToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && (SessionInfo.Instance.UserRolID == RolesUsuario.Administrador || SessionInfo.Instance.UserRolID == RolesUsuario.Profesor);
+            this.usuariosToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
         }
 
-        private void tsbSalir_Click(object sender, EventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             var respuesta = MessageBox.Show("¿Seguro que desea salir?", "Logout", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.OK)
             {
-                SessionInfo.LimpiarSession();
+                SessionInfo.Instance.LimpiarSession();
+
                 this.SolicitarCredenciales();
+
+                this.HabilitarMenues();
             }
 
             return;

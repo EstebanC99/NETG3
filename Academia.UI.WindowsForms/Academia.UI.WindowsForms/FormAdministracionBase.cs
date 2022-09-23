@@ -24,7 +24,7 @@ namespace Academia.UI.WindowsForms
 
         protected void DesactivarMenuTsb(ToolStrip tsb)
         {
-            tsb.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
+            tsb.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
         }
     }
 }

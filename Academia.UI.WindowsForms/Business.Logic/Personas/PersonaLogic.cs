@@ -153,7 +153,9 @@ namespace Business.Logic.Personas
             if (persona.FechaNacimiento.Date >= DateTime.Today.Date)
                 validaciones.AddValidationResult(Messages.LaFechaDeNacimientoNoPuedeSerMayorOIgualALaFechaDeHoy);
 
-            if (this.Repository.ObtenerPorLegajo(persona.Legajo.Value) != null)
+            var personaRegistrada = this.Repository.ObtenerPorLegajo(persona.Legajo.Value);
+
+            if (personaRegistrada != null && personaRegistrada.ID != persona.ID)
                 validaciones.AddValidationResult(string.Format(Messages.YaExisteUnaPersonaRegistradaConLegajoX, persona.Legajo));
 
             validaciones.Throw();
