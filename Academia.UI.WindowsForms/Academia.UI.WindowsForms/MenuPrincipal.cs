@@ -102,5 +102,18 @@ namespace Academia.UI.WindowsForms
             this.profesoresToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && (SessionInfo.UserRolID == RolesUsuario.Administrador || SessionInfo.UserRolID == RolesUsuario.Profesor);
             this.usuariosToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
         }
+
+        private void tsbSalir_Click(object sender, EventArgs e)
+        {
+            var respuesta = MessageBox.Show("¿Seguro que desea salir?", "Logout", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.OK)
+            {
+                SessionInfo.LimpiarSession();
+                this.SolicitarCredenciales();
+            }
+
+            return;
+        }
     }
 }

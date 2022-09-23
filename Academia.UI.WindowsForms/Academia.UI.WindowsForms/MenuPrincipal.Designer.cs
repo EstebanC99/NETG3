@@ -29,10 +29,12 @@ namespace Academia.UI.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.administradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +43,9 @@ namespace Academia.UI.WindowsForms
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -66,12 +70,13 @@ namespace Academia.UI.WindowsForms
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.tsbSalir,
+            this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(128, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(683, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
@@ -92,6 +97,13 @@ namespace Academia.UI.WindowsForms
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(85, 22);
             this.toolStripButton1.Text = "Administrar";
+            // 
+            // administradoresToolStripMenuItem
+            // 
+            this.administradoresToolStripMenuItem.Name = "administradoresToolStripMenuItem";
+            this.administradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.administradoresToolStripMenuItem.Text = "Administradores";
+            this.administradoresToolStripMenuItem.Click += new System.EventHandler(this.administradoresToolStripMenuItem_Click);
             // 
             // alumnosToolStripMenuItem
             // 
@@ -149,12 +161,23 @@ namespace Academia.UI.WindowsForms
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
-            // administradoresToolStripMenuItem
+            // tsbSalir
             // 
-            this.administradoresToolStripMenuItem.Name = "administradoresToolStripMenuItem";
-            this.administradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.administradoresToolStripMenuItem.Text = "Administradores";
-            this.administradoresToolStripMenuItem.Click += new System.EventHandler(this.administradoresToolStripMenuItem_Click);
+            this.tsbSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
+            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSalir.Margin = new System.Windows.Forms.Padding(500, 1, 0, 2);
+            this.tsbSalir.Name = "tsbSalir";
+            this.tsbSalir.Size = new System.Drawing.Size(49, 22);
+            this.tsbSalir.Text = "Salir";
+            this.tsbSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // MenuPrincipal
             // 
@@ -192,5 +215,8 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administradoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton tsbSalir;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

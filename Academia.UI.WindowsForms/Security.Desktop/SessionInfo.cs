@@ -2,11 +2,11 @@
 {
     public static class SessionInfo
     {
-        public static int UserID { get; private set; }
+        public static int? UserID { get; private set; }
 
         public static string UserName { get; private set; }
 
-        public static int UserRolID { get; private set; }
+        public static int? UserRolID { get; private set; }
 
         public static bool EstaLogeado { get; private set; }
 
@@ -16,6 +16,14 @@
             UserName = username;
             UserRolID = userRolID;
             EstaLogeado = true;
+        }
+
+        public static void LimpiarSession()
+        {
+            UserID = null;
+            UserName = string.Empty;
+            UserRolID = null;
+            EstaLogeado = false;
         }
     }
 }
