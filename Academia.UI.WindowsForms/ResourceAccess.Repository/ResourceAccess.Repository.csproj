@@ -71,7 +71,9 @@
     <Compile Include="IDataAccessBase.cs" />
     <Compile Include="IEntityLoaderRepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Personas\AdministradorRepository.cs" />
     <Compile Include="Personas\AlumnoRepository.cs" />
+    <Compile Include="Personas\IAdministradorRepository.cs" />
     <Compile Include="Personas\IAlumnoRepository.cs" />
     <Compile Include="Personas\IPersonaRepository.cs" />
     <Compile Include="Personas\IProfesorRepository.cs" />

@@ -1,5 +1,7 @@
-﻿using Academia.UI.Services;
+﻿using Academia.UI.Globals;
+using Academia.UI.Services;
 using Academia.UI.Services.Materias;
+using Academia.UI.Services.Personas.Administradores;
 using Business.Utils;
 using Security.Desktop;
 using System;
@@ -70,6 +72,13 @@ namespace Academia.UI.WindowsForms
             cursos.ShowDialog();
         }
 
+        private void administradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Administradores administradores = new Administradores(IoCContainer.Instance.TryResolve<IAdministradorUIService>());
+
+            administradores.ShowDialog();
+        }
+
         private void SolicitarCredenciales()
         {
             var loging = new Login().ShowDialog();
@@ -81,6 +90,17 @@ namespace Academia.UI.WindowsForms
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             this.SolicitarCredenciales();
+
+            this.HabilitarMenues();
+        }
+
+        private void HabilitarMenues()
+        {
+            this.administradoresToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
+            this.alumnosToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
+            this.comisionesToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && (SessionInfo.UserRolID == RolesUsuario.Administrador || SessionInfo.UserRolID == RolesUsuario.Profesor);
+            this.profesoresToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && (SessionInfo.UserRolID == RolesUsuario.Administrador || SessionInfo.UserRolID == RolesUsuario.Profesor);
+            this.usuariosToolStripMenuItem.Enabled = SessionInfo.EstaLogeado && SessionInfo.UserRolID == RolesUsuario.Administrador;
         }
     }
 }

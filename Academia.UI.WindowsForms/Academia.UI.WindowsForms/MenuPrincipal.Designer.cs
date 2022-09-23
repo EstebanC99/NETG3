@@ -41,6 +41,7 @@ namespace Academia.UI.WindowsForms
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -70,13 +71,14 @@ namespace Academia.UI.WindowsForms
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(97, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(128, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administradoresToolStripMenuItem,
             this.alumnosToolStripMenuItem,
             this.comisionesToolStripMenuItem,
             this.cursosToolStripMenuItem,
@@ -94,58 +96,65 @@ namespace Academia.UI.WindowsForms
             // alumnosToolStripMenuItem
             // 
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
             this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click);
             // 
             // comisionesToolStripMenuItem
             // 
             this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
-            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.comisionesToolStripMenuItem.Text = "Comisiones";
             this.comisionesToolStripMenuItem.Click += new System.EventHandler(this.comisionesToolStripMenuItem_Click);
             // 
             // cursosToolStripMenuItem
             // 
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
             // especialidadesToolStripMenuItem
             // 
             this.especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
-            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.especialidadesToolStripMenuItem.Text = "Especialidades";
             this.especialidadesToolStripMenuItem.Click += new System.EventHandler(this.especialidadesToolStripMenuItem_Click);
             // 
             // materiasToolStripMenuItem
             // 
             this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.materiasToolStripMenuItem.Text = "Materias";
             this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
             // 
             // planesToolStripMenuItem
             // 
             this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.planesToolStripMenuItem.Text = "Planes";
             this.planesToolStripMenuItem.Click += new System.EventHandler(this.planesToolStripMenuItem_Click);
             // 
             // profesoresToolStripMenuItem
             // 
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
-            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.profesoresToolStripMenuItem.Text = "Profesores";
             this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // administradoresToolStripMenuItem
+            // 
+            this.administradoresToolStripMenuItem.Name = "administradoresToolStripMenuItem";
+            this.administradoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.administradoresToolStripMenuItem.Text = "Administradores";
+            this.administradoresToolStripMenuItem.Click += new System.EventHandler(this.administradoresToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -182,5 +191,6 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administradoresToolStripMenuItem;
     }
 }

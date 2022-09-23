@@ -48,8 +48,8 @@ namespace Academia.UI.WindowsForms
             this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.btnVerClave = new System.Windows.Forms.Button();
             this.btnVerConfirmarClave = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboRoles = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -260,6 +260,7 @@ namespace Academia.UI.WindowsForms
             this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(127, 20);
             this.txtConfirmarClave.TabIndex = 3;
+            this.txtConfirmarClave.Leave += new System.EventHandler(this.txtConfirmarClave_Leave);
             // 
             // chkHabilitado
             // 
@@ -297,16 +298,6 @@ namespace Academia.UI.WindowsForms
             this.btnVerConfirmarClave.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVerConfirmarClave_MouseDown);
             this.btnVerConfirmarClave.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnVerConfirmarClave_MouseUp);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(470, 143);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(337, 143);
@@ -316,6 +307,16 @@ namespace Academia.UI.WindowsForms
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(470, 143);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label5
             // 

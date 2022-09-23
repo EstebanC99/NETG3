@@ -67,6 +67,8 @@ namespace Academia.UI.Services
             vm.Habilitado = e.Habilitado;
             vm.Email = e.PersonaEmail;
             vm.CambiaClave = e.CambiaClave;
+            vm.RolUsuarioID = e.RolUsuarioID;
+            vm.RolUsuarioDescripcion = e.RolUsuarioDescripcion;
 
             return vm;
         };
@@ -81,6 +83,7 @@ namespace Academia.UI.Services
             dv.Clave = e.Clave;
             dv.Habilitado = e.Habilitado;
             dv.CambiaClave = e.CambiaClave;
+            dv.RolUsuarioID = e.RolUsuarioID;
 
             return dv;
         };

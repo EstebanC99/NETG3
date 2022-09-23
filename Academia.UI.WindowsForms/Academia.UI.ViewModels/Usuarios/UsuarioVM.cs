@@ -17,5 +17,9 @@
         public bool Habilitado { get; set; }
 
         public bool CambiaClave { get; set; }
+
+        public int RolUsuarioID { get; set; }
+
+        public string RolUsuarioDescripcion { get; set; }
     }
 }

@@ -17,6 +17,8 @@ namespace Academia.UI.WindowsForms
             InitializeComponent();
 
             this.dgvEspecialidades.AutoGenerateColumns = false;
+
+            this.DesactivarMenuTsb(this.tsPersonas);
         }
 
         public void Listar()

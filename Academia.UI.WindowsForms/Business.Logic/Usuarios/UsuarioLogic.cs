@@ -30,13 +30,16 @@ namespace Business.Logic.Usuarios
                 return new UsuarioDataView()
                 {
                     ID = this.Entity.ID,
+                    PersonaID = this.Entity.Persona.ID,
                     PersonaNombre = this.Entity.Persona?.Nombre,
                     PersonaApellido = this.Entity.Persona?.Apellido,
                     PersonaEmail = this.Entity.Persona?.Email,
                     NombreUsuario = this.Entity.NombreUsuario,
                     Clave = this.Entity.Clave,
                     Habilitado = this.Entity.Habilitado,
-                    CambiaClave = this.Entity.CambiaClave
+                    CambiaClave = this.Entity.CambiaClave,
+                    RolUsuarioID = this.Entity.Rol.ID,
+                    RolUsuarioDescripcion = this.Entity.Rol.Descripcion
                 };
             }
         }
@@ -55,7 +58,9 @@ namespace Business.Logic.Usuarios
                     NombreUsuario = m.NombreUsuario,
                     Clave = m.Clave,
                     Habilitado = m.Habilitado,
-                    CambiaClave = m.CambiaClave
+                    CambiaClave = m.CambiaClave,
+                    RolUsuarioID = m.Rol.ID,
+                    RolUsuarioDescripcion = m.Rol.Descripcion
                 });
             }
         }
@@ -70,6 +75,12 @@ namespace Business.Logic.Usuarios
             if (string.IsNullOrEmpty(usuario.Clave))
                 validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(usuario.Clave)));
 
+            if (this.EntityLoaderLogicService.GetByID<Persona>(usuario.PersonaID) == null)
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(Usuario.Persona)));
+
+            if (usuario.RolUsuarioID == default(int))
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(Usuario.Rol)));
+
             validaciones.Throw();
         }
 
@@ -80,6 +91,7 @@ namespace Business.Logic.Usuarios
             this.Entity.Clave = usuario.Clave;
             this.Entity.CambiaClave = usuario.CambiaClave;
             this.Entity.Habilitado = usuario.Habilitado;
+            this.Entity.Rol = this.EntityLoaderLogicService.GetByID<Rol>(usuario.RolUsuarioID);
         }
     }
 }

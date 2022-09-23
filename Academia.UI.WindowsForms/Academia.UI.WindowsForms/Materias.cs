@@ -17,6 +17,8 @@ namespace Academia.UI.WindowsForms
             InitializeComponent();
 
             this.dgvMaterias.AutoGenerateColumns = false;
+
+            this.DesactivarMenuTsb(this.tsPlanes);
         }
 
         public void Listar()

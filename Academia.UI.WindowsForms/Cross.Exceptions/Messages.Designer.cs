@@ -97,6 +97,15 @@ namespace Cross.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Las contraseñas no coinciden..
+        /// </summary>
+        public static string LasClavesNoCoinciden {
+            get {
+                return ResourceManager.GetString("LasClavesNoCoinciden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No se encontraron Resultados..
         /// </summary>
         public static string SinResultados {

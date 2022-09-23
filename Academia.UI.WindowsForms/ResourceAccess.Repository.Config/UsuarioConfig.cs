@@ -17,8 +17,8 @@ namespace ResourceAccess.Repository.Config
             this.Property(p => p.Habilitado).IsRequired();
             this.Property(p => p.CambiaClave).IsOptional();
 
-            this.HasOptional(p => p.Persona).WithMany().Map(m => m.MapKey("ID_Persona"));
-            this.HasOptional(p => p.Rol).WithMany().Map(m => m.MapKey("ID_Rol"));
+            this.HasOptional(p => p.Persona).WithMany().Map(m => m.MapKey("ID_Persona")).WillCascadeOnDelete(true);
+            this.HasOptional(p => p.Rol).WithMany().Map(m => m.MapKey("ID_Rol")).WillCascadeOnDelete(false);
 
             this.Ignore(p => p.Descripcion);
         }

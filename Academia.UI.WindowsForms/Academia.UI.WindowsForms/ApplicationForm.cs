@@ -120,5 +120,10 @@ namespace Academia.UI.WindowsForms
                     break;
             }
         }
+
+        protected void EmitError(string message)
+        {
+            MessageBox.Show(message, "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+        }
     }
 }

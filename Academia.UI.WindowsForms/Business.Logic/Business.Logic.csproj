@@ -60,6 +60,7 @@
     <Compile Include="Academicos\MateriaLogic.cs" />
     <Compile Include="Academicos\PlanLogic.cs" />
     <Compile Include="EntityLoaderLogic.cs" />
+    <Compile Include="Interfaces\IAdministradorLogic.cs" />
     <Compile Include="Interfaces\IAlumnoLogic.cs" />
     <Compile Include="Interfaces\IComisionLogic.cs" />
     <Compile Include="Interfaces\ICursoLogic.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Interfaces\IRolLogic.cs" />
     <Compile Include="Interfaces\IUsuarioLogic.cs" />
     <Compile Include="LogicBase.cs" />
+    <Compile Include="Personas\AdministradorLogic.cs" />
     <Compile Include="Personas\AlumnoLogic.cs" />
     <Compile Include="Personas\PersonaLogic.cs" />
     <Compile Include="Personas\ProfesorLogic.cs" />

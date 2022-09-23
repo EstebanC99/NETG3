@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{99
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security.Desktop", "Security.Desktop\Security.Desktop.csproj", "{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia.UI.Globals", "Academia.UI.Globals\Academia.UI.Globals.csproj", "{DF69C628-E1B3-4386-B87C-5B813B739D32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF69C628-E1B3-4386-B87C-5B813B739D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF69C628-E1B3-4386-B87C-5B813B739D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF69C628-E1B3-4386-B87C-5B813B739D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF69C628-E1B3-4386-B87C-5B813B739D32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,9 +121,10 @@ Global
 		{0B1048C1-87D0-43CE-843B-9808A43DC36D} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
 		{52FF5F5E-E69C-42B8-9F4D-8A0741266B71} = {F95A9AA3-96E9-4C4B-9C0C-0C5BA70B303D}
 		{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0} = {9972741E-42D9-4F72-8D83-F29654E7DB02}
+		{DF69C628-E1B3-4386-B87C-5B813B739D32} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
+		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
 	EndGlobalSection
 EndGlobal

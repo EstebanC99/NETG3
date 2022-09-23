@@ -129,6 +129,9 @@
   <data name="LaMateriaYLaComisionNoPertenecenAlMismoPlanX" xml:space="preserve">
     <value>La Materia y la Comision seleccionadas no pertenecen al mismo Plan: {0}.</value>
   </data>
+  <data name="LasClavesNoCoinciden" xml:space="preserve">
+    <value>Las contraseñas no coinciden.</value>
+  </data>
   <data name="SinResultados" xml:space="preserve">
     <value>No se encontraron Resultados.</value>
   </data>

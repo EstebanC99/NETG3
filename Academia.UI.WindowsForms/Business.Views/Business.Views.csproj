@@ -46,6 +46,7 @@
     <Compile Include="DataView.cs" />
     <Compile Include="Especialidades\EspecialidadDataView.cs" />
     <Compile Include="Materias\MateriaDataView.cs" />
+    <Compile Include="Personas\Administradores\AdministradorDataView.cs" />
     <Compile Include="Personas\Alumnos\AlumnoDataView.cs" />
     <Compile Include="Personas\PersonaDataView.cs" />
     <Compile Include="Personas\Profesores\ProfesorDataView.cs" />

@@ -319,11 +319,23 @@
     <Compile Include="PlanesDesktop.Designer.cs">
       <DependentUpon>PlanesDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministradorDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministradorDesktop.Designer.cs">
+      <DependentUpon>AdministradorDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProfesorDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProfesorDesktop.Designer.cs">
       <DependentUpon>ProfesorDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administradores.Designer.cs">
+      <DependentUpon>Administradores.cs</DependentUpon>
     </Compile>
     <Compile Include="Profesores.cs">
       <SubType>Form</SubType>
@@ -396,8 +408,14 @@
     <EmbeddedResource Include="PlanesDesktop.resx">
       <DependentUpon>PlanesDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdministradorDesktop.resx">
+      <DependentUpon>AdministradorDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProfesorDesktop.resx">
       <DependentUpon>ProfesorDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administradores.resx">
+      <DependentUpon>Administradores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profesores.resx">
       <DependentUpon>Profesores.cs</DependentUpon>
@@ -433,6 +451,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Academia.UI.Globals\Academia.UI.Globals.csproj">
+      <Project>{DF69C628-E1B3-4386-B87C-5B813B739D32}</Project>
+      <Name>Academia.UI.Globals</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Academia.UI.Services\Academia.UI.Services.csproj">
       <Project>{0B1048C1-87D0-43CE-843B-9808A43DC36D}</Project>
       <Name>Academia.UI.Services</Name>

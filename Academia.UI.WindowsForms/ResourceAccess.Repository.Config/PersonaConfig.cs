@@ -14,7 +14,8 @@ namespace ResourceAccess.Repository.Config
                 m.ToTable("t_Persona");
             })
                 .Map<Alumno>(m => m.Requires("TipoPersona").HasValue((int)TiposPersona.Alumno))
-                .Map<Profesor>(m => m.Requires("TipoPersona").HasValue((int)TiposPersona.Profesor));
+                .Map<Profesor>(m => m.Requires("TipoPersona").HasValue((int)TiposPersona.Profesor))
+                .Map<Administrador>(m => m.Requires("TipoPersona").HasValue((int)TiposPersona.Administrador));
 
             this.HasKey(p => p.ID).Property(p => p.ID).HasColumnName("ID_Persona").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 

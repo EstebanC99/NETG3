@@ -45,6 +45,7 @@ namespace Academia.UI.WindowsForms
             this.txtUsuario.Text = this.Model.NombreUsuario;
             this.txtClave.Text = this.Model.Clave;
             this.chkHabilitado.Checked = this.Model.Habilitado;
+            this.comboRoles.SelectedIndex = this.comboRoles.FindStringExact(this.Model.RolUsuarioDescripcion);
         }
 
         protected override void MapearADatos()
@@ -55,6 +56,7 @@ namespace Academia.UI.WindowsForms
             this.Model.NombreUsuario = this.txtUsuario.Text;
             this.Model.Clave = this.txtClave.Text;
             this.Model.Habilitado = this.chkHabilitado.Checked;
+            this.Model.RolUsuarioID = ((ViewModel)this.comboRoles.SelectedItem).ID;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -101,6 +103,27 @@ namespace Academia.UI.WindowsForms
             this.txtEmail.Text = this.Model.Email;
         }
 
+        protected override bool Validar()
+        {
+            return base.Validar() && this.ValidarClaves() && this.Model.PersonaID != default(int);
+        }
+
+        private bool ValidarClaves()
+        {
+            if (string.IsNullOrEmpty(this.txtClave.Text))
+            {
+                return false;
+            }
+
+            if (this.txtClave.Text != this.txtConfirmarClave.Text)
+            {
+                this.EmitError("Las claves no coinciden");
+                return false;
+            }
+
+            return true;
+        }
+
         private void btnVerClave_MouseDown(object sender, MouseEventArgs e)
         {
             this.txtClave.PasswordChar = '\0';
@@ -120,5 +143,11 @@ namespace Academia.UI.WindowsForms
         {
             this.txtConfirmarClave.PasswordChar = '*';
         }
+
+        private void txtConfirmarClave_Leave(object sender, EventArgs e)
+        {
+            this.ValidarClaves();
+        }
+
     }
 }

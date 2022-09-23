@@ -1,5 +1,7 @@
-﻿using Academia.UI.Services;
+﻿using Academia.UI.Globals;
+using Academia.UI.Services;
 using System;
+using System.Collections.Generic;
 using static Academia.UI.WindowsForms.ModosForm;
 
 namespace Academia.UI.WindowsForms
@@ -16,6 +18,8 @@ namespace Academia.UI.WindowsForms
             InitializeComponent();
 
             this.dgvCursos.AutoGenerateColumns = false;
+
+            this.DesactivarMenuTsb(this.tsPlanes);
         }
 
         public void Listar()

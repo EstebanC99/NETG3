@@ -5,7 +5,8 @@
         public enum TiposPersona
         {
             Alumno = 1,
-            Profesor = 2
+            Profesor = 2,
+            Administrador = 100
         }
     }
 }
