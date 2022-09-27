@@ -57,6 +57,7 @@
     <Compile Include="Academicos\ComisionLogic.cs" />
     <Compile Include="Academicos\CursoLogic.cs" />
     <Compile Include="Academicos\EspecialidadLogic.cs" />
+    <Compile Include="Academicos\InscripcionCursoLogic.cs" />
     <Compile Include="Academicos\MateriaLogic.cs" />
     <Compile Include="Academicos\PlanLogic.cs" />
     <Compile Include="EntityLoaderLogic.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Interfaces\ICursoLogic.cs" />
     <Compile Include="Interfaces\IEntityLoaderLogicService.cs" />
     <Compile Include="Interfaces\IEspecialidadLogic.cs" />
+    <Compile Include="Interfaces\IInscripcionCursoLogic.cs" />
     <Compile Include="Interfaces\ILogicBase.cs" />
     <Compile Include="Interfaces\ILoginLogic.cs" />
     <Compile Include="Interfaces\IMateriaLogic.cs" />
@@ -108,6 +110,10 @@
     <ProjectReference Include="..\ResourceAccess.Repository\ResourceAccess.Repository.csproj">
       <Project>{98d5c669-a801-4f32-945c-2954ee3fb145}</Project>
       <Name>ResourceAccess.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security.Desktop\Security.Desktop.csproj">
+      <Project>{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}</Project>
+      <Name>Security.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

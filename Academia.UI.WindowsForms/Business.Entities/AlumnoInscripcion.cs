@@ -2,6 +2,8 @@
 {
     public class AlumnoInscripcion : BusinessEntity
     {
+        public int ID_Persona_Alumno { get; set; }
+
         private string _Condicion;
         public string Condicion
         {
@@ -9,18 +11,18 @@
             set { this._Condicion = value; }
         }
 
-        private int _IdAlumno;
-        public int IdAlumno
+        private Alumno _Alumno;
+        public Alumno Alumno
         {
-            get { return this._IdAlumno; }
-            set { this._IdAlumno = value; }
+            get { return this._Alumno; }
+            set { this._Alumno = value; }
         }
 
-        private int _IdCurso;
-        public int IdCurso
+        private Curso _Curso;
+        public Curso Curso
         {
-            get { return this._IdCurso; }
-            set { this._IdCurso = value; }
+            get { return this._Curso; }
+            set { this._Curso = value; }
         }
 
         private int _Nota;

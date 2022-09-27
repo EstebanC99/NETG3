@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoInscripcionConfig.cs" />
     <Compile Include="ComisionConfig.cs" />
     <Compile Include="CursoConfig.cs" />
     <Compile Include="DummyConfig.cs" />

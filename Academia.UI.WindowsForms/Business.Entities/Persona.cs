@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Business.Entities
@@ -69,6 +70,11 @@ namespace Business.Entities
             set { this._TipoPersona = value; }
         }
 
-        
+        protected virtual ICollection<AlumnoInscripcion> _Cursos { get; set; }
+        public virtual ICollection<AlumnoInscripcion> Cursos
+        {
+            get { return this._Cursos; }
+            set { this._Cursos = value; }
+        }
     }
 }

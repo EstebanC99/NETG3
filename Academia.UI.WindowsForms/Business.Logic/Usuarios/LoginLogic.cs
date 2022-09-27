@@ -30,7 +30,8 @@ namespace Business.Logic.Usuarios
                 {
                     ID = usuario.ID,
                     NombreUsuario = usuario.NombreUsuario,
-                    RolUsuarioID = usuario.Rol.ID
+                    RolUsuarioID = usuario.Rol.ID,
+                    RolUsuarioDescripcion = usuario.Rol.Descripcion
                 };
             }
         }

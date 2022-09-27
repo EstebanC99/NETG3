@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Cursos;
+using Business.Entities;
 using Business.Views;
 using System.Collections.Generic;
 
@@ -13,5 +14,7 @@ namespace Business.Logic.Interfaces
         List<ComisionDataView> LeerComisiones();
 
         List<MateriaDataView> LeerMaterias();
+
+        List<CursoDataView> LeerCursosPorCriterio(CursoCriteria criteria);
     }
 }

@@ -24,6 +24,7 @@ namespace Academia.UI.Services.Usuarios
 
             login.ID = usuario.ID;
             login.RolUsuarioID = usuario.RolUsuarioID;
+            login.RolUsuarioDescripcion = usuario.RolUsuarioDescripcion;
 
             return login;
         }

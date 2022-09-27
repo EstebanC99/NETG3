@@ -6,6 +6,9 @@ using ResourceAccess.Repository;
 using StructureMap;
 using StructureMap.Graph;
 using StructureMap.Graph.Scanning;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Business.Utils
 {
@@ -100,6 +103,26 @@ namespace Business.Utils
         public void Dispose()
         {
             this.iocContainer.Dispose();
+        }
+
+        public object Resolve(Type pluginType)
+        {
+            return this.iocContainer.GetInstance(pluginType);
+        }
+
+        public object TryResolve(Type pluginType)
+        {
+            return this.iocContainer.TryGetInstance(pluginType);
+        }
+
+        public IEnumerable<object> ResolveAll(Type pluginType)
+        {
+            return this.iocContainer.GetAllInstances(pluginType).Cast<object>();
+        }
+
+        public IIoCContainer GetNestedContainer()
+        {
+            return new IoCContainer(this.iocContainer.GetNestedContainer());
         }
     }
 }

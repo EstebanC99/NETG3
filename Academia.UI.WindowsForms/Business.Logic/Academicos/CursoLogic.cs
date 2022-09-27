@@ -1,4 +1,5 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Cursos;
+using Business.Entities;
 using Business.Logic.Interfaces;
 using Business.Views;
 using Cross.Exceptions;
@@ -77,6 +78,24 @@ namespace Business.Logic.Academicos
         public List<MateriaDataView> LeerMaterias()
         {
             return this.MateriaLogic.LeerTodos();
+        }
+
+        public List<CursoDataView> LeerCursosPorCriterio(CursoCriteria criteria)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.LeerCursosPorCriterio(criteria)
+                                      .ConvertAll<CursoDataView>(m => new CursoDataView()
+                                      {
+                                          ID = m.ID,
+                                          AnioCalendario = m.AnioCalendario,
+                                          Cupo = m.Cupo,
+                                          MateriaID = m.Materia.ID,
+                                          MateriaDescripcion = m.Materia.Descripcion,
+                                          ComisionID = m.Comision.ID,
+                                          ComisionDescripcion = m.Comision.Descripcion
+                                      });
+            }
         }
 
         #region Metodos Protegidos

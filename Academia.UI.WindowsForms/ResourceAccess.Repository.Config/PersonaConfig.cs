@@ -31,6 +31,8 @@ namespace ResourceAccess.Repository.Config
             this.HasOptional(p => p.Plan).WithMany().Map(m => m.MapKey("ID_Plan"));
 
             this.Ignore(p => p.Descripcion);
+
+            this.HasMany(m => m.Cursos).WithRequired(m => m.Alumno).HasForeignKey(m => m.ID_Persona_Alumno).WillCascadeOnDelete();
         }
     }
 }

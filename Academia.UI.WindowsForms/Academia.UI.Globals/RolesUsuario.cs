@@ -1,4 +1,6 @@
-﻿namespace Academia.UI.Globals
+﻿using System;
+
+namespace Academia.UI.Globals
 {
     public static class RolesUsuario
     {

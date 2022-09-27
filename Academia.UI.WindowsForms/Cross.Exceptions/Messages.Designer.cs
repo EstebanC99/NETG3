@@ -61,6 +61,15 @@ namespace Cross.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accion no Autorizada para el Tipo de Usuario..
+        /// </summary>
+        public static string AccionNoAutorizadaParaElUsuario {
+            get {
+                return ResourceManager.GetString("AccionNoAutorizadaParaElUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El campo {0} debe ser un número..
         /// </summary>
         public static string ElCampoXDebeSerNumerico {

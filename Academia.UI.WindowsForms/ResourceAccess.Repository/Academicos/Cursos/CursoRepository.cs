@@ -1,5 +1,8 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Cursos;
+using Business.Entities;
 using EntityFramework.DbContextScope.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ResourceAccess.Repository.Academicos.Cursos
 {
@@ -10,6 +13,12 @@ namespace ResourceAccess.Repository.Academicos.Cursos
 
         }
 
-
+        public List<Curso> LeerCursosPorCriterio(CursoCriteria criteria)
+        {
+            return this.DbSet.Where(c => (!criteria.AnioCalendario.HasValue || criteria.AnioCalendario == c.AnioCalendario)
+                                      && (!criteria.MateriaID.HasValue || criteria.MateriaID == c.Materia.ID)
+                                      && (!criteria.ComisionID.HasValue || criteria.ComisionID == c.Comision.ID))
+                             .ToList();
+        }
     }
 }

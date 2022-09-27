@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comisiones\ComisionVM.cs" />
+    <Compile Include="Cursos\CursoFiltroVM.cs" />
     <Compile Include="Cursos\CursoVM.cs" />
     <Compile Include="Especialidades\EspecialidadVM.cs" />
+    <Compile Include="Inscripciones\InscripcionCursoVM.cs" />
     <Compile Include="Materias\MateriaVM.cs" />
     <Compile Include="Personas\Administradores\AdministradorVM.cs" />
     <Compile Include="Personas\Alumnos\AlumnoVM.cs" />

@@ -9,22 +9,21 @@ namespace Business.Logic
 {
     public abstract class LogicBase : ILogicBase
     {
-        protected LogicBase()
-        {
+        protected IDbContextScopeFactory DbContextScopeFactory { get; private set; }
 
+        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory)
+        {
+            this.DbContextScopeFactory = dbContextScopeFactory;
         }
     }
 
     public abstract class LogicBase<TRepository> : LogicBase
         where TRepository : IDataAccessBase
     {
-        protected IDbContextScopeFactory DbContextScopeFactory { get; private set; }
-
         protected TRepository Repository { get; private set; }
 
-        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, TRepository repository)
+        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, TRepository repository) : base(dbContextScopeFactory)
         {
-            this.DbContextScopeFactory = dbContextScopeFactory;
             this.Repository = repository;
         }
     }
