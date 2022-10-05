@@ -29,6 +29,24 @@ namespace Academia.UI.WindowsForms
 
         private void dgPersonas_DoubleClick(object sender, EventArgs e)
         {
+            this.ElegirProfesor();
+        }
+
+        private void txtNombreApellido_TextChanged(object sender, EventArgs e)
+        {
+            this.dgProfesores.DataSource = this.UIService.LeerProfesorPorPatron(this.txtNombreApellido.Text);
+        }
+
+        private void dgProfesores_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.ElegirProfesor();
+            }
+        }
+
+        private void ElegirProfesor()
+        {
             var asignarCursoDesktop = (AsignarCursoDesktop)this.Owner;
 
             var profesor = (ProfesorCursoVM)this.dgProfesores.SelectedRows[0].DataBoundItem;
@@ -45,11 +63,6 @@ namespace Academia.UI.WindowsForms
 
                 this.Close();
             }
-        }
-
-        private void txtNombreApellido_TextChanged(object sender, EventArgs e)
-        {
-            this.dgProfesores.DataSource = this.UIService.LeerProfesorPorPatron(this.txtNombreApellido.Text);
         }
     }
 }

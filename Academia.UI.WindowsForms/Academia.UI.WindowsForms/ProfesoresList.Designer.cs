@@ -30,13 +30,13 @@ namespace Academia.UI.WindowsForms
         private void InitializeComponent()
         {
             this.dgProfesores = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtNombreApellido = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ProfesorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProfesorNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProfesorApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProfesorLegajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNombreApellido = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgProfesores)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,36 @@ namespace Academia.UI.WindowsForms
             this.dgProfesores.Size = new System.Drawing.Size(417, 418);
             this.dgProfesores.TabIndex = 0;
             this.dgProfesores.DoubleClick += new System.EventHandler(this.dgPersonas_DoubleClick);
+            this.dgProfesores.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgProfesores_KeyDown);
+            // 
+            // ProfesorID
+            // 
+            this.ProfesorID.DataPropertyName = "ProfesorID";
+            this.ProfesorID.HeaderText = "ID";
+            this.ProfesorID.Name = "ProfesorID";
+            this.ProfesorID.ReadOnly = true;
+            this.ProfesorID.Visible = false;
+            // 
+            // ProfesorNombre
+            // 
+            this.ProfesorNombre.DataPropertyName = "ProfesorNombre";
+            this.ProfesorNombre.HeaderText = "Nombre";
+            this.ProfesorNombre.Name = "ProfesorNombre";
+            this.ProfesorNombre.ReadOnly = true;
+            // 
+            // ProfesorApellido
+            // 
+            this.ProfesorApellido.DataPropertyName = "ProfesorApellido";
+            this.ProfesorApellido.HeaderText = "Apellido";
+            this.ProfesorApellido.Name = "ProfesorApellido";
+            this.ProfesorApellido.ReadOnly = true;
+            // 
+            // ProfesorLegajo
+            // 
+            this.ProfesorLegajo.DataPropertyName = "ProfesorLegajo";
+            this.ProfesorLegajo.HeaderText = "Legajo";
+            this.ProfesorLegajo.Name = "ProfesorLegajo";
+            this.ProfesorLegajo.ReadOnly = true;
             // 
             // tableLayoutPanel1
             // 
@@ -99,35 +129,6 @@ namespace Academia.UI.WindowsForms
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre / Apellido";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ProfesorID
-            // 
-            this.ProfesorID.DataPropertyName = "ProfesorID";
-            this.ProfesorID.HeaderText = "ID";
-            this.ProfesorID.Name = "ProfesorID";
-            this.ProfesorID.ReadOnly = true;
-            this.ProfesorID.Visible = false;
-            // 
-            // ProfesorNombre
-            // 
-            this.ProfesorNombre.DataPropertyName = "ProfesorNombre";
-            this.ProfesorNombre.HeaderText = "Nombre";
-            this.ProfesorNombre.Name = "ProfesorNombre";
-            this.ProfesorNombre.ReadOnly = true;
-            // 
-            // ProfesorApellido
-            // 
-            this.ProfesorApellido.DataPropertyName = "ProfesorApellido";
-            this.ProfesorApellido.HeaderText = "Apellido";
-            this.ProfesorApellido.Name = "ProfesorApellido";
-            this.ProfesorApellido.ReadOnly = true;
-            // 
-            // ProfesorLegajo
-            // 
-            this.ProfesorLegajo.DataPropertyName = "ProfesorLegajo";
-            this.ProfesorLegajo.HeaderText = "Legajo";
-            this.ProfesorLegajo.Name = "ProfesorLegajo";
-            this.ProfesorLegajo.ReadOnly = true;
             // 
             // ProfesoresList
             // 

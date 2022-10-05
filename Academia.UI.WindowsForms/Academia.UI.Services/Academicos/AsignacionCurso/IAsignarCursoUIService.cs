@@ -7,12 +7,12 @@ namespace Academia.UI.Services.Academicos.AsignacionCurso
     {
         List<CursoVM> LeerCursos();
 
-        List<ProfesorVM> LeerProfesores();
-
         List<ProfesorCursoVM> LeerProfesorPorPatron(string descripcion);
 
         List<ProfesorCursoVM> LeerProfesoresPorCurso(int cursoID);
 
         void AsignarCurso(ProfesorCursoVM profesorCursoVM);
+
+        void EliminarCurso(ProfesorCursoVM profesorCursoVM);
     }
 }

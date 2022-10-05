@@ -18,11 +18,6 @@ namespace Business.Logic.Personas
             
         }
 
-        public List<ProfesorDataView> LeerTodos()
-        {
-            return base.LeerTodos<ProfesorDataView>();
-        }
-
         public List<ProfesorDataView> BuscarPorCriteria(ProfesorCriteria criteria)
         {
             using (this.DbContextScopeFactory.CreateReadOnly())

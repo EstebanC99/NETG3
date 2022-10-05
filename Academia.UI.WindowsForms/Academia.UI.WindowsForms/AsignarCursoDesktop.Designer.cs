@@ -32,19 +32,20 @@ namespace Academia.UI.WindowsForms
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgCursos = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dgProfesoresAsignados = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MateriaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlanDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EspecialidadDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AnioCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.dgProfesoresAsignados = new System.Windows.Forms.DataGridView();
             this.ProfesorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProfesorNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProfesorApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProfesorLegajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProfesorCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProfesoresAsignados)).BeginInit();
@@ -53,13 +54,14 @@ namespace Academia.UI.WindowsForms
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgCursos, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnAgregar, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.dgProfesoresAsignados, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnEliminar, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -79,7 +81,7 @@ namespace Academia.UI.WindowsForms
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(402, 20);
+            this.label1.Size = new System.Drawing.Size(183, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cursos";
             // 
@@ -100,49 +102,10 @@ namespace Academia.UI.WindowsForms
             this.dgCursos.MultiSelect = false;
             this.dgCursos.Name = "dgCursos";
             this.dgCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCursos.Size = new System.Drawing.Size(810, 247);
+            this.dgCursos.Size = new System.Drawing.Size(810, 248);
             this.dgCursos.TabIndex = 1;
             this.dgCursos.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCursos_RowEnter);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(3, 422);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(139, 23);
-            this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "+ Agregar profesores";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 273);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(402, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Profesores asignados";
-            // 
-            // dgProfesoresAsignados
-            // 
-            this.dgProfesoresAsignados.AllowUserToAddRows = false;
-            this.dgProfesoresAsignados.AllowUserToDeleteRows = false;
-            this.dgProfesoresAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProfesoresAsignados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProfesorID,
-            this.ProfesorNombre,
-            this.ProfesorApellido,
-            this.ProfesorLegajo,
-            this.ProfesorCargo});
-            this.tableLayoutPanel1.SetColumnSpan(this.dgProfesoresAsignados, 2);
-            this.dgProfesoresAsignados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgProfesoresAsignados.Location = new System.Drawing.Point(3, 296);
-            this.dgProfesoresAsignados.Name = "dgProfesoresAsignados";
-            this.dgProfesoresAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgProfesoresAsignados.Size = new System.Drawing.Size(810, 120);
-            this.dgProfesoresAsignados.TabIndex = 4;
+            this.dgCursos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgCursos_KeyPress);
             // 
             // ID
             // 
@@ -189,6 +152,48 @@ namespace Academia.UI.WindowsForms
             this.AnioCalendario.ReadOnly = true;
             this.AnioCalendario.Width = 51;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 274);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Profesores asignados";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Location = new System.Drawing.Point(3, 424);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(139, 23);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "+ Agregar profesor";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // dgProfesoresAsignados
+            // 
+            this.dgProfesoresAsignados.AllowUserToAddRows = false;
+            this.dgProfesoresAsignados.AllowUserToDeleteRows = false;
+            this.dgProfesoresAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProfesoresAsignados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProfesorID,
+            this.ProfesorNombre,
+            this.ProfesorApellido,
+            this.ProfesorLegajo,
+            this.Cargo});
+            this.tableLayoutPanel1.SetColumnSpan(this.dgProfesoresAsignados, 2);
+            this.dgProfesoresAsignados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgProfesoresAsignados.Location = new System.Drawing.Point(3, 297);
+            this.dgProfesoresAsignados.Name = "dgProfesoresAsignados";
+            this.dgProfesoresAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProfesoresAsignados.Size = new System.Drawing.Size(810, 121);
+            this.dgProfesoresAsignados.TabIndex = 4;
+            this.dgProfesoresAsignados.DataSourceChanged += new System.EventHandler(this.dgProfesoresAsignados_DataSourceChanged);
+            // 
             // ProfesorID
             // 
             this.ProfesorID.DataPropertyName = "ProfesorID";
@@ -224,14 +229,28 @@ namespace Academia.UI.WindowsForms
             this.ProfesorLegajo.ReadOnly = true;
             this.ProfesorLegajo.Width = 64;
             // 
-            // ProfesorCargo
+            // Cargo
             // 
-            this.ProfesorCargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ProfesorCargo.DataPropertyName = "ProfesorCargo";
-            this.ProfesorCargo.HeaderText = "Cargo";
-            this.ProfesorCargo.Name = "ProfesorCargo";
-            this.ProfesorCargo.ReadOnly = true;
-            this.ProfesorCargo.Width = 60;
+            this.Cargo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cargo.DataPropertyName = "Cargo";
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            this.Cargo.ReadOnly = true;
+            this.Cargo.Width = 60;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminar.Location = new System.Drawing.Point(192, 424);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // AsignarCursoDesktop
             // 
@@ -268,6 +287,7 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn ProfesorNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProfesorApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProfesorLegajo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProfesorCargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

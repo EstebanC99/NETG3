@@ -33,7 +33,7 @@ namespace Business.Entities
 
             validaciones.Throw();
 
-            if (this.CursosACargo.Any(c => c.Curso.ID == curso.ID && c.Cargo == cargo))
+            if (this.CursosACargo.Any(c => c.Curso.ID == curso.ID))
             {
                 throw new ValidationException(string.Format(Messages.ElProfesorYaSeEncuentraAsignadoAlCursoConElCargo, this.Apellido, cargo));
             }
@@ -45,6 +45,16 @@ namespace Business.Entities
             cursoACargo.Cargo = cargo;
 
             this.CursosACargo.Add(cursoACargo);
+        }
+
+        public void EliminarCurso(Curso curso)
+        {
+            var cursoACargo = this.CursosACargo.FirstOrDefault(c => c.Curso.ID == curso.ID);
+
+            if (cursoACargo == null)
+                return;
+
+            this.CursosACargo.Remove(cursoACargo);
         }
     }
 }

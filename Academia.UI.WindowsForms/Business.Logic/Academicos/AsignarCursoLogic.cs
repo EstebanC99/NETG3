@@ -6,6 +6,7 @@ using Business.Views.AsignarCursos;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Academicos.AsignarCurso;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Business.Logic.Academicos
 {
@@ -34,14 +35,6 @@ namespace Business.Logic.Academicos
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
                 return this.CursoLogic.LeerTodos();
-            }
-        }
-
-        public List<ProfesorDataView> LeerProfesores()
-        {
-            using (this.DbContextScopeFactory.CreateReadOnly())
-            {
-                return this.ProfesorLogic.LeerTodos();
             }
         }
 
@@ -76,6 +69,19 @@ namespace Business.Logic.Academicos
                 var curso = this.EntityLoaderLogicService.GetByID<Curso>(profesorCurso.ID);
 
                 profesor.AsignarCurso(curso, profesorCurso.Cargo);
+
+                context.SaveChanges();
+            }
+        }
+
+        public void EliminarCurso(ProfesorCursoDataView profesorCurso)
+        {
+            using (var context = this.DbContextScopeFactory.Create())
+            {
+                var profesor = this.EntityLoaderLogicService.GetByID<Profesor>(profesorCurso.ProfesorID);
+                var curso = this.EntityLoaderLogicService.GetByID<Curso>(profesorCurso.ID);
+
+                profesor.EliminarCurso(curso);
 
                 context.SaveChanges();
             }

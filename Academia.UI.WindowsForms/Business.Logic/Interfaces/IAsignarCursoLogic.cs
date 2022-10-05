@@ -9,12 +9,12 @@ namespace Business.Logic.Interfaces
     {
         List<CursoDataView> LeerCursos();
 
-        List<ProfesorDataView> LeerProfesores();
-
         List<ProfesorCursoDataView> LeerProfesoresPorPatron(ProfesorCriteria criteria);
 
         List<ProfesorCursoDataView> LeerProfesoresPorCurso(int cursoID);
 
         void AsignarCurso(ProfesorCursoDataView profesorCurso);
+
+        void EliminarCurso(ProfesorCursoDataView profesorCurso);
     }
 }

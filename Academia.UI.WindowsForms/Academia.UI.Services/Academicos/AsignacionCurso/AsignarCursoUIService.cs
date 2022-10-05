@@ -25,16 +25,6 @@ namespace Academia.UI.Services.Academicos.AsignacionCurso
             return mapper.Map<List<CursoDataView>, List<CursoVM>>(cursos);
         }
 
-        public List<ProfesorVM> LeerProfesores()
-        {
-            var profesores = this.Logic.LeerProfesores();
-
-            var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<ProfesorDataView, ProfesorVM>());
-            var mapper = new Mapper(mapperConfig);
-
-            return mapper.Map<List<ProfesorDataView>, List<ProfesorVM>>(profesores);
-        }
-
         public List<ProfesorCursoVM> LeerProfesorPorPatron(string descripcion)
         {
             var criteria = new ProfesorCriteria() { Descripcion = descripcion };
@@ -59,11 +49,18 @@ namespace Academia.UI.Services.Academicos.AsignacionCurso
 
         public void AsignarCurso(ProfesorCursoVM profesorCursoVM)
         {
-
             var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<ProfesorCursoVM, ProfesorCursoDataView>());
             var mapper = new Mapper(mapperConfig);
 
             this.Logic.AsignarCurso(mapper.Map<ProfesorCursoDataView>(profesorCursoVM));
+        }
+
+        public void EliminarCurso(ProfesorCursoVM profesorCursoVM)
+        {
+            var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<ProfesorCursoVM, ProfesorCursoDataView>());
+            var mapper = new Mapper(mapperConfig);
+
+            this.Logic.EliminarCurso(mapper.Map<ProfesorCursoDataView>(profesorCursoVM));
         }
     }
 }

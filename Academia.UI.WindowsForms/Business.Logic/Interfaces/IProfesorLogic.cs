@@ -7,8 +7,6 @@ namespace Business.Logic.Interfaces
 {
     public interface IProfesorLogic : IPersonaLogic<Profesor>
     {
-        List<ProfesorDataView> LeerTodos();
-
         List<ProfesorDataView> BuscarPorCriteria(ProfesorCriteria criteria);
     }
 }

@@ -36,9 +36,7 @@ namespace Academia.UI.WindowsForms
 
             this.CursoElegido = (CursoVM)this.dgCursos.SelectedRows[0].DataBoundItem;
 
-            this.ProfesoresCurso = this.AsignarCursoUIService.LeerProfesoresPorCurso(this.CursoElegido.ID);
-
-            this.dgProfesoresAsignados.DataSource = this.ProfesoresCurso;
+            this.ActualizarProfesores();
         }
 
         public void RecuperarProfesorElegido(ProfesorCursoVM profesorCursoVM)
@@ -48,10 +46,59 @@ namespace Academia.UI.WindowsForms
 
         private void btnAgregar_Click(object sender, System.EventArgs e)
         {
+            this.AgregarProfesor();
+        }
+
+        private void btnEliminar_Click(object sender, System.EventArgs e)
+        {
+            var profesor = (ProfesorCursoVM)this.dgProfesoresAsignados.SelectedRows[0].DataBoundItem;
+
+            var respuesta = MessageBox.Show(string.Format("¿Seguro desea eliminar al profesor {0} del curso?", profesor.ProfesorApellido), "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                profesor.ID = this.CursoElegido.ID;
+
+                this.AsignarCursoUIService.EliminarCurso(profesor);
+
+                MessageBox.Show("Eliminado correctamente", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            this.ActualizarProfesores();
+
+            return;
+        }
+
+        private void AgregarProfesor()
+        {
             using (var profesoresList = new ProfesoresList(this.CursoElegido))
             {
                 profesoresList.ShowDialog(this);
             }
+
+            this.ActualizarProfesores();
+        }
+
+        private void dgProfesoresAsignados_DataSourceChanged(object sender, System.EventArgs e)
+        {
+            this.btnEliminar.Enabled = this.dgProfesoresAsignados.Rows.Count > default(int) && 
+                                       this.dgProfesoresAsignados.SelectedRows.Count > default(int);
+        }
+
+        private void dgCursos_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                this.AgregarProfesor();
+            }
+        }
+
+        private void ActualizarProfesores()
+        {
+            this.ProfesoresCurso = this.AsignarCursoUIService.LeerProfesoresPorCurso(this.CursoElegido.ID);
+
+            this.dgProfesoresAsignados.DataSource = this.ProfesoresCurso;
         }
     }
 }
