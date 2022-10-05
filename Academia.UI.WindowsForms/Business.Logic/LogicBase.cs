@@ -22,7 +22,8 @@ namespace Business.Logic
     {
         protected TRepository Repository { get; private set; }
 
-        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, TRepository repository) : base(dbContextScopeFactory)
+        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, 
+                            TRepository repository) : base(dbContextScopeFactory)
         {
             this.Repository = repository;
         }
@@ -32,7 +33,8 @@ namespace Business.Logic
         where TRepository: IRepository<TEntity>
         where TEntity: BusinessEntity
     {
-        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, TRepository repository)
+        protected LogicBase(IDbContextScopeFactory dbContextScopeFactory, 
+                            TRepository repository)
             : base(dbContextScopeFactory, repository)
         {
 

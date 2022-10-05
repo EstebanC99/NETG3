@@ -46,7 +46,11 @@ namespace Business.Logic.Academicos
                     MateriaID = m.Materia.ID,
                     MateriaDescripcion = m.Materia.Descripcion,
                     ComisionID = m.Comision.ID,
-                    ComisionDescripcion = m.Comision.Descripcion
+                    ComisionDescripcion = m.Comision.Descripcion,
+                    PlanID = m.Materia.Plan.ID,
+                    PlanDescripcion = m.Materia.Plan.Descripcion,
+                    EspecialidadID = m.Materia.Plan.Especialidad.ID,
+                    EspecialidadDescripcion = m.Materia.Plan.Especialidad.Descripcion
                 });
             }
         }
@@ -84,17 +88,7 @@ namespace Business.Logic.Academicos
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
-                return this.Repository.LeerCursosPorCriterio(criteria)
-                                      .ConvertAll<CursoDataView>(m => new CursoDataView()
-                                      {
-                                          ID = m.ID,
-                                          AnioCalendario = m.AnioCalendario,
-                                          Cupo = m.Cupo,
-                                          MateriaID = m.Materia.ID,
-                                          MateriaDescripcion = m.Materia.Descripcion,
-                                          ComisionID = m.Comision.ID,
-                                          ComisionDescripcion = m.Comision.Descripcion
-                                      });
+                return this.Repository.LeerCursosPorCriterio(criteria);
             }
         }
 

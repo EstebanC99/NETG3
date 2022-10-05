@@ -14,15 +14,19 @@ namespace Business.Logic.Academicos
     {
         private ICursoLogic CursoLogic { get; set; }
 
+        private IAlumnoLogic AlumnoLogic { get; set; }
+
         private IEntityLoaderLogicService EntityLoaderLogicService { get; set; }
 
 
         public InscripcionCursoLogic(DbContextScopeFactory dbContextScopeFactory,
                                      ICursoLogic cursoLogic,
-                                     IEntityLoaderLogicService entityLoaderLogicService) : base(dbContextScopeFactory)
+                                     IEntityLoaderLogicService entityLoaderLogicService,
+                                     IAlumnoLogic alumnoLogic) : base(dbContextScopeFactory)
         {
             this.CursoLogic = cursoLogic;
             this.EntityLoaderLogicService = entityLoaderLogicService;
+            this.AlumnoLogic = alumnoLogic;
         }
 
         public List<CursoDataView> LeerCursos()
@@ -37,7 +41,17 @@ namespace Business.Logic.Academicos
         {
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
+                criteria.AlumnoID = this.EntityLoaderLogicService.GetByID<Usuario>(SessionInfo.Instance.UserID.Value)?.Persona.ID;
+
                 return this.CursoLogic.LeerCursosPorCriterio(criteria);
+            }
+        }
+
+        public List<CursoDataView> LeerCursosPorALumnoLogueado()
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.AlumnoLogic.LeerCursosPorALumnoLogueado();
             }
         }
 
@@ -61,5 +75,23 @@ namespace Business.Logic.Academicos
             }
         }
 
+        public void Desmatricularse(CursoCriteria criteria)
+        {
+            using (var context = this.DbContextScopeFactory.Create())
+            {
+                var personaID = this.EntityLoaderLogicService.GetByID<Usuario>(SessionInfo.Instance.UserID.Value)?.Persona.ID;
+
+                var alumno = this.EntityLoaderLogicService.GetByID<Alumno>(personaID ?? default(int));
+
+                var curso = this.EntityLoaderLogicService.GetByID<Curso>(criteria.ID);
+
+                if (alumno == null || curso == null)
+                    throw new ValidationException(Messages.SinResultados);
+
+                alumno.Desmatricularse(curso);
+
+                context.SaveChanges();
+            }
+        }
     }
 }

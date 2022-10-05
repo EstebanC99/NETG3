@@ -1,11 +1,12 @@
 ﻿using Business.Criterias.Cursos;
 using Business.Entities;
+using Business.Views;
 using System.Collections.Generic;
 
 namespace ResourceAccess.Repository.Academicos.Cursos
 {
     public interface ICursoRepository : IRepository<Curso>
     {
-        List<Curso> LeerCursosPorCriterio(CursoCriteria criteria);
+        List<CursoDataView> LeerCursosPorCriterio(CursoCriteria criteria);
     }
 }

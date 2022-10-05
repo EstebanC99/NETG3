@@ -1,7 +1,10 @@
-﻿using Business.Entities;
+﻿using Business.Criterias.Personas;
+using Business.Entities;
 using Business.Logic.Interfaces;
+using Business.Views;
 using EntityFramework.DbContextScope;
 using ResourceAccess.Repository.Personas;
+using System.Collections.Generic;
 
 namespace Business.Logic.Personas
 {
@@ -15,5 +18,17 @@ namespace Business.Logic.Personas
             
         }
 
+        public List<ProfesorDataView> LeerTodos()
+        {
+            return base.LeerTodos<ProfesorDataView>();
+        }
+
+        public List<ProfesorDataView> BuscarPorCriteria(ProfesorCriteria criteria)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.SearchByPattern(criteria);
+            }
+        }
     }
 }

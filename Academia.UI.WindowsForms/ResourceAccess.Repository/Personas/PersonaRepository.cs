@@ -39,5 +39,12 @@ namespace ResourceAccess.Repository.Personas
         {
             return this.DbSet.Where(p => p.Legajo == nroLegajo).FirstOrDefault();
         }
+
+        public List<TPersona> SearchByPattern(PersonaCriteria criteria)
+        {
+            return this.DbSet.Where(p => p.Nombre.Contains(criteria.Descripcion)
+                                      || p.Apellido.Contains(criteria.Descripcion))
+                             .ToList();
+        }
     }
 }

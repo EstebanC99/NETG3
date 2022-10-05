@@ -9,6 +9,10 @@ namespace Academia.UI.Services.Academicos.InscripcionCurso
 
         List<CursoVM> LeerCursosPorCriteria(CursoFiltroVM filtroVM);
 
+        List<CursoVM> LeerCursosPorAlumnoLogueado();
+
         void Inscribirse(InscripcionCursoVM inscripcionCursoVM);
+
+        void Desmatricularse(CursoFiltroVM cursoFiltroVM);
     }
 }

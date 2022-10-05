@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="AcademiaDbContext.cs" />
     <Compile Include="AcademiaDbContextFactory.cs" />
+    <Compile Include="Academicos\AsignarCurso\AsignarCursoRepository.cs" />
+    <Compile Include="Academicos\AsignarCurso\IAsignarCursoRepository.cs" />
     <Compile Include="Academicos\Comisiones\ComisionRepository.cs" />
     <Compile Include="Academicos\Comisiones\IComisionRepository.cs" />
     <Compile Include="Academicos\Cursos\CursoRepository.cs" />
@@ -98,6 +100,10 @@
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{F9D92829-1FB8-401A-8221-ADCC01BAA9F8}</Project>
       <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Views\Business.Views.csproj">
+      <Project>{D608B5D0-74A9-47E5-9943-467780ECD630}</Project>
+      <Name>Business.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\ResourceAccess.Repository.Config\ResourceAccess.Repository.Config.csproj">
       <Project>{539C75AC-27C3-4FB6-A14B-EA34EDAC0969}</Project>

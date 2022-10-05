@@ -17,7 +17,7 @@ namespace Academia.UI.Services
         public List<CursoVM> LeerTodos()
         {
             return this.Logic.LeerTodos().Select(this.CrearViewModelDeDataView).ToList();
-        }
+        } 
 
         public CursoVM LeerPorID(int ID)
         {

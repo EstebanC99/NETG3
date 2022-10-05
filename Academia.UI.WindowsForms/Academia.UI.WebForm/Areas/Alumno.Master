@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Alumno.master.cs" Inherits="Academia.UI.WebForm.Alumnos.Alumno" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <script src="/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="/Scripts/umd/popper.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <a class="navbar-brand" href="#">Academia</a>
+        <button class="navbar-toggler collapsed" 
+            type="button" 
+            data-toggle="collapse" 
+            data-target="#navbar" 
+            aria-controls="navbar" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="AlumnoMainForm.aspx">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="AlumnoListaCursos.aspx">Cursos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Mi Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Notas</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+        <asp:ContentPlaceHolder ID="AlumnoContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <hr />
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - Autogestión Academia 2022</p>
+        </footer>
+    </div>
+</body>
+</html>

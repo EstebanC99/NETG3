@@ -88,6 +88,15 @@ namespace Cross.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El profesor {0} ya se encuentra asignado al curso con el cargo {1}..
+        /// </summary>
+        public static string ElProfesorYaSeEncuentraAsignadoAlCursoConElCargo {
+            get {
+                return ResourceManager.GetString("ElProfesorYaSeEncuentraAsignadoAlCursoConElCargo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La Fecha de Nacimiento no puede ser mayor o igual a la Fecha de Hoy..
         /// </summary>
         public static string LaFechaDeNacimientoNoPuedeSerMayorOIgualALaFechaDeHoy {

@@ -50,6 +50,7 @@
     <Compile Include="Curso.cs" />
     <Compile Include="DocenteCurso.cs" />
     <Compile Include="Especialidad.cs" />
+    <Compile Include="Global\Condiciones.cs" />
     <Compile Include="Global\Roles.cs" />
     <Compile Include="Global\TiposPersonas.cs" />
     <Compile Include="IIdentificable.cs" />
@@ -62,6 +63,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cross.Exceptions\Cross.Exceptions.csproj">
+      <Project>{66e79f51-28a8-4540-847b-50714a8438a9}</Project>
+      <Name>Cross.Exceptions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

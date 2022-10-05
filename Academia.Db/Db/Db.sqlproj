@@ -59,6 +59,7 @@
     <Folder Include="Tables" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\PostDeploy" />
+    <Folder Include="StoreProcedures" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
@@ -77,8 +78,15 @@
     <Build Include="Tables\t_Usuario.sql" />
     <Build Include="Tables\t_Rol.sql" />
     <PostDeploy Include="Scripts\PostDeploy\Script.PostDeployment1.sql" />
+    <Build Include="StoreProcedures\sp_LeerCursosPorCriterio.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Db.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PostDeploy\t_Persona.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PostDeploy\t_Usuario.sql" />
   </ItemGroup>
 </Project>

@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Academicos\AsignacionCurso\AsignarCursoUIService.cs" />
+    <Compile Include="Academicos\AsignacionCurso\IAsignarCursoUIService.cs" />
     <Compile Include="Academicos\InscripcionCurso\IInscripcionCursoUIService.cs" />
     <Compile Include="Academicos\InscripcionCurso\InscripcionCursoUIService.cs" />
     <Compile Include="Comisiones\ComisionUIService.cs" />

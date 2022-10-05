@@ -111,8 +111,6 @@ namespace Academia.UI.WindowsForms
             {
                 this.comboRoles.Enabled = true;
             }
-
-
         }
 
         protected override bool Validar()

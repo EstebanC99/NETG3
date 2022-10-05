@@ -4,6 +4,8 @@
     {
         public int ID_Persona_Alumno { get; set; }
 
+        public int ID_Curso { get; set; }
+        
         private string _Condicion;
         public string Condicion
         {
@@ -12,14 +14,14 @@
         }
 
         private Alumno _Alumno;
-        public Alumno Alumno
+        public virtual Alumno Alumno
         {
             get { return this._Alumno; }
             set { this._Alumno = value; }
         }
 
         private Curso _Curso;
-        public Curso Curso
+        public virtual Curso Curso
         {
             get { return this._Curso; }
             set { this._Curso = value; }

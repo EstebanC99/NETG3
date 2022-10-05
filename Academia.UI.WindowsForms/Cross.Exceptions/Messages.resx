@@ -126,6 +126,9 @@
   <data name="ElCampoXEsRequerido" xml:space="preserve">
     <value>El campo {0} es requerido.</value>
   </data>
+  <data name="ElProfesorYaSeEncuentraAsignadoAlCursoConElCargo" xml:space="preserve">
+    <value>El profesor {0} ya se encuentra asignado al curso con el cargo {1}.</value>
+  </data>
   <data name="LaFechaDeNacimientoNoPuedeSerMayorOIgualALaFechaDeHoy" xml:space="preserve">
     <value>La Fecha de Nacimiento no puede ser mayor o igual a la Fecha de Hoy.</value>
   </data>

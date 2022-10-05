@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security.Web", "Security.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia.UI.WebApi", "Academia.UI.WebApi\Academia.UI.WebApi.csproj", "{1D101A74-744B-417A-95BE-D3220C6A2827}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia.UI.WebForm", "Academia.UI.WebForm\Academia.UI.WebForm.csproj", "{C5395C8F-EAB9-4140-8F52-1781C6F87E12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{1D101A74-744B-417A-95BE-D3220C6A2827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D101A74-744B-417A-95BE-D3220C6A2827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D101A74-744B-417A-95BE-D3220C6A2827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5395C8F-EAB9-4140-8F52-1781C6F87E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5395C8F-EAB9-4140-8F52-1781C6F87E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5395C8F-EAB9-4140-8F52-1781C6F87E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5395C8F-EAB9-4140-8F52-1781C6F87E12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,9 +142,10 @@ Global
 		{DF69C628-E1B3-4386-B87C-5B813B739D32} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
 		{9B54E64D-F056-4CDC-A4C2-24EB02CD8AF0} = {9972741E-42D9-4F72-8D83-F29654E7DB02}
 		{1D101A74-744B-417A-95BE-D3220C6A2827} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
+		{C5395C8F-EAB9-4140-8F52-1781C6F87E12} = {FF650417-EA43-43E0-AE19-3C62A319C5D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
+		SolutionGuid = {B5E5B549-4086-4223-8A82-C20E651DEFC5}
 	EndGlobalSection
 EndGlobal

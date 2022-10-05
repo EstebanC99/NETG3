@@ -1,7 +1,14 @@
-﻿namespace Business.Entities
+﻿using System.Collections.Generic;
+
+namespace Business.Entities
 {
     public class Curso : BusinessEntity
     {
+        public Curso()
+        {
+            this.Inscriptos = new List<AlumnoInscripcion>();
+        }
+
         private int _AnioCalendario;
         public int AnioCalendario
         {
@@ -30,6 +37,16 @@
             set { this._Materia = value; }
         }
 
-        
+
+        private ICollection<AlumnoInscripcion> _Inscriptos;
+        public virtual ICollection<AlumnoInscripcion> Inscriptos {
+            get { return this._Inscriptos; } 
+            set { this._Inscriptos = value; } 
+        }
+
+        public virtual int ObtenerCuposDisponibles()
+        {
+            return this.Cupo - this.Inscriptos.Count;
+        }
     }
 }

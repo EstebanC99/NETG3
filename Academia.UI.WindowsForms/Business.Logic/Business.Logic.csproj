@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Academicos\AsignarCursoLogic.cs" />
     <Compile Include="Academicos\ComisionLogic.cs" />
     <Compile Include="Academicos\CursoLogic.cs" />
     <Compile Include="Academicos\EspecialidadLogic.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="EntityLoaderLogic.cs" />
     <Compile Include="Interfaces\IAdministradorLogic.cs" />
     <Compile Include="Interfaces\IAlumnoLogic.cs" />
+    <Compile Include="Interfaces\IAsignarCursoLogic.cs" />
     <Compile Include="Interfaces\IComisionLogic.cs" />
     <Compile Include="Interfaces\ICursoLogic.cs" />
     <Compile Include="Interfaces\IEntityLoaderLogicService.cs" />

@@ -9,7 +9,7 @@ namespace ResourceAccess.Repository.Config
         {
             this.ToTable("t_AlumnoInscripcion");
 
-            this.HasKey(m => new { m.ID, m.ID_Persona_Alumno });
+            this.HasKey(m => new { m.ID, m.ID_Persona_Alumno, m.ID_Curso });
             this.Property(m => m.ID).HasColumnName("ID_Inscripcion").HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
             this.HasRequired(m => m.Curso).WithMany().Map(m => m.MapKey("ID_Curso"));

@@ -2,7 +2,12 @@
 
 namespace ResourceAccess.Repository
 {
-    public interface IRepository<TEntity> : IDataAccessBase
+    public interface IRepository: IDataAccessBase
+    {
+
+    }
+
+    public interface IRepository<TEntity> : IRepository
         where TEntity : class
     {
         TEntity GetByID(int ID);

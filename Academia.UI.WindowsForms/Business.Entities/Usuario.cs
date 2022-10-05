@@ -23,8 +23,8 @@
             set { this._Habilitado = value; }
         }
 
-        private bool _CambiaClave;
-        public virtual bool CambiaClave
+        private bool? _CambiaClave;
+        public virtual bool? CambiaClave
         {
             get { return this._CambiaClave; }
             set { this._CambiaClave = value; }

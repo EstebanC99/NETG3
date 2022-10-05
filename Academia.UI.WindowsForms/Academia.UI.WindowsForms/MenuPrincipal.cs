@@ -101,6 +101,7 @@ namespace Academia.UI.WindowsForms
             this.comisionesToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && (SessionInfo.Instance.UserRolID == RolesUsuario.Administrador || SessionInfo.Instance.UserRolID == RolesUsuario.Profesor);
             this.profesoresToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && (SessionInfo.Instance.UserRolID == RolesUsuario.Administrador || SessionInfo.Instance.UserRolID == RolesUsuario.Profesor);
             this.usuariosToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
+            this.asignarProfesoresBtn.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -122,6 +123,18 @@ namespace Academia.UI.WindowsForms
             }
 
             return;
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            AsignarCursoDesktop asignarCurso = new AsignarCursoDesktop();
+
+            asignarCurso.ShowDialog();
         }
     }
 }

@@ -6,7 +6,6 @@
 
         private SessionInfo()
         {
-
         }
 
         public static SessionInfo Instance

@@ -28,11 +28,6 @@ namespace Academia.UI.WindowsForms
 
         }
 
-        private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgPersonas_DoubleClick(object sender, EventArgs e)
         {
             var usuariosDesktop = (UsuarioDesktop)this.Owner;

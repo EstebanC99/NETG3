@@ -10,3 +10,5 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 :r .\t_Rol.sql
+:r .\t_Persona.sql
+:r .\t_Usuario.sql

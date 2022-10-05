@@ -232,6 +232,12 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsignarCursoDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarCursoDesktop.Designer.cs">
+      <DependentUpon>AsignarCursoDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,7 @@
     </Compile>
     <Compile Include="IApplicationForm.cs" />
     <Compile Include="IFormAdministracionBase.cs" />
+    <Compile Include="InputBox.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +308,12 @@
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="ModosForm.cs" />
+    <Compile Include="ProfesoresList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfesoresList.Designer.cs">
+      <DependentUpon>ProfesoresList.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonasList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +379,9 @@
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AsignarCursoDesktop.resx">
+      <DependentUpon>AsignarCursoDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comisiones.resx">
       <DependentUpon>Comisiones.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfesoresList.resx">
+      <DependentUpon>ProfesoresList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonasList.resx">
       <DependentUpon>PersonasList.cs</DependentUpon>

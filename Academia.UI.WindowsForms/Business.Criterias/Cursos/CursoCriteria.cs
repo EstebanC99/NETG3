@@ -7,5 +7,7 @@
         public int? MateriaID { get; set; }
 
         public int? ComisionID { get; set; }
+
+        public int? AlumnoID { get; set; }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using Business.Criterias.Cursos;
 using Business.Entities;
+using Business.Views;
 using EntityFramework.DbContextScope.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace ResourceAccess.Repository.Academicos.Cursos
@@ -13,12 +16,25 @@ namespace ResourceAccess.Repository.Academicos.Cursos
 
         }
 
-        public List<Curso> LeerCursosPorCriterio(CursoCriteria criteria)
+        public List<CursoDataView> LeerCursosPorCriterio(CursoCriteria criteria)
         {
-            return this.DbSet.Where(c => (!criteria.AnioCalendario.HasValue || criteria.AnioCalendario == c.AnioCalendario)
-                                      && (!criteria.MateriaID.HasValue || criteria.MateriaID == c.Materia.ID)
-                                      && (!criteria.ComisionID.HasValue || criteria.ComisionID == c.Comision.ID))
-                             .ToList();
+            var sp = "sp_LeerCursosPorCriterio";
+
+            var cursosDataView = this.DbContext.Database.SqlQuery<CursoDataView>($"{sp} @pAnioCalendario, @pMateriaID, @pComisionID, @pAlumnoID",
+                new SqlParameter("@pAnioCalendario", (object)criteria.AnioCalendario ?? DBNull.Value),
+                new SqlParameter("@pMateriaID", (object)criteria.MateriaID ?? DBNull.Value),
+                new SqlParameter("@pComisionID", (object)criteria.ComisionID ?? DBNull.Value),
+                new SqlParameter("@pAlumnoID", (object)criteria.AlumnoID ?? DBNull.Value)
+                ).ToList();
+
+            foreach (var cursoDataView in cursosDataView)
+            {
+                var curso = this.GetByID(cursoDataView.ID);
+
+                cursoDataView.CuposRestantes = curso.ObtenerCuposDisponibles();
+            }
+
+            return cursosDataView;
         }
     }
 }

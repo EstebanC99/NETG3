@@ -33,6 +33,7 @@ namespace ResourceAccess.Repository.Config
             this.Ignore(p => p.Descripcion);
 
             this.HasMany(m => m.Cursos).WithRequired(m => m.Alumno).HasForeignKey(m => m.ID_Persona_Alumno).WillCascadeOnDelete();
+            this.HasMany(m => m.CursosACargo).WithRequired(m => m.Profesor).HasForeignKey(m => m.ID_Persona_Profesor).WillCascadeOnDelete();
         }
     }
 }

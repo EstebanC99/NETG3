@@ -70,6 +70,7 @@ namespace Business.Logic.Personas
                     ID = p.ID,
                     Nombre = p.Nombre,
                     Apellido = p.Apellido,
+                    Legajo = p.Legajo,
                     Email = p.Email
                 });
             }

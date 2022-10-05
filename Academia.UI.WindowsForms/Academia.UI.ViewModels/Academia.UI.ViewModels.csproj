@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignarCurso\ProfesorCursoVM.cs" />
     <Compile Include="Comisiones\ComisionVM.cs" />
     <Compile Include="Cursos\CursoFiltroVM.cs" />
     <Compile Include="Cursos\CursoVM.cs" />

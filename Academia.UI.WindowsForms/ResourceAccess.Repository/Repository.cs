@@ -6,10 +6,18 @@ using System.Linq;
 
 namespace ResourceAccess.Repository
 {
-    public class Repository<TEntity> : DataAccessBase<AcademiaDbContext>, IRepository<TEntity>
+    public class Repository: DataAccessBase<AcademiaDbContext>, IRepository
+    {
+        public Repository(IAmbientDbContextLocator ambientDbContextLocator)
+            : base(ambientDbContextLocator)
+        {
+
+        }
+    }
+
+    public class Repository<TEntity> : Repository, IRepository<TEntity>
         where TEntity : class, IIdentificable
     {
-
         public Repository(IAmbientDbContextLocator ambientDbContextLocator)
             : base(ambientDbContextLocator)
         {

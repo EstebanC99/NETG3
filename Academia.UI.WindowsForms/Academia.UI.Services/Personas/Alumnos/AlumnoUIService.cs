@@ -1,4 +1,5 @@
 ﻿using Academia.UI.ViewModels;
+using AutoMapper;
 using Business.Logic.Interfaces;
 using Business.Views;
 using System;

@@ -1,14 +1,14 @@
-﻿using Business.Entities;
-using System;
+﻿using Business.Criterias.Personas;
+using Business.Entities;
+using Business.Views;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Logic.Interfaces
 {
     public interface IProfesorLogic : IPersonaLogic<Profesor>
     {
+        List<ProfesorDataView> LeerTodos();
 
+        List<ProfesorDataView> BuscarPorCriteria(ProfesorCriteria criteria);
     }
 }

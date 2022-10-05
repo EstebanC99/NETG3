@@ -1,10 +1,6 @@
 ﻿using Business.Criterias.Cursos;
 using Business.Views;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Logic.Interfaces
 {
@@ -14,6 +10,10 @@ namespace Business.Logic.Interfaces
 
         List<CursoDataView> LeerCursosPorCriterio(CursoCriteria criteria);
 
+        List<CursoDataView> LeerCursosPorALumnoLogueado();
+
         void Inscribirse(InscripcionCursoDataView criteria);
+
+        void Desmatricularse(CursoCriteria criteria);
     }
 }

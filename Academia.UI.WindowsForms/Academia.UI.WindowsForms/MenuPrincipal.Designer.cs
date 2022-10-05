@@ -32,10 +32,10 @@ namespace Academia.UI.WindowsForms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.administradoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,14 +46,15 @@ namespace Academia.UI.WindowsForms
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.asignarProfesoresBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -73,22 +74,7 @@ namespace Academia.UI.WindowsForms
             // toolStripContainer1.TopToolStripPanel
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripSeparator1});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(103, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -106,6 +92,44 @@ namespace Academia.UI.WindowsForms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 432);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Academia.UI.WindowsForms.Properties.Resources.logout;
+            this.pictureBox1.InitialImage = global::Academia.UI.WindowsForms.Properties.Resources.logout;
+            this.pictureBox1.Location = new System.Drawing.Point(727, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Location = new System.Drawing.Point(694, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Salir";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripSeparator1,
+            this.asignarProfesoresBtn});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(243, 25);
+            this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
             // 
@@ -189,31 +213,20 @@ namespace Academia.UI.WindowsForms
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
-            // pictureBox1
+            // toolStripSeparator1
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Academia.UI.WindowsForms.Properties.Resources.logout;
-            this.pictureBox1.InitialImage = global::Academia.UI.WindowsForms.Properties.Resources.logout;
-            this.pictureBox1.Location = new System.Drawing.Point(727, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // label1
+            // asignarProfesoresBtn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(694, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Salir";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.asignarProfesoresBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.asignarProfesoresBtn.Image = ((System.Drawing.Image)(resources.GetObject("asignarProfesoresBtn.Image")));
+            this.asignarProfesoresBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.asignarProfesoresBtn.Name = "asignarProfesoresBtn";
+            this.asignarProfesoresBtn.Size = new System.Drawing.Size(109, 22);
+            this.asignarProfesoresBtn.Text = "Asignar profesores";
+            this.asignarProfesoresBtn.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // MenuPrincipal
             // 
@@ -232,11 +245,11 @@ namespace Academia.UI.WindowsForms
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -260,5 +273,6 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton asignarProfesoresBtn;
     }
 }

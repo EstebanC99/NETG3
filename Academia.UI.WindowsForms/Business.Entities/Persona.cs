@@ -70,11 +70,20 @@ namespace Business.Entities
             set { this._TipoPersona = value; }
         }
 
-        protected virtual ICollection<AlumnoInscripcion> _Cursos { get; set; }
+        //protected ICollection<AlumnoInscripcion> _Cursos;
         public virtual ICollection<AlumnoInscripcion> Cursos
         {
-            get { return this._Cursos; }
-            set { this._Cursos = value; }
+            get; set;
+            //get { return this._Cursos; }
+            //set { this._Cursos = value; }
+        }
+
+        //protected ICollection<DocenteCurso> _CursosACargo;
+        public virtual ICollection<DocenteCurso> CursosACargo
+        {
+            get; set;
+            //get { return this._CursosACargo; }
+            //set { this._CursosACargo = value; }
         }
     }
 }

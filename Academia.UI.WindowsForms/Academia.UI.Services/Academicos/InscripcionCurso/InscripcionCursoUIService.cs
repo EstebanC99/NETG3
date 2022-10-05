@@ -37,12 +37,32 @@ namespace Academia.UI.Services.Academicos.InscripcionCurso
             return mapper.Map<List<CursoDataView>, List<CursoVM>>(resultado);
         }
 
+        public List<CursoVM> LeerCursosPorAlumnoLogueado()
+        {
+            var m = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<CursoDataView, CursoVM>();
+            });
+
+            var cursos = new Mapper(m).Map<List<CursoDataView>, List<CursoVM>>(this.Logic.LeerCursosPorALumnoLogueado());
+
+            return cursos;
+        }
+
         public void Inscribirse(InscripcionCursoVM inscripcionCursoVM)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InscripcionCursoVM, InscripcionCursoDataView>());
             var mapper = new Mapper(config);
 
             this.Logic.Inscribirse(mapper.Map<InscripcionCursoDataView>(inscripcionCursoVM));
+        }
+
+        public void Desmatricularse(CursoFiltroVM cursoFiltroVM)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<CursoFiltroVM, CursoCriteria>());
+            var mapper = new Mapper(config);
+
+            this.Logic.Desmatricularse(mapper.Map<CursoCriteria>(cursoFiltroVM));
         }
     }
 }
