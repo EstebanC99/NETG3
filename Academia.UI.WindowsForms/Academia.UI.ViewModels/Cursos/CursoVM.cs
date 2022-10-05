@@ -26,7 +26,7 @@
 
         public int HsSemanales { get; set; }
 
-        public int HsAnuales { get; set; }
+        public int HsTotales { get; set; }
 
         public bool EstaInscripto { get; set; }
 

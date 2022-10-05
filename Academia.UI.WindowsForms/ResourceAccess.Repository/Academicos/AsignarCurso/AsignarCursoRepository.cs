@@ -1,5 +1,4 @@
 ﻿using Business.Entities;
-using Business.Views;
 using Business.Views.AsignarCursos;
 using EntityFramework.DbContextScope.Interfaces;
 using System.Collections.Generic;

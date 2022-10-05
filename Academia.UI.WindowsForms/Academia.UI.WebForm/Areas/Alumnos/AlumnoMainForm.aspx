@@ -31,7 +31,7 @@
                                     Item.ProfesorNombreApellido,
                                     Item.ComisionDescripcion,
                                     Item.HsSemanales,
-                                    Item.HsAnuales,
+                                    Item.HsTotales,
                                     Item.EspecialidadDescripcion,
                                     Item.PlanDescripcion) %>'
                                 data-placement="bottom">Ver detalle</button>
