@@ -39,7 +39,9 @@ namespace ResourceAccess.Repository.Personas
                     EspecialidadDescripcion = c.Curso.Materia.Plan.Especialidad.Descripcion,
                     HsSemanales = c.Curso.Materia.HsSemanales,
                     HsTotales = c.Curso.Materia.HsTotales,
-                    EstaInscripto = true
+                    EstaInscripto = true,
+                    CondicionCurso = c.Condicion,
+                    Nota = c.Nota
                 });
             }
 

@@ -20,6 +20,7 @@ namespace Business.Logic.Academicos
 
 
         public InscripcionCursoLogic(DbContextScopeFactory dbContextScopeFactory,
+
                                      ICursoLogic cursoLogic,
                                      IEntityLoaderLogicService entityLoaderLogicService,
                                      IAlumnoLogic alumnoLogic) : base(dbContextScopeFactory)
@@ -52,6 +53,14 @@ namespace Business.Logic.Academicos
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
                 return this.AlumnoLogic.LeerCursosPorALumnoLogueado();
+            }
+        }
+
+        public CursoDataView LeerCursoPorID(int cursoID)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.CursoLogic.LeerPorID(cursoID);
             }
         }
 
@@ -91,6 +100,14 @@ namespace Business.Logic.Academicos
                 alumno.Desmatricularse(curso);
 
                 context.SaveChanges();
+            }
+        }
+
+        public List<AlumnoDataView> LeerAlumnosInscriptos(int cursoID)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.CursoLogic.LeerAlumnosInscriptos(cursoID);
             }
         }
     }

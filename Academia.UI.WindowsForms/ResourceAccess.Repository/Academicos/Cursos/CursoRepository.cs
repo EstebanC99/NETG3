@@ -36,5 +36,16 @@ namespace ResourceAccess.Repository.Academicos.Cursos
 
             return cursosDataView;
         }
+
+        public List<AlumnoDataView> LeerAlumnosInscriptos(int cursoID)
+        {
+            var sp = "sp_LeerAlumnosInscriptosPorCurso";
+
+            var alumnosDataView = this.DbContext.Database.SqlQuery<AlumnoDataView>($"{sp} @pCursoID",
+                new SqlParameter("@pCursoID", (object)cursoID ?? DBNull.Value)
+                ).ToList();
+
+            return alumnosDataView;
+        }
     }
 }

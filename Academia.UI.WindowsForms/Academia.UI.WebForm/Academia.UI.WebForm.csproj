@@ -161,6 +161,9 @@
     <Content Include="Areas\Login\LoginForm.aspx">
       <BrowseToURL>~/Login/LoginForm.aspx</BrowseToURL>
     </Content>
+    <Content Include="Areas\Profesores\IngresoDeNotaForm.aspx" />
+    <Content Include="Areas\Profesores\ProfesorListaAlumnos.aspx" />
+    <Content Include="Areas\Profesores\ProfesorMainForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -349,6 +352,27 @@
     <Compile Include="Areas\Login\LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Profesores\IngresoDeNotaForm.aspx.cs">
+      <DependentUpon>IngresoDeNotaForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Profesores\IngresoDeNotaForm.aspx.designer.cs">
+      <DependentUpon>IngresoDeNotaForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Profesores\ProfesorListaAlumnos.aspx.cs">
+      <DependentUpon>ProfesorListaAlumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Profesores\ProfesorListaAlumnos.aspx.designer.cs">
+      <DependentUpon>ProfesorListaAlumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Profesores\ProfesorMainForm.aspx.cs">
+      <DependentUpon>ProfesorMainForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Profesores\ProfesorMainForm.aspx.designer.cs">
+      <DependentUpon>ProfesorMainForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,7 +415,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Profesores\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -426,6 +449,10 @@
     <ProjectReference Include="..\Business.Utils\Business.Utils.csproj">
       <Project>{6f80a8f1-1146-4515-bc81-62574824acab}</Project>
       <Name>Business.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cross.Exceptions\Cross.Exceptions.csproj">
+      <Project>{66E79F51-28A8-4540-847B-50714A8438A9}</Project>
+      <Name>Cross.Exceptions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Security.Desktop\Security.Desktop.csproj">
       <Project>{8449E5E2-6F02-4883-9916-CE3CB8CC6CA0}</Project>

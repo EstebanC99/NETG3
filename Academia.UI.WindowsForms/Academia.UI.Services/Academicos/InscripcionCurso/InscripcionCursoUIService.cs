@@ -49,6 +49,16 @@ namespace Academia.UI.Services.Academicos.InscripcionCurso
             return cursos;
         }
 
+        public CursoVM LeerCursoPorID(int cursoID)
+        {
+            var curso = this.Logic.LeerCursoPorID(cursoID);
+
+            var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<CursoDataView, CursoVM>());
+            var mapper = new Mapper(mapperConfig);
+
+            return mapper.Map<CursoVM>(curso);
+        }
+
         public void Inscribirse(InscripcionCursoVM inscripcionCursoVM)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<InscripcionCursoVM, InscripcionCursoDataView>());
@@ -63,6 +73,16 @@ namespace Academia.UI.Services.Academicos.InscripcionCurso
             var mapper = new Mapper(config);
 
             this.Logic.Desmatricularse(mapper.Map<CursoCriteria>(cursoFiltroVM));
+        }
+
+        public List<AlumnoVM> LeerAlumnosInscriptos(int cursoID)
+        {
+            var inscriptos = this.Logic.LeerAlumnosInscriptos(cursoID);
+
+            var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<AlumnoDataView, AlumnoVM>());
+            var mapper = new Mapper(mapperConfig);
+
+            return mapper.Map<List<AlumnoDataView>, List<AlumnoVM>>(inscriptos);
         }
     }
 }

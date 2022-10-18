@@ -31,5 +31,9 @@
         public bool EstaInscripto { get; set; }
 
         public int CuposRestantes { get; set; }
+
+        public string CondicionCurso { get; set; }
+
+        public int? Nota { get; set; }
     }
 }

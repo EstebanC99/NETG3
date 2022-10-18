@@ -52,6 +52,7 @@ namespace Business.Logic.Usuarios
                 new UsuarioDataView()
                 {
                     ID = m.ID,
+                    PersonaID = m.Persona.ID,
                     PersonaNombre = m.Persona?.Nombre,
                     PersonaApellido = m.Persona?.Apellido,
                     PersonaEmail = m.Persona?.Email,

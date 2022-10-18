@@ -8,5 +8,7 @@ namespace Business.Logic.Interfaces
     public interface IProfesorLogic : IPersonaLogic<Profesor>
     {
         List<ProfesorDataView> BuscarPorCriteria(ProfesorCriteria criteria);
+
+        List<CursoDataView> LeerCursosPorProfesorLogueado();
     }
 }

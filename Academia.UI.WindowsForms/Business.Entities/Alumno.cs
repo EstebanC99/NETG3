@@ -51,5 +51,14 @@ namespace Business.Entities
             this.Cursos.Remove(inscripcion);
         }
 
+        public void RegistrarNota(int inscripcionID, int? nota)
+        {
+            var inscripcion = this.Cursos.FirstOrDefault(i => i.ID == inscripcionID);
+
+            if (inscripcion == null)
+                throw new ValidationException("El alumno no esta inscripto");
+
+            inscripcion.CargarNota(nota);
+        }
     }
 }

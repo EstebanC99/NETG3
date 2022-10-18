@@ -5,11 +5,7 @@ using Business.Views;
 using Cross.Exceptions;
 using EntityFramework.DbContextScope.Interfaces;
 using ResourceAccess.Repository.Academicos.Cursos;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Logic.Academicos
 {
@@ -89,6 +85,14 @@ namespace Business.Logic.Academicos
             using (this.DbContextScopeFactory.CreateReadOnly())
             {
                 return this.Repository.LeerCursosPorCriterio(criteria);
+            }
+        }
+
+        public List<AlumnoDataView> LeerAlumnosInscriptos(int cursoID)
+        {
+            using (this.DbContextScopeFactory.CreateReadOnly())
+            {
+                return this.Repository.LeerAlumnosInscriptos(cursoID);
             }
         }
 

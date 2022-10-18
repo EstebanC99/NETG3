@@ -43,7 +43,7 @@ namespace Academia.UI.WebForm.Login
                         Response.Redirect("../Alumnos/AlumnoMainForm.aspx");
                         break;
                     case RolesUsuario.Profesor:
-                        Response.Redirect("");
+                        Response.Redirect("../Profesores/ProfesorMainForm.aspx");
                         break;
                     default:
                         Response.Redirect("../Alumnos/AlumnoMainForm.aspx");

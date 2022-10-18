@@ -44,6 +44,7 @@
     <Compile Include="AsignarCursos\ProfesorCursoDataView.cs" />
     <Compile Include="Comisiones\ComisionDataView.cs" />
     <Compile Include="Cursos\CursoDataView.cs" />
+    <Compile Include="Cursos\InscripcionDataView.cs" />
     <Compile Include="DataView.cs" />
     <Compile Include="Especialidades\EspecialidadDataView.cs" />
     <Compile Include="Inscripciones\InscripcionCursoDataView.cs" />

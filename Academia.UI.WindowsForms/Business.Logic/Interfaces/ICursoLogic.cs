@@ -16,5 +16,7 @@ namespace Business.Logic.Interfaces
         List<MateriaDataView> LeerMaterias();
 
         List<CursoDataView> LeerCursosPorCriterio(CursoCriteria criteria);
+
+        List<AlumnoDataView> LeerAlumnosInscriptos(int cursoID);
     }
 }

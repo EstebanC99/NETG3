@@ -1,11 +1,14 @@
-﻿namespace Business.Entities
+﻿using Business.Entities.Global;
+using Cross.Exceptions;
+
+namespace Business.Entities
 {
     public class AlumnoInscripcion : BusinessEntity
     {
         public int ID_Persona_Alumno { get; set; }
 
         public int ID_Curso { get; set; }
-        
+
         private string _Condicion;
         public string Condicion
         {
@@ -27,11 +30,32 @@
             set { this._Curso = value; }
         }
 
-        private int _Nota;
-        public int Nota
+        private int? _Nota;
+        public int? Nota
         {
             get { return this._Nota; }
             set { this._Nota = value; }
+        }
+
+        public void CargarNota(int? nota)
+        {
+            if (this.Nota.HasValue && !nota.HasValue)
+                throw new ValidationException("No puede cargarse una nota vacía!");
+
+            this.Nota = nota;
+
+            if (this.Nota >= CondicionesNota.MinimoAprobado)
+            {
+                this.Condicion = Condiciones.Aprobado;
+            }
+            else if (this.Nota >= CondicionesNota.MinimoRegular)
+            {
+                this.Condicion = Condiciones.Regular;
+            }
+            else
+            {
+                this.Condicion = Condiciones.Libre;
+            }
         }
     }
 }

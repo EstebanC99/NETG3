@@ -51,6 +51,7 @@
     <Compile Include="DocenteCurso.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="Global\Condiciones.cs" />
+    <Compile Include="Global\CondicionesNota.cs" />
     <Compile Include="Global\Roles.cs" />
     <Compile Include="Global\TiposPersonas.cs" />
     <Compile Include="IIdentificable.cs" />

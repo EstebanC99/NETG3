@@ -12,8 +12,12 @@ namespace Business.Logic.Interfaces
 
         List<CursoDataView> LeerCursosPorALumnoLogueado();
 
+        CursoDataView LeerCursoPorID(int cursoID);
+
         void Inscribirse(InscripcionCursoDataView criteria);
 
         void Desmatricularse(CursoCriteria criteria);
+
+        List<AlumnoDataView> LeerAlumnosInscriptos(int cursoID);
     }
 }

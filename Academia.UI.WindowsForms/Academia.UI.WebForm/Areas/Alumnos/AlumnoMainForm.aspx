@@ -19,6 +19,10 @@
                                 <b>Comisión: </b><%# Item.ComisionDescripcion %>
                                 <br />
                                 <b>Cupo: </b><%# Item.Cupo %>
+                                <br />
+                                <b>Condicion: </b><%# Item.CondicionCurso %>
+                                <br />
+                                <b>Nota: </b><%# Item.Nota %>
                             </p>
                             <button type="button"
                                 class="btn btn-primary popover-dismiss"

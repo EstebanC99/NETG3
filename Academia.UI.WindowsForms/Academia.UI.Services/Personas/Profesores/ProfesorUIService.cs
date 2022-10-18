@@ -1,4 +1,5 @@
 ﻿using Academia.UI.ViewModels;
+using AutoMapper;
 using Business.Logic.Interfaces;
 using Business.Views;
 using System;
@@ -37,6 +38,16 @@ namespace Academia.UI.Services.Personas.Profesores
         public override void Eliminar(ProfesorVM vm)
         {
             this.Logic.Eliminar(this.CrearDataViewDeViewModel(vm));
+        }
+
+        public List<CursoVM> LeerCursosPorProfesorLogueado()
+        {
+            var cursos = this.Logic.LeerCursosPorProfesorLogueado();
+
+            var mapperConfig = new MapperConfiguration(cfg => cfg.CreateMap<CursoDataView, CursoVM>());
+            var mapper = new Mapper(mapperConfig);
+
+            return mapper.Map<List<CursoDataView>, List<CursoVM>>(cursos);
         }
 
         #region Funciones de Conversion
