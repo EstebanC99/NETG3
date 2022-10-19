@@ -29,9 +29,9 @@ namespace Academia.UI.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMateria = new System.Windows.Forms.Label();
             this.txtMateriaDescrip = new System.Windows.Forms.TextBox();
@@ -206,7 +206,7 @@ namespace Academia.UI.WindowsForms
             this.lbDetalleCurso.Name = "lbDetalleCurso";
             this.lbDetalleCurso.Size = new System.Drawing.Size(718, 20);
             this.lbDetalleCurso.TabIndex = 5;
-            this.lbDetalleCurso.Text = "Detalle del Curso";
+            this.lbDetalleCurso.Text = "Detalle de Alumnos";
             this.lbDetalleCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgAlumnosCurso
@@ -267,18 +267,18 @@ namespace Academia.UI.WindowsForms
             // chartCondiciones
             // 
             this.chartCondiciones.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chartCondiciones.ChartAreas.Add(chartArea2);
+            chartArea3.Name = "ChartArea1";
+            this.chartCondiciones.ChartAreas.Add(chartArea3);
             this.chartCondiciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartCondiciones.Legends.Add(legend2);
+            legend3.Name = "Legend1";
+            this.chartCondiciones.Legends.Add(legend3);
             this.chartCondiciones.Location = new System.Drawing.Point(54, 374);
             this.chartCondiciones.Name = "chartCondiciones";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Serie1";
-            this.chartCondiciones.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Serie1";
+            this.chartCondiciones.Series.Add(series3);
             this.chartCondiciones.Size = new System.Drawing.Size(300, 300);
             this.chartCondiciones.TabIndex = 7;
             this.chartCondiciones.Text = "chart1";
