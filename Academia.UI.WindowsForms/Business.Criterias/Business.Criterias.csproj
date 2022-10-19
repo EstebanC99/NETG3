@@ -46,6 +46,7 @@
     <Compile Include="Personas\PersonaCriteria.cs" />
     <Compile Include="Personas\ProfesorCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCursosCriteria.cs" />
     <Compile Include="Usuarios\UsuarioCriteria.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

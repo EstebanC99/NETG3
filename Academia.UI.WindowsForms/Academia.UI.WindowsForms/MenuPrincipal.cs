@@ -102,6 +102,7 @@ namespace Academia.UI.WindowsForms
             this.profesoresToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && (SessionInfo.Instance.UserRolID == RolesUsuario.Administrador || SessionInfo.Instance.UserRolID == RolesUsuario.Profesor);
             this.usuariosToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
             this.asignarProfesoresBtn.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
+            this.tsReporteCursos.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -135,6 +136,13 @@ namespace Academia.UI.WindowsForms
             AsignarCursoDesktop asignarCurso = new AsignarCursoDesktop();
 
             asignarCurso.ShowDialog();
+        }
+
+        private void tsReporteCursos_Click(object sender, EventArgs e)
+        {
+            ReporteCursosForm reporteCursosForm = new ReporteCursosForm();
+
+            reporteCursosForm.ShowDialog();
         }
     }
 }

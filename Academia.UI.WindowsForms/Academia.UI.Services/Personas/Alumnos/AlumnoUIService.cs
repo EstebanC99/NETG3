@@ -40,6 +40,15 @@ namespace Academia.UI.Services
             this.Logic.Eliminar(this.CrearDataViewDeViewModel(vm));
         }
 
+        public List<PlanVM> LeerPlanes()
+        {
+            var planes = this.Logic.LeerPlanes();
+
+            var mapper = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<PlanDataView, PlanVM>()));
+
+            return mapper.Map<List<PlanDataView>, List<PlanVM>>(planes);
+        }
+
         #region Funciones de Conversion
 
         private readonly Func<AlumnoDataView, AlumnoVM> CrearViewModelDeDataView = e =>

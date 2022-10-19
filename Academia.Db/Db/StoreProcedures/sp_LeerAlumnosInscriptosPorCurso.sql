@@ -11,7 +11,8 @@ BEGIN
 			pl.ID_Plan			AS PlanID,
 			pl.Descripcion		AS PlanDescripcion,
 			ai.Nota				AS Nota,
-			ai.ID_Inscripcion	AS InscripcionID
+			ai.ID_Inscripcion	AS InscripcionID,
+			ai.Condicion		AS Condicion
 	FROM t_Curso c
 	INNER JOIN t_AlumnoInscripcion ai ON ai.ID_Curso = c.ID_Curso
 	INNER JOIN t_Persona p ON p.ID_Persona = ai.ID_Persona_Alumno

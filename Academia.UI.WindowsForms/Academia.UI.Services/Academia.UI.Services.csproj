@@ -69,6 +69,8 @@
     <Compile Include="Personas\Profesores\ProfesorUIService.cs" />
     <Compile Include="Planes\IPlanUIService.cs" />
     <Compile Include="Planes\PlanUIService.cs" />
+    <Compile Include="ReporteCursos\IReporteCursosUIService.cs" />
+    <Compile Include="ReporteCursos\ReporteCursosUIService.cs" />
     <Compile Include="UIService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\ILoginUIService.cs" />

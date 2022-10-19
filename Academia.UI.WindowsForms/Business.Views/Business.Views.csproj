@@ -55,6 +55,9 @@
     <Compile Include="Personas\Profesores\ProfesorDataView.cs" />
     <Compile Include="Planes\PlanDataView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCursos\ReporteCursoAlumnoDataView.cs" />
+    <Compile Include="ReporteCursos\ReporteCursoResultadoDataView.cs" />
+    <Compile Include="ReporteCursos\ReporteCursosDataView.cs" />
     <Compile Include="Usuarios\UsuarioDataView.cs" />
   </ItemGroup>
   <ItemGroup>

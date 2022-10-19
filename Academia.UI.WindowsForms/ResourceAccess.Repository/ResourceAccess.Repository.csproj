@@ -70,6 +70,8 @@
     <Compile Include="Academicos\Materias\MateriaRepository.cs" />
     <Compile Include="Academicos\Planes\IPlanRepository.cs" />
     <Compile Include="Academicos\Planes\PlanRepository.cs" />
+    <Compile Include="Academicos\ReporteCursos\IReporteCursosRepository.cs" />
+    <Compile Include="Academicos\ReporteCursos\ReporteCursosRepository.cs" />
     <Compile Include="DataAccessBase.cs" />
     <Compile Include="EntityLoaderRepository.cs" />
     <Compile Include="IDataAccessBase.cs" />

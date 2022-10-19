@@ -58,6 +58,7 @@
     <Compile Include="Academicos\ComisionLogic.cs" />
     <Compile Include="Academicos\CursoLogic.cs" />
     <Compile Include="Academicos\EspecialidadLogic.cs" />
+    <Compile Include="Academicos\ReporteCursosLogic.cs" />
     <Compile Include="Interfaces\IIngresarNotaLogic.cs" />
     <Compile Include="Academicos\IngresarNotaLogic.cs" />
     <Compile Include="Academicos\InscripcionCursoLogic.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Interfaces\IPersonaLogic.cs" />
     <Compile Include="Interfaces\IPlanLogic.cs" />
     <Compile Include="Interfaces\IProfesorLogic.cs" />
+    <Compile Include="Interfaces\IReporteCursosLogic.cs" />
     <Compile Include="Interfaces\IRolLogic.cs" />
     <Compile Include="Interfaces\IUsuarioLogic.cs" />
     <Compile Include="LogicBase.cs" />
@@ -91,10 +93,6 @@
     <Compile Include="Usuarios\UsuarioLogic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Academia.UI.ViewModels\Academia.UI.ViewModels.csproj">
-      <Project>{E2818191-254E-4685-9F1A-C751F757AEBD}</Project>
-      <Name>Academia.UI.ViewModels</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Business.Criterias\Business.Criterias.csproj">
       <Project>{52FF5F5E-E69C-42B8-9F4D-8A0741266B71}</Project>
       <Name>Business.Criterias</Name>

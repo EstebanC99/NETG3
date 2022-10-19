@@ -55,6 +55,10 @@
     <Compile Include="Personas\PersonaVM.cs" />
     <Compile Include="Personas\Profesores\ProfesorVM.cs" />
     <Compile Include="Planes\PlanVM.cs" />
+    <Compile Include="ReporteCursos\ReporteCursoDetalleVM.cs" />
+    <Compile Include="ReporteCursos\ReporteCursosAlumnoVM.cs" />
+    <Compile Include="ReporteCursos\ReporteCursosFiltroVM.cs" />
+    <Compile Include="ReporteCursos\ReporteCursosItemVM.cs" />
     <Compile Include="Usuarios\LoginVM.cs" />
     <Compile Include="Usuarios\UsuarioVM.cs" />
     <Compile Include="ViewModel.cs" />

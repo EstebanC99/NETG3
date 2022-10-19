@@ -48,13 +48,14 @@ namespace Academia.UI.WindowsForms
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboPlanes = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -75,19 +76,22 @@ namespace Academia.UI.WindowsForms
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.comboPlanes, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(536, 161);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(536, 188);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label5
@@ -265,7 +269,7 @@ namespace Academia.UI.WindowsForms
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(325, 133);
+            this.btnAceptar.Location = new System.Drawing.Point(325, 160);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 8;
@@ -275,7 +279,7 @@ namespace Academia.UI.WindowsForms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(406, 133);
+            this.btnCancelar.Location = new System.Drawing.Point(406, 160);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
@@ -283,11 +287,34 @@ namespace Academia.UI.WindowsForms
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 130);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 27);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Plan";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboPlanes
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.comboPlanes, 3);
+            this.comboPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboPlanes.FormattingEnabled = true;
+            this.comboPlanes.Location = new System.Drawing.Point(117, 133);
+            this.comboPlanes.Name = "comboPlanes";
+            this.comboPlanes.Size = new System.Drawing.Size(416, 21);
+            this.comboPlanes.TabIndex = 16;
+            // 
             // AlumnoDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 161);
+            this.ClientSize = new System.Drawing.Size(536, 188);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.Name = "AlumnoDesktop";
@@ -320,5 +347,7 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboPlanes;
     }
 }

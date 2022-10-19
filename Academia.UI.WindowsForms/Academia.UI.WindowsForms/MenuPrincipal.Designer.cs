@@ -47,8 +47,10 @@ namespace Academia.UI.WindowsForms
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.asignarProfesoresBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.tsReporteCursos = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -125,10 +127,11 @@ namespace Academia.UI.WindowsForms
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator1,
-            this.asignarProfesoresBtn});
+            this.asignarProfesoresBtn,
+            this.tsReporteCursos});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(243, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(334, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripButton1
@@ -228,6 +231,16 @@ namespace Academia.UI.WindowsForms
             this.asignarProfesoresBtn.Text = "Asignar profesores";
             this.asignarProfesoresBtn.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
+            // tsReporteCursos
+            // 
+            this.tsReporteCursos.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsReporteCursos.Image = ((System.Drawing.Image)(resources.GetObject("tsReporteCursos.Image")));
+            this.tsReporteCursos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsReporteCursos.Name = "tsReporteCursos";
+            this.tsReporteCursos.Size = new System.Drawing.Size(91, 22);
+            this.tsReporteCursos.Text = "Reporte Cursos";
+            this.tsReporteCursos.Click += new System.EventHandler(this.tsReporteCursos_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,5 +287,7 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton asignarProfesoresBtn;
+        private System.Windows.Forms.ToolStripButton tsReporteCursos;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }

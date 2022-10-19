@@ -13,6 +13,18 @@ namespace Academia.UI.WindowsForms
             InitializeComponent();
 
             this.SetearBoton(this.btnAceptar);
+
+            this.comboPlanes.Items.Clear();
+            this.comboPlanes.DisplayMember = nameof(this.Model.Descripcion);
+            this.comboPlanes.ValueMember = nameof(this.Model.ID);
+
+            foreach (var item in this.UIService.LeerPlanes())
+            {
+                item.Descripcion = $"{item.Descripcion} - {item.EspecialidadDescripcion}";
+                this.comboPlanes.Items.Add(item);
+            }
+
+            this.comboPlanes.SelectedItem = this.comboPlanes.Items[0];
         }
 
         public AlumnoDesktop(int alumnoID, IAlumnoUIService uiService, ModoForm modo) : this(uiService, modo)
@@ -47,6 +59,7 @@ namespace Academia.UI.WindowsForms
             this.Model.Telefono = this.txtTelefono.Text;
             this.Model.Legajo = int.Parse(this.txtLegajo.Text);
             this.Model.FechaNacimiento = this.dtFechaNacimiento.Value.Date;
+            this.Model.PlanID = ((PlanVM)this.comboPlanes.SelectedItem).ID;
         }
 
         protected override void MapearDeDatos()
