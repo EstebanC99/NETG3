@@ -29,14 +29,14 @@ namespace Academia.UI.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtPlanDescrip = new System.Windows.Forms.TextBox();
+            this.lbPlan = new System.Windows.Forms.Label();
             this.lblMateria = new System.Windows.Forms.Label();
             this.txtMateriaDescrip = new System.Windows.Forms.TextBox();
-            this.lbPlan = new System.Windows.Forms.Label();
-            this.txtPlanDescrip = new System.Windows.Forms.TextBox();
             this.dgCursos = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MateriaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +92,26 @@ namespace Academia.UI.WindowsForms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(724, 653);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // txtPlanDescrip
+            // 
+            this.txtPlanDescrip.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPlanDescrip.Location = new System.Drawing.Point(450, 3);
+            this.txtPlanDescrip.Name = "txtPlanDescrip";
+            this.txtPlanDescrip.Size = new System.Drawing.Size(271, 20);
+            this.txtPlanDescrip.TabIndex = 3;
+            this.txtPlanDescrip.TextChanged += new System.EventHandler(this.txtPlanDescrip_TextChanged);
+            // 
+            // lbPlan
+            // 
+            this.lbPlan.AutoSize = true;
+            this.lbPlan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbPlan.Location = new System.Drawing.Point(360, 0);
+            this.lbPlan.Name = "lbPlan";
+            this.lbPlan.Size = new System.Drawing.Size(84, 26);
+            this.lbPlan.TabIndex = 2;
+            this.lbPlan.Text = "Plan:";
+            this.lbPlan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblMateria
             // 
             this.lblMateria.AutoSize = true;
@@ -111,26 +131,6 @@ namespace Academia.UI.WindowsForms
             this.txtMateriaDescrip.Size = new System.Drawing.Size(300, 20);
             this.txtMateriaDescrip.TabIndex = 1;
             this.txtMateriaDescrip.TextChanged += new System.EventHandler(this.txtMateriaDescrip_TextChanged);
-            // 
-            // lbPlan
-            // 
-            this.lbPlan.AutoSize = true;
-            this.lbPlan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPlan.Location = new System.Drawing.Point(360, 0);
-            this.lbPlan.Name = "lbPlan";
-            this.lbPlan.Size = new System.Drawing.Size(84, 26);
-            this.lbPlan.TabIndex = 2;
-            this.lbPlan.Text = "Plan:";
-            this.lbPlan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPlanDescrip
-            // 
-            this.txtPlanDescrip.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtPlanDescrip.Location = new System.Drawing.Point(450, 3);
-            this.txtPlanDescrip.Name = "txtPlanDescrip";
-            this.txtPlanDescrip.Size = new System.Drawing.Size(271, 20);
-            this.txtPlanDescrip.TabIndex = 3;
-            this.txtPlanDescrip.TextChanged += new System.EventHandler(this.txtPlanDescrip_TextChanged);
             // 
             // dgCursos
             // 
@@ -267,18 +267,20 @@ namespace Academia.UI.WindowsForms
             // chartCondiciones
             // 
             this.chartCondiciones.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.chartCondiciones.ChartAreas.Add(chartArea3);
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartCondiciones.ChartAreas.Add(chartArea1);
             this.chartCondiciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chartCondiciones.Legends.Add(legend3);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Name = "Legend1";
+            this.chartCondiciones.Legends.Add(legend1);
             this.chartCondiciones.Location = new System.Drawing.Point(54, 374);
             this.chartCondiciones.Name = "chartCondiciones";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Serie1";
-            this.chartCondiciones.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Serie1";
+            this.chartCondiciones.Series.Add(series1);
             this.chartCondiciones.Size = new System.Drawing.Size(300, 300);
             this.chartCondiciones.TabIndex = 7;
             this.chartCondiciones.Text = "chart1";

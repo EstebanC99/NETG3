@@ -72,6 +72,8 @@
     <Compile Include="Academicos\Planes\PlanRepository.cs" />
     <Compile Include="Academicos\ReporteCursos\IReporteCursosRepository.cs" />
     <Compile Include="Academicos\ReporteCursos\ReporteCursosRepository.cs" />
+    <Compile Include="Academicos\ReportePlanes\IReportePlanesRepository.cs" />
+    <Compile Include="Academicos\ReportePlanes\ReportePlanesRepository.cs" />
     <Compile Include="DataAccessBase.cs" />
     <Compile Include="EntityLoaderRepository.cs" />
     <Compile Include="IDataAccessBase.cs" />

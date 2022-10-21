@@ -365,6 +365,12 @@
     <Compile Include="ReporteCursosForm.Designer.cs">
       <DependentUpon>ReporteCursosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportePlanesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportePlanesForm.Designer.cs">
+      <DependentUpon>ReportePlanesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -458,6 +464,9 @@
     </Compile>
     <EmbeddedResource Include="ReporteCursosForm.resx">
       <DependentUpon>ReporteCursosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportePlanesForm.resx">
+      <DependentUpon>ReportePlanesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>

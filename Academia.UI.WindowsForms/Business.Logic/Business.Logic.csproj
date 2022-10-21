@@ -58,7 +58,9 @@
     <Compile Include="Academicos\ComisionLogic.cs" />
     <Compile Include="Academicos\CursoLogic.cs" />
     <Compile Include="Academicos\EspecialidadLogic.cs" />
+    <Compile Include="Interfaces\IReportePlanesLogic.cs" />
     <Compile Include="Academicos\ReporteCursosLogic.cs" />
+    <Compile Include="Academicos\ReportePlanesLogic.cs" />
     <Compile Include="Interfaces\IIngresarNotaLogic.cs" />
     <Compile Include="Academicos\IngresarNotaLogic.cs" />
     <Compile Include="Academicos\InscripcionCursoLogic.cs" />

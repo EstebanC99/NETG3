@@ -103,6 +103,7 @@ namespace Academia.UI.WindowsForms
             this.usuariosToolStripMenuItem.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
             this.asignarProfesoresBtn.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
             this.tsReporteCursos.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
+            this.tsbReportePlanes.Enabled = SessionInfo.Instance.EstaLogeado && SessionInfo.Instance.UserRolID == RolesUsuario.Administrador;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -143,6 +144,13 @@ namespace Academia.UI.WindowsForms
             ReporteCursosForm reporteCursosForm = new ReporteCursosForm();
 
             reporteCursosForm.ShowDialog();
+        }
+
+        private void tsbReportePlanes_Click(object sender, EventArgs e)
+        {
+            ReportePlanesForm reportePlanesForm = new ReportePlanesForm();
+
+            reportePlanesForm.ShowDialog();
         }
     }
 }

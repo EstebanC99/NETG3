@@ -4,12 +4,7 @@ using Academia.UI.ViewModels;
 using Business.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -37,7 +32,7 @@ namespace Academia.UI.WindowsForms
 
         public ReporteCursosForm() : this(IoCContainer.Instance.TryResolve<IReporteCursosUIService>())
         {
-            
+
         }
 
         private void txtMateriaDescrip_TextChanged(object sender, EventArgs e)
@@ -75,8 +70,8 @@ namespace Academia.UI.WindowsForms
                 this.chartCondiciones.Series.Add("Condiciones");
                 this.chartCondiciones.Series["Condiciones"].ChartType = SeriesChartType.Pie;
                 this.chartCondiciones.Series["Condiciones"].IsValueShownAsLabel = true;
-                this.chartCondiciones.Series["Condiciones"].Points.DataBindXY(new List<string>() { Condiciones.Aprobado, Condiciones.Regular, Condiciones.Libre },
-                                                                              new List<int>() { 20, 15, 5 });
+                this.chartCondiciones.Series["Condiciones"].Points.DataBindXY(new List<string>() { Condiciones.Aprobado, Condiciones.Regular, Condiciones.Libre, Condiciones.Inscripto },
+                                                                              new List<int>() { detalle.CantidadAprobados, detalle.CantidadRegulares, detalle.CantidadLibres, detalle.CantidadInscriptos });
                 this.chartCondiciones.ChartAreas.FirstOrDefault().Area3DStyle.Enable3D = true;
             }
         }

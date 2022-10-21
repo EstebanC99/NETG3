@@ -58,6 +58,10 @@
     <Compile Include="ReporteCursos\ReporteCursoAlumnoDataView.cs" />
     <Compile Include="ReporteCursos\ReporteCursoResultadoDataView.cs" />
     <Compile Include="ReporteCursos\ReporteCursosDataView.cs" />
+    <Compile Include="ReportePlanes\ReportePlanesAlumnoItemDataView.cs" />
+    <Compile Include="ReportePlanes\ReportePlanesComisionItemDataView.cs" />
+    <Compile Include="ReportePlanes\ReportePlanesDataView.cs" />
+    <Compile Include="ReportePlanes\ReportePlanesMateriaItemDataView.cs" />
     <Compile Include="Usuarios\UsuarioDataView.cs" />
   </ItemGroup>
   <ItemGroup>
