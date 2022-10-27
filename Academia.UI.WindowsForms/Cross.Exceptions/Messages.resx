@@ -141,6 +141,9 @@
   <data name="SinResultados" xml:space="preserve">
     <value>No se encontraron Resultados.</value>
   </data>
+  <data name="UsuarioInvalidoParaLogin" xml:space="preserve">
+    <value>Usuario inválido para Login</value>
+  </data>
   <data name="UsuarioOContraseniaIncorrectos" xml:space="preserve">
     <value>Usuario y/o Contraseña incorrectos.</value>
   </data>

@@ -1,4 +1,5 @@
 ﻿using Business.Utils;
+using Cross.Exceptions;
 using Cross.Labels;
 using System;
 using System.Diagnostics;
@@ -36,7 +37,14 @@ namespace Academia.UI.WindowsForms
 
         static void MyHandler(object sender, ThreadExceptionEventArgs args)
         {
-            EventLog.WriteEntry("Academia", $"{args.Exception.Message} - {args.Exception.StackTrace}", EventLogEntryType.Error);
+            if (args.Exception is ValidationException)
+            {
+                EventLog.WriteEntry("Academia", $"{args.Exception.Message} - {args.Exception.StackTrace}", EventLogEntryType.Information);
+            }
+            else
+            {
+                EventLog.WriteEntry("Academia", $"{args.Exception.Message} - {args.Exception.StackTrace}", EventLogEntryType.Error);
+            }
 
             MessageBox.Show(args.Exception.Message,  Labels.Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }

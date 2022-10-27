@@ -133,6 +133,15 @@ namespace Cross.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Usuario inválido para Login.
+        /// </summary>
+        public static string UsuarioInvalidoParaLogin {
+            get {
+                return ResourceManager.GetString("UsuarioInvalidoParaLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuario y/o Contraseña incorrectos..
         /// </summary>
         public static string UsuarioOContraseniaIncorrectos {
