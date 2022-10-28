@@ -26,7 +26,8 @@ namespace Academia.UI.WindowsForms
                 this.comboEspecialidades.Items.Add(item);
             }
 
-            this.comboEspecialidades.SelectedItem = this.comboEspecialidades.Items[0];
+            if (this.comboEspecialidades.Items.Count > default(int))
+                this.comboEspecialidades.SelectedItem = this.comboEspecialidades.Items[0];
         }
 
         public PlanesDesktop(int planID, IPlanUIService uiService, ModoForm modo) : this(uiService, modo)

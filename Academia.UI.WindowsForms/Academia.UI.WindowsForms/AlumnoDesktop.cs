@@ -24,7 +24,8 @@ namespace Academia.UI.WindowsForms
                 this.comboPlanes.Items.Add(item);
             }
 
-            this.comboPlanes.SelectedItem = this.comboPlanes.Items[0];
+            if (this.comboPlanes.Items.Count >= default(int))
+                this.comboPlanes.SelectedItem = this.comboPlanes.Items[0];
         }
 
         public AlumnoDesktop(int alumnoID, IAlumnoUIService uiService, ModoForm modo) : this(uiService, modo)

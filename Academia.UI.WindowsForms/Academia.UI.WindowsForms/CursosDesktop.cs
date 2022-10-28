@@ -27,7 +27,8 @@ namespace Academia.UI.WindowsForms
                 this.comboComisiones.Items.Add(item);
             }
 
-            this.comboComisiones.SelectedItem = this.comboComisiones.Items[0];
+            if (this.comboComisiones.Items.Count > default(int))
+                this.comboComisiones.SelectedItem = this.comboComisiones.Items[0];
 
             this.comboMaterias.Items.Clear();
             this.comboMaterias.DisplayMember = nameof(this.Model.Descripcion);
@@ -38,7 +39,8 @@ namespace Academia.UI.WindowsForms
                 this.comboMaterias.Items.Add(item);
             }
 
-            this.comboMaterias.SelectedItem = this.comboMaterias.Items[0];
+            if (this.comboMaterias.Items.Count > default(int))
+                this.comboMaterias.SelectedItem = this.comboMaterias.Items[0];
 
             this.txtAnioCalendario.Text = DateTime.Today.Year.ToString();
         }
