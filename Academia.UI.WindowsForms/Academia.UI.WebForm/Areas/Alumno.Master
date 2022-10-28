@@ -16,7 +16,7 @@
     <script src="/Scripts/bootstrap.min.js"></script>
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-        <a class="navbar-brand" href="#">Academia</a>
+        <a class="navbar-brand" href=<%=Session["rol"].ToString() == "Alumno" ? "AlumnoMainForm.aspx" : "ProfesorMainForm.aspx"%>>Academia</a>
         <button class="navbar-toggler collapsed" 
             type="button" 
             data-toggle="collapse" 
@@ -30,7 +30,6 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active"><a class="nav-link" href=<%=Session["rol"].ToString() == "Alumno" ? "AlumnoMainForm.aspx" : "ProfesorMainForm.aspx"%>>Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href=<%=Session["rol"].ToString() == "Alumno" ? "AlumnoListaCursos.aspx" : "ProfesorMainForm.aspx"%>>Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Mi Perfil</a></li>
                 <li class="nav-item" hidden=<%=Session["rol"].ToString() == "Profesor"%>><a class="nav-link" href="#">Notas</a></li>
             </ul>
         </div>

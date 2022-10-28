@@ -29,10 +29,9 @@
                                 data-toggle="popover"
                                 title="<%# Item.MateriaDescripcion %>"
                                 data-content='<%# 
-                                    string.Format("El curso es dictado por el/la profesor/a {0} en la comisión {1}. " +
-                                    "Consta de {2}hs semanales y suma un total de {3}hs anuales. " +
-                                    "Corresponde a la carrera {4} y al {5}", 
-                                    Item.ProfesorNombreApellido,
+                                    string.Format("El curso es dictado en la comisión {0}. " +
+                                    "Consta de {1}hs semanales y suma un total de {2}hs anuales. " +
+                                    "Corresponde a la carrera {3} y al {4}", 
                                     Item.ComisionDescripcion,
                                     Item.HsSemanales,
                                     Item.HsTotales,
