@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-auto pt-1">
+      <h2>Cursos</h2>
+    </div>
+    <div class="col-auto pt-1">
+      <div class="row">
+        <div class="col-auto pe-0">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            #input
+            (keyup.enter)="searchButton.click()"
+            (keyup.backspace)="input.value==''?searchButton.click():''"
+          />
+        </div>
+        <div class="col-auto">
+          <button
+            #searchButton
+            class="btn btn-outline-primary"
+            type="button"
+            (click)="search(input)"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-auto pt-1">
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div> -->
+  </div>
+  <div class="container" style="overflow-x: auto; height: 90vh">
+    <div class="row" *ngFor="let curso of listaCursos">
+      <div class="col pb-2 pe-0 ps-0">
+        <mat-card class="card">
+          <mat-card-title>
+            <!-- <p>
+              {{ curso.MateriaDescripcion }}
+              <ng-container
+                *ngIf="curso.Cupo - curso.CuposRestantes > 0; else NoCupo"
+              >
+                <span
+                  class="badge bg-primary align-middle"
+                  style="font-size: 12px"
+                  >Lugares Disponibles:
+                  {{ curso.Cupo - curso.CuposRestantes }}</span
+                >
+              </ng-container>
+              <ng-template #NoCupo>
+                <span
+                  class="badge bg-warning align-middle"
+                  style="font-size: 12px"
+                  >Completo</span
+                >
+              </ng-template>
+            </p> -->
+            <p>
+              {{ curso.MateriaDescripcion }}
+              <ng-container>
+                <span
+                  class="badge bg-primary align-middle"
+                  style="font-size: 12px"
+                  >Cupo: {{ curso.Cupo }}</span
+                >
+              </ng-container>
+            </p>
+          </mat-card-title>
+          <mat-card-subtitle
+            >{{ curso.AnioCalendario }} -
+            {{ curso.ComisionDescripcion }}</mat-card-subtitle
+          >
+          <mat-card-content class="mb-1">
+            <div class="inline">
+              <div class="row">
+                <!-- <div class="col-auto">
+                  <p class="mb-1"><strong>Cupo:</strong> {{ curso.Cupo }}</p>
+                </div> -->
+                <div class="col-auto">
+                  <p class="mb-1">
+                    <strong> Horas Semanales: </strong>
+                    {{ curso.HsSemanales }}
+                  </p>
+                </div>
+                <div class="col-auto">
+                  <p class="mb-1">
+                    <strong> Horas Totales: </strong>
+                    {{ curso.HsTotales }}
+                  </p>
+                </div>
+                <ng-container *ngIf="curso.ProfesorNombreApellido">
+                  <div class="col-auto">
+                    <p class="mb-1">
+                      <strong>Profesor:</strong>
+                      {{ curso.ProfesorNombreApellido }}
+                    </p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="row">
+                <div class="col-auto">
+                  <p class="mb-1">
+                    <strong> Especialidad: </strong>
+                    {{ curso.EspecialidadDescripcion }}
+                  </p>
+                </div>
+                <div class="col-auto">
+                  <p class="mb-1">
+                    <strong> Plan: </strong>
+                    {{ curso.PlanDescripcion }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions align="end" class="pt-0">
+            <!-- <button mat-button>Detalles</button> -->
+            <button mat-raised-button (click)="openDialog(curso)">
+              <i class="fa-solid fa-eye"></i>
+              Inscriptos
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

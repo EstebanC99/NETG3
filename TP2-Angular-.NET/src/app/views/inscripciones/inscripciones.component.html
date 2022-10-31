@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-auto pt-1">
+      <h2>Inscripciones</h2>
+    </div>
+    <div class="col-auto pt-1">
+      <div class="row">
+        <div class="col-auto pe-0">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Materia o comisión"
+            aria-label="Search"
+            #input
+            (keyup.enter)="searchButton.click()"
+            (keyup.backspace)="input.value == '' ? searchButton.click() : ''"
+          />
+        </div>
+        <div class="col-auto">
+          <button
+            #searchButton
+            class="btn btn-outline-primary"
+            type="button"
+            (click)="search(input)"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-auto pt-1">
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div> -->
+  </div>
+
+  <div class="container" style="overflow-x: auto; height: 90vh">
+    <div class="row" *ngFor="let plan of listaPlanes">
+      <p class="p-0 m-0" style="font-style: italic; font-size: 1.2rem">
+        Plan: <span style="color: darkgray">{{ plan.PlanDescripcion }}</span>
+      </p>
+      <hr />
+      <div class="" *ngFor="let curso of plan.Cursos">
+        <div class="col pb-2 pe-0 ps-0">
+          <mat-card class="card">
+            <mat-card-title>
+              <p>
+                {{ curso.MateriaDescripcion }}
+                <ng-container *ngIf="curso.CuposRestantes > 0; else NoCupo">
+                  <span
+                    class="badge bg-primary align-middle"
+                    style="font-size: 12px"
+                    >Lugares Disponibles: {{ curso.CuposRestantes }}</span
+                  >
+                </ng-container>
+                <ng-template #NoCupo>
+                  <span
+                    class="badge bg-warning align-middle"
+                    style="font-size: 12px"
+                    >Completo</span
+                  >
+                </ng-template>
+              </p>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <div class="row justify-content-between">
+                <div class="col-auto">
+                  {{ curso.AnioCalendario }} -
+                  {{ curso.ComisionDescripcion }}
+                </div>
+              </div>
+            </mat-card-subtitle>
+            <mat-card-content class="mb-1">
+              <div class="inline">
+                <div class="row">
+                  <!-- <div class="col-auto">
+                  <p class="mb-1"><strong>Cupo:</strong> {{ curso.Cupo }}</p>
+                </div> -->
+                  <div class="col-auto">
+                    <p class="mb-1">
+                      <strong> Horas Semanales: </strong>
+                      {{ curso.HsSemanales }}
+                    </p>
+                  </div>
+                  <div class="col-auto">
+                    <p class="mb-1">
+                      <strong> Horas Totales: </strong>
+                      {{ curso.HsTotales }}
+                    </p>
+                  </div>
+                  <ng-container *ngIf="curso.ProfesorNombreApellido">
+                    <div class="col-auto">
+                      <p class="mb-1">
+                        <strong>Profesor:</strong>
+                        {{ curso.ProfesorNombreApellido }}
+                      </p>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="row">
+                  <div class="col-auto">
+                    <p class="mb-1">
+                      <strong> Especialidad: </strong>
+                      {{ curso.EspecialidadDescripcion }}
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-auto" *ngIf="estaInscripto(curso)">
+                    <p class="text-inscripto p-0 m-0">
+                      <i class="fa-solid fa-check"></i>
+                      Ya esta inscripto
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions align="end" class="pt-0">
+              <ng-container *ngIf="estaInscripto(curso); else Inscribirse">
+                <button mat-raised-button  (click)="desmatricularAlumno(curso)">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                  Desmatricularse
+                </button>
+              </ng-container>
+              <ng-template #Inscribirse>
+                <button
+                  mat-raised-button
+                  (click)="inscribirAlumno(curso)"
+                  [disabled]="curso.CuposRestantes == 0"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                  Inscribirse
+                </button>
+              </ng-template>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

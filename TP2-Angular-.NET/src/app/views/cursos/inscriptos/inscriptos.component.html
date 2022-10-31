@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>{{ curso.MateriaDescripcion }}</h2>
+<mat-dialog-content class="pb-3">
+  <mat-form-field appearance="outline">
+    <mat-label>Buscar...</mat-label>
+    <input
+      matInput
+      (keyup)="aplicarFiltro($event)"
+      placeholder="Ej. daniel"
+      #input
+    />
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="w-100" matSort>
+        <ng-container matColumnDef="Legajo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Legajo</th>
+          <td mat-cell *matCellDef="let element">{{ element.Legajo }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.Nombre }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Apellido">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
+          <td mat-cell *matCellDef="let element">{{ element.Apellido }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Nota">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nota</th>
+          <td mat-cell *matCellDef="let element">{{ element.Nota }}</td>
+        </ng-container>
+        <ng-container matColumnDef="Condicion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Condicion</th>
+          <td mat-cell *matCellDef="let element">{{ element.Condicion }}</td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Ningun resultado con lo filtrado"{{input.value}}"</td>
+          </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cerrar</button>
+</mat-dialog-actions>
