@@ -15,7 +15,7 @@ namespace ResourceAccess.Repository.Config
             this.Property(m => m.Cupo).IsRequired();
 
             this.HasRequired(m => m.Materia).WithMany().Map(m => m.MapKey("ID_Materia"));
-            this.HasRequired(m => m.Comision).WithMany().Map(m => m.MapKey("ID_Comision"));
+            this.HasOptional(m => m.Comision).WithMany().Map(m => m.MapKey("ID_Comision"));
 
             this.HasMany(m => m.Inscriptos).WithRequired(m => m.Curso).HasForeignKey(m => m.ID_Curso).WillCascadeOnDelete();
 

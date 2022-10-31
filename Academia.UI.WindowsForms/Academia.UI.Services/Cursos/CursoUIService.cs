@@ -84,7 +84,7 @@ namespace Academia.UI.Services
             dv.Cupo = e.Cupo;
             dv.MateriaID = e.MateriaID;
             dv.MateriaDescripcion = e.MateriaDescripcion;
-            dv.ComisionID = e.ComisionID;
+            dv.ComisionID = e.ComisionID ?? default(int);
             dv.ComisionDescripcion = e.ComisionDescripcion;
 
             return dv;

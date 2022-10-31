@@ -10,5 +10,5 @@
 	[TipoPersona] [int] NOT NULL,
 	[ID_Plan] [int] NULL, 
     CONSTRAINT [PK_t_Persona] PRIMARY KEY ([ID_Persona]),
-	CONSTRAINT [FK_t_Persona_t_Plan] FOREIGN KEY ([ID_Plan]) REFERENCES [t_Plan]([ID_Plan])
+	CONSTRAINT [FK_t_Persona_t_Plan] FOREIGN KEY ([ID_Plan]) REFERENCES [t_Plan]([ID_Plan]) ON DELETE SET NULL
 )

@@ -14,7 +14,7 @@ namespace ResourceAccess.Repository.Config
 
             this.Property(m => m.Descripcion).IsRequired();
 
-            this.HasRequired(m => m.Especialidad).WithMany().Map(m => m.MapKey("ID_Especialidad"));
+            this.HasOptional(m => m.Especialidad).WithMany().Map(m => m.MapKey("ID_Especialidad"));
         }
     }
 }

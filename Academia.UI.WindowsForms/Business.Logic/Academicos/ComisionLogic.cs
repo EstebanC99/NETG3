@@ -34,8 +34,8 @@ namespace Business.Logic.Academicos
                     ID = m.ID,
                     Descripcion = m.Descripcion,
                     AnioEspecialidad = m.AnioEspecialidad,
-                    PlanID = m.Plan.ID,
-                    PlanDescripcion = m.Plan.Descripcion
+                    PlanID = m.Plan != null ? m.Plan.ID : default(int),
+                    PlanDescripcion = m.Plan?.Descripcion
                 });
             }
         }
@@ -51,8 +51,8 @@ namespace Business.Logic.Academicos
                     ID = this.Entity.ID,
                     Descripcion = this.Entity.Descripcion,
                     AnioEspecialidad = this.Entity.AnioEspecialidad,
-                    PlanID = this.Entity.Plan.ID,
-                    PlanDescripcion = this.Entity.Plan.Descripcion
+                    PlanID = this.Entity.Plan != null ? this.Entity.Plan.ID : default(int),
+                    PlanDescripcion = this.Entity.Plan?.Descripcion
                 };
             }
         }
@@ -82,7 +82,7 @@ namespace Business.Logic.Academicos
                 validaciones.AddValidationResult(string.Format(Messages.ElCampoXDebeSerNumerico, comision.AnioEspecialidad));
 
             if (comision.PlanID == default)
-                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, this.Entity.Plan));
+                validaciones.AddValidationResult(string.Format(Messages.ElCampoXEsRequerido, nameof(this.Entity.Plan)));
 
             validaciones.Throw();
         }

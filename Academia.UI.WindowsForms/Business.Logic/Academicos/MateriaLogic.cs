@@ -35,8 +35,8 @@ namespace Business.Logic.Academicos
                     Descripcion = m.Descripcion,
                     HsSemanales = m.HsSemanales,
                     HsTotales = m.HsTotales,
-                    PlanID = m.Plan.ID,
-                    PlanDescripcion = m.Plan.Descripcion
+                    PlanID = m.Plan !=  null ? m.Plan.ID : default(int),
+                    PlanDescripcion = m.Plan?.Descripcion
                 });
             }
         }
@@ -53,8 +53,8 @@ namespace Business.Logic.Academicos
                     Descripcion = this.Entity.Descripcion,
                     HsSemanales = this.Entity.HsSemanales,
                     HsTotales = this.Entity.HsTotales,
-                    PlanID = this.Entity.Plan.ID,
-                    PlanDescripcion = this.Entity.Plan.Descripcion
+                    PlanID = this.Entity.Plan != null ? this.Entity.Plan.ID : default(int),
+                    PlanDescripcion = this.Entity.Plan?.Descripcion
                 };
             }
         }

@@ -72,7 +72,7 @@ namespace Academia.UI.WindowsForms
             this.Model.AnioCalendario = int.Parse(this.txtAnioCalendario.Text);
             this.Model.Cupo = int.Parse(this.txtCupo.Text);
             this.Model.MateriaID = ((MateriaVM)this.comboMaterias.SelectedItem).ID;
-            this.Model.ComisionID = ((ComisionVM)this.comboComisiones.SelectedItem).ID;
+            this.Model.ComisionID = ((ComisionVM)this.comboComisiones.SelectedItem)?.ID;
         }
 
         protected override void MapearDeDatos()

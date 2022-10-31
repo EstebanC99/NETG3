@@ -39,16 +39,16 @@ namespace Business.Logic.Academicos
                     ID = m.ID,
                     AnioCalendario = m.AnioCalendario,
                     Cupo = m.Cupo,
-                    MateriaID = m.Materia.ID,
+                    MateriaID = m.Materia != null ? m.Materia.ID : default(int),
                     MateriaDescripcion = m.Materia.Descripcion,
-                    ComisionID = m.Comision.ID,
-                    ComisionDescripcion = m.Comision.Descripcion,
-                    PlanID = m.Materia.Plan.ID,
-                    PlanDescripcion = m.Materia.Plan.Descripcion,
-                    EspecialidadID = m.Materia.Plan.Especialidad.ID,
-                    HsSemanales= m.Materia.HsSemanales,
-                    HsTotales= m.Materia.HsTotales,
-                    EspecialidadDescripcion = m.Materia.Plan.Especialidad.Descripcion
+                    ComisionID = m.Comision != null ? m.Comision.ID : default(int),
+                    ComisionDescripcion = m.Comision?.Descripcion,
+                    PlanID = m.Materia != null && m.Materia.Plan != null ? m.Materia.Plan.ID : default(int),
+                    PlanDescripcion = m.Materia?.Plan?.Descripcion,
+                    EspecialidadID = m.Materia != null && m.Materia.Plan != null && m.Materia.Plan.Especialidad != null ? m.Materia.Plan.Especialidad.ID : default(int),
+                    HsSemanales= m.Materia != null ? m.Materia.HsSemanales : default(int),
+                    HsTotales= m.Materia != null ? m.Materia.HsTotales : default(int),
+                    EspecialidadDescripcion = m.Materia?.Plan?.Especialidad?.Descripcion
                 });
             }
         }
@@ -64,10 +64,10 @@ namespace Business.Logic.Academicos
                     ID = this.Entity.ID,
                     AnioCalendario = this.Entity.AnioCalendario,
                     Cupo = this.Entity.Cupo,
-                    MateriaID = this.Entity.Materia.ID,
-                    MateriaDescripcion = this.Entity.Materia.Descripcion,
-                    ComisionID = this.Entity.Comision.ID,
-                    ComisionDescripcion = this.Entity.Comision.Descripcion
+                    MateriaID = this.Entity.Materia != null ? this.Entity.Materia.ID : default(int),
+                    MateriaDescripcion = this.Entity.Materia?.Descripcion,
+                    ComisionID = this.Entity.Comision != null ? this.Entity.Comision.ID : default(int),
+                    ComisionDescripcion = this.Entity.Comision?.Descripcion
                 };
             }
         }

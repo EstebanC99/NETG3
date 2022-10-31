@@ -74,7 +74,7 @@ namespace Academia.UI.Services.Materias
             dv.Descripcion = e.Descripcion;
             dv.HsSemanales = e.HsSemanales;
             dv.HsTotales = e.HsTotales;
-            dv.PlanID = e.PlanID;
+            dv.PlanID = e.PlanID ?? default(int);
             dv.PlanDescripcion = e.PlanDescripcion;
 
             return dv;

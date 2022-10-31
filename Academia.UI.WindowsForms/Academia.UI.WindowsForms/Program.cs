@@ -40,13 +40,13 @@ namespace Academia.UI.WindowsForms
             if (args.Exception is ValidationException)
             {
                 EventLog.WriteEntry("Academia", $"{args.Exception.Message} - {args.Exception.StackTrace}", EventLogEntryType.Information);
+                MessageBox.Show(args.Exception.Message, Labels.Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
                 EventLog.WriteEntry("Academia", $"{args.Exception.Message} - {args.Exception.StackTrace}", EventLogEntryType.Error);
+                MessageBox.Show("Ocurrió un error inesperado...", Labels.Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            MessageBox.Show(args.Exception.Message,  Labels.Error, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

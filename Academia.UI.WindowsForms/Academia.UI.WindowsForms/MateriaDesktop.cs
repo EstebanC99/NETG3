@@ -58,7 +58,7 @@ namespace Academia.UI.WindowsForms
             this.Model.Descripcion = this.txtDescripcion.Text;
             this.Model.HsSemanales = int.Parse(this.txtHsSemanales.Text);
             this.Model.HsTotales = int.Parse(this.txtHsTotales.Text);
-            this.Model.PlanID = ((PlanVM)this.comboPlanes.SelectedItem).ID;
+            this.Model.PlanID = ((PlanVM)this.comboPlanes.SelectedItem)?.ID;
         }
 
         protected override void MapearDeDatos()

@@ -10,15 +10,15 @@
 
         public string MateriaDescripcion { get; set; }
 
-        public int ComisionID { get; set; }
+        public int? ComisionID { get; set; }
 
         public string ComisionDescripcion { get; set; }
 
-        public int PlanID { get; set; }
+        public int? PlanID { get; set; }
 
         public string PlanDescripcion { get; set; }
         
-        public int EspecialidadID { get; set; }
+        public int? EspecialidadID { get; set; }
 
         public string EspecialidadDescripcion { get; set; }
 

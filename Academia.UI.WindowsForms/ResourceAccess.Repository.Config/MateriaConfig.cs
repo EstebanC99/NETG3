@@ -15,7 +15,7 @@ namespace ResourceAccess.Repository.Config
             this.Property(m => m.HsSemanales).IsRequired();
             this.Property(m => m.HsTotales).IsRequired();
 
-            this.HasRequired(m => m.Plan).WithMany().Map(m => m.MapKey("ID_Plan"));
+            this.HasOptional(m => m.Plan).WithMany().Map(m => m.MapKey("ID_Plan"));
         }
     }
 }

@@ -6,7 +6,7 @@
 
         public int HsTotales { get; set; }
 
-        public int PlanID { get; set; }
+        public int? PlanID { get; set; }
         public string PlanDescripcion { get; set; }
     }
 }

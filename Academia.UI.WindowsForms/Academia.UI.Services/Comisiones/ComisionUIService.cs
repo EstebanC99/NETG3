@@ -73,7 +73,7 @@ namespace Academia.UI.Services
             dv.ID = e.ID;
             dv.Descripcion = e.Descripcion;
             dv.AnioEspecialidad = e.AnioEspecialidad;
-            dv.PlanID = e.PlanID;
+            dv.PlanID = e.PlanID ?? default(int);
             dv.PlanDescripcion = e.PlanDescripcion;
 
             return dv;

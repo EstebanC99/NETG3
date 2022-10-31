@@ -57,7 +57,7 @@ namespace Academia.UI.WindowsForms
         {
             this.Model.Descripcion = this.txtDescripcion.Text;
             this.Model.AnioEspecialidad = int.Parse(this.txtAnioEspecialidad.Text);
-            this.Model.PlanID = ((PlanVM)this.comboPlanes.SelectedItem).ID;
+            this.Model.PlanID = ((PlanVM)this.comboPlanes.SelectedItem)?.ID;
         }
 
         protected override void MapearDeDatos()
