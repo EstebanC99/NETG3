@@ -84,5 +84,20 @@ namespace Academia.UI.Services.Academicos.InscripcionCurso
 
             return mapper.Map<List<AlumnoDataView>, List<AlumnoVM>>(inscriptos);
         }
+
+        public List<CursoVM> LeerCursosConCupos()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<CursoDataView, CursoVM>());
+            var mapper = new Mapper(config);
+
+            var cursosDataView = this.Logic.LeerCursos();
+            foreach (CursoDataView element in cursosDataView)
+            {
+                var inscriptos = this.Logic.LeerAlumnosInscriptos(element.ID);
+                element.CuposRestantes = element.Cupo - inscriptos.Count;
+            }
+
+            return mapper.Map<List<CursoDataView>, List<CursoVM>>(cursosDataView);
+        }
     }
 }
