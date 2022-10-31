@@ -33,10 +33,34 @@ namespace Academia.UI.WebApi.Controllers
         [HttpPost]
         [Route("api/InscripcionCurso/Inscribirse")]
         [Authorize(Roles = nameof(RolesUsuario.Alumno))]
-        public void Inscribirse(InscripcionCursoVM inscripcionCursoVM)
+        public string Inscribirse(InscripcionCursoVM inscripcionCursoVM)
         {
             this.UIService.Inscribirse(inscripcionCursoVM);
+            return "Inscripto correctamente";
         }
 
+        [HttpPost]
+        [Route("api/InscripcionCurso/Desmatricularse")]
+        [Authorize(Roles = nameof(RolesUsuario.Alumno))]
+        public string desmatricularse(CursoFiltroVM cursoFiltroVM)
+        {
+            this.UIService.Desmatricularse(cursoFiltroVM);
+            return "Desmatriculado correctamente";
+        }
+
+        [HttpGet]
+        [Route("api/InscripcionCurso/LeerCursosConCuposRestantes")]
+        public List<CursoVM> LeerCursosConCupo()
+        {
+            return this.UIService.LeerCursosConCupos();
+        }
+
+        [HttpGet]
+        [Route("api/InscripcionCurso/LeerCursosPorAlumnoLogueado")]
+        public List<CursoVM> LeerCursosPorAlumnoLogueado()
+        {
+            return this.UIService.LeerCursosPorAlumnoLogueado();
+        }
+        
     }
 }
