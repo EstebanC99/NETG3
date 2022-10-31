@@ -32,13 +32,13 @@ namespace Academia.UI.WindowsForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profesores));
             this.tcPersonas = new System.Windows.Forms.ToolStripContainer();
             this.tlPersonas = new System.Windows.Forms.TableLayoutPanel();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.dgvProfesores = new System.Windows.Forms.DataGridView();
             this.tsPersonas = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.dgvProfesores = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,13 +47,12 @@ namespace Academia.UI.WindowsForms
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcPersonas.ContentPanel.SuspendLayout();
             this.tcPersonas.TopToolStripPanel.SuspendLayout();
             this.tcPersonas.SuspendLayout();
             this.tlPersonas.SuspendLayout();
-            this.tsPersonas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).BeginInit();
+            this.tsPersonas.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcPersonas
@@ -92,54 +91,6 @@ namespace Academia.UI.WindowsForms
             this.tlPersonas.Size = new System.Drawing.Size(952, 430);
             this.tlPersonas.TabIndex = 0;
             // 
-            // tsPersonas
-            // 
-            this.tsPersonas.AutoSize = false;
-            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsPersonas.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
-            this.tsbEditar,
-            this.tsbEliminar});
-            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
-            this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(949, 20);
-            this.tsPersonas.TabIndex = 4;
-            this.tsPersonas.Text = "toolStrip1";
-            // 
-            // tsbNuevo
-            // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(24, 17);
-            this.tsbNuevo.Text = "Nuevo";
-            this.tsbNuevo.ToolTipText = "Nuevo";
-            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(24, 17);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.ToolTipText = "Editar";
-            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
-            // 
-            // tsbEliminar
-            // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(24, 17);
-            this.tsbEliminar.Text = "Eliminar";
-            this.tsbEliminar.ToolTipText = "Eliminar";
-            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
             // btnActualizar
             // 
             this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right;
@@ -175,8 +126,7 @@ namespace Academia.UI.WindowsForms
             this.Email,
             this.Telefono,
             this.FechaNacimiento,
-            this.Legajo,
-            this.TipoPersona});
+            this.Legajo});
             this.tlPersonas.SetColumnSpan(this.dgvProfesores, 2);
             this.dgvProfesores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProfesores.Location = new System.Drawing.Point(3, 3);
@@ -185,6 +135,54 @@ namespace Academia.UI.WindowsForms
             this.dgvProfesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProfesores.Size = new System.Drawing.Size(946, 395);
             this.dgvProfesores.TabIndex = 3;
+            // 
+            // tsPersonas
+            // 
+            this.tsPersonas.AutoSize = false;
+            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsPersonas.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbEditar,
+            this.tsbEliminar});
+            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
+            this.tsPersonas.Name = "tsPersonas";
+            this.tsPersonas.Size = new System.Drawing.Size(147, 20);
+            this.tsPersonas.TabIndex = 4;
+            this.tsPersonas.Text = "toolStrip1";
+            // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(24, 17);
+            this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.ToolTipText = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(24, 17);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.ToolTipText = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(24, 17);
+            this.tsbEliminar.Text = "Eliminar";
+            this.tsbEliminar.ToolTipText = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // ID
             // 
@@ -234,12 +232,6 @@ namespace Academia.UI.WindowsForms
             this.Legajo.HeaderText = "Legajo";
             this.Legajo.Name = "Legajo";
             // 
-            // TipoPersona
-            // 
-            this.TipoPersona.DataPropertyName = "TipoPersona";
-            this.TipoPersona.HeaderText = "Tipo Persona";
-            this.TipoPersona.Name = "TipoPersona";
-            // 
             // Profesores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,9 +248,9 @@ namespace Academia.UI.WindowsForms
             this.tcPersonas.ResumeLayout(false);
             this.tcPersonas.PerformLayout();
             this.tlPersonas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).EndInit();
             this.tsPersonas.ResumeLayout(false);
             this.tsPersonas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,6 +274,5 @@ namespace Academia.UI.WindowsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPersona;
     }
 }

@@ -47,7 +47,6 @@ namespace Academia.UI.WindowsForms
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tsPersonas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
@@ -155,8 +154,7 @@ namespace Academia.UI.WindowsForms
             this.Email,
             this.Telefono,
             this.FechaNacimiento,
-            this.Legajo,
-            this.TipoPersona});
+            this.Legajo});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvAlumnos, 2);
             this.dgvAlumnos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAlumnos.Location = new System.Drawing.Point(3, 24);
@@ -214,12 +212,6 @@ namespace Academia.UI.WindowsForms
             this.Legajo.HeaderText = "Legajo";
             this.Legajo.Name = "Legajo";
             // 
-            // TipoPersona
-            // 
-            this.TipoPersona.DataPropertyName = "TipoPersona";
-            this.TipoPersona.HeaderText = "Tipo Persona";
-            this.TipoPersona.Name = "TipoPersona";
-            // 
             // Alumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,20 +235,19 @@ namespace Academia.UI.WindowsForms
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dgvAlumnos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPersona;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip tsPersonas;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Apellido;
+        private DataGridViewTextBoxColumn Direccion;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Telefono;
+        private DataGridViewTextBoxColumn FechaNacimiento;
+        private DataGridViewTextBoxColumn Legajo;
     }
 }

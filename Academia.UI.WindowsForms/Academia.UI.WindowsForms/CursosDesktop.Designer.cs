@@ -89,7 +89,7 @@ namespace Academia.UI.WindowsForms
             this.comboComisiones.Location = new System.Drawing.Point(110, 111);
             this.comboComisiones.Name = "comboComisiones";
             this.comboComisiones.Size = new System.Drawing.Size(308, 21);
-            this.comboComisiones.TabIndex = 12;
+            this.comboComisiones.TabIndex = 5;
             // 
             // label5
             // 
@@ -212,7 +212,7 @@ namespace Academia.UI.WindowsForms
             this.btnCancelar.Location = new System.Drawing.Point(188, 138);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -222,7 +222,7 @@ namespace Academia.UI.WindowsForms
             this.btnAceptar.Location = new System.Drawing.Point(110, 138);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(70, 23);
-            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
