@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ApiControllerBase.cs" />
+    <Compile Include="Controllers\ReporteCursoController.cs" />
     <Compile Include="Controllers\InscripcionCursoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="DefaultDependencyResolver.cs" />

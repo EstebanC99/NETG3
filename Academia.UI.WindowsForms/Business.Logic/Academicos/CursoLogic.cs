@@ -46,6 +46,8 @@ namespace Business.Logic.Academicos
                     PlanID = m.Materia.Plan.ID,
                     PlanDescripcion = m.Materia.Plan.Descripcion,
                     EspecialidadID = m.Materia.Plan.Especialidad.ID,
+                    HsSemanales= m.Materia.HsSemanales,
+                    HsTotales= m.Materia.HsTotales,
                     EspecialidadDescripcion = m.Materia.Plan.Especialidad.Descripcion
                 });
             }

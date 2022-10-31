@@ -18,5 +18,8 @@ namespace Academia.UI.Services.Academicos.InscripcionCurso
         void Desmatricularse(CursoFiltroVM cursoFiltroVM);
 
         List<AlumnoVM> LeerAlumnosInscriptos(int cursoID);
+
+        List<CursoVM> LeerCursosConCupos();
+
     }
 }
