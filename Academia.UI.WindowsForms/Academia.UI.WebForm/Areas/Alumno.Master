@@ -31,6 +31,7 @@
                 <li class="nav-item active"><a class="nav-link" href=<%=Session["rol"].ToString() == "Alumno" ? "AlumnoMainForm.aspx" : "ProfesorMainForm.aspx"%>>Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href=<%=Session["rol"].ToString() == "Alumno" ? "AlumnoListaCursos.aspx" : "ProfesorMainForm.aspx"%>>Cursos</a></li>
                 <li class="nav-item" hidden=<%=Session["rol"].ToString() == "Profesor"%>><a class="nav-link" href="#">Notas</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Login/LoginForm.aspx">Salir</a></li>
             </ul>
         </div>
     </nav> 
